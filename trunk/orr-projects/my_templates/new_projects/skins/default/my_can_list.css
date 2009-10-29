@@ -1,0 +1,8 @@
+.td_user { vertical-align: middle; text-align: center; font-weight: bold; width:40%}
+.btd_user { vertical-align: top; text-align: left; padding: 3px  5px }
+
+.td_aut_to_group { vertical-align: middle; text-align: center; font-weight: bold; width: 20%}
+.btd_aut_to_group { vertical-align: top; text-align: center; padding: 3px  5px }
+
+.td_str_sql { vertical-align: middle; text-align: center; font-weight: bold; width: 60%}
+.btd_str_sql { vertical-align: top; text-align: left; padding: 3px  5px }

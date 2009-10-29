@@ -1,0 +1,11 @@
+.td_id { vertical-align: middle; text-align: center; font-weight: bold; width: 10%}
+.btd_id { vertical-align: top; text-align: left; padding: 3px  5px}
+
+.td_user { vertical-align: middle; text-align: center; font-weight: bold; width: 25%}
+.btd_user { vertical-align: top; text-align: left; padding: 3px  5px }
+
+.td_name { vertical-align: middle; text-align: center; font-weight: bold; width: 60%}
+.btd_name { vertical-align: top; text-align: left; padding: 3px  5px }
+
+.td_status { vertical-align: middle; text-align: center; font-weight: bold; width: 5%}
+.btd_status { vertical-align: top; text-align: center; padding: 3px  5px}
