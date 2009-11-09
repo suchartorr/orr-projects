@@ -63,7 +63,7 @@ class OrSkin extends OrGui {
   
   function get_tag()
   {
-   	echo "<b>debug</b> ".__FILE__." | ".__LINE__." | skin_src =".$this->OP_[skin_src]->get()."<br>";
+   	//echo "<b>debug</b> ".__FILE__." | ".__LINE__." | skin_src =".$this->OP_[skin_src]->get()."<br>";
    	if(!fopen($this->OP_[skin_src]->get() , "r"))die('failed to open skin: No such file or directory in ' . $this->OP_[skin_src]->get());
 	$fp = fopen($this->OP_[skin_src]->get() , "r");
 	$skins = $this->OP_[skin_tag]->get();
@@ -73,7 +73,7 @@ class OrSkin extends OrGui {
 		$line = fgets($fp);
 		foreach($skins as $key=>$val)
 		{
-			$skin_key ='<!--Or_Skin\[' . $key . '\]-->';
+			$skin_key ='/<!--Or_Skin\[' . $key . '\]-->/';
 			//$line = ereg_replace($skin_key,$val,$line);
                         $line = preg_replace($skin_key,$val,$line);
 		}
