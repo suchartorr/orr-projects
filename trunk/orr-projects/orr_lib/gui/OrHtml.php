@@ -53,7 +53,7 @@ class OrHtml extends OrObj {
 		/**
                 *กำหนด skin ที่ใช้สร้าง HTML
 		**/
-		$this->set_skin('../../Or!Lib/gui/OrSkinHtml.html');
+		$this->set_skin('../../orr_lib/gui/OrSkinHtml.html');
               
   }
 

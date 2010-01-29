@@ -7,9 +7,10 @@ require_once('../../orr_lib/Or.php');
 class my_page extends OrHtml
 {
     function __construct(){
-        parent::show();
+        parent :: __construct('MyPage',false);
 	return null;
     }
 }
-
+$my = new my_page();
+$my->show();
 ?>
