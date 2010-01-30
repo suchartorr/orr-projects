@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title><!--Or_Skin[title]--></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+<!--Or_Skin[meta]-->
+<!--Or_Skin[ccs_src]-->
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../lib/dojo/dijit/themes/tundra/tundra.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../lib/dojo/dojo/resources/dojo.css" />
+<style type="text/css">
+<!--Or_Skin[style]-->
+</style>
+<script type="text/javascript" src="../../lib/dojo/dojo/dojo.js" charset="utf-8" djconfig="parseOnLoad: true"></script>
+<!--Or_Skin[script_src]-->
+<script language="JavaScript">
+    <!--
+    dojo.require("dijit.form.Form");
+    dojo.require("dijit.form.TextBox");
+    dojo.require("dijit.form.ValidationTextBox");
+    dojo.require("dijit.form.Button");
+    dojo.require("dojox.validate.regexp");
+    dojo.require("dijit.Editor");
+    //-->
+<!--Or_Skin[script]-->
+</script>
+</head>
+<body class="tundra">
+<FORM METHOD=POST ACTION="javascript:void(0)" dojoType="dijit.form.Form">
+    <table>
+    <tbody><tr>
+        <td id="left">Name:</td>
+        <td>
+            <input type="text" name="j_username" dojotype="dijit.form.ValidationTextBox" required="true" propercase="true" promptmessage="ชื่อของท่าน" invalidmessage="โปรดใส่ชื่อของท่าน">
+        </td>
+    </tr>
+    <tr>
+        <td id="left">Email:</td>
+        <td>
+            <input type="text" name="j_email" dojotype="dijit.form.ValidationTextBox" required="true" propercase="true" promptmessage="อีเมล์ของท่าน" invalidmessage="โปรดใส่อีกเมล์ของท่าน">
+        </td>
+    </tr>
+    <tr>
+        <td id="left">Web Site:</td>
+        <td>
+            <input type="text" name="j_url" dojotype="dijit.form.TextBox" required="true" propercase="false" promptmessage="เว็บของท่าน" regexp="(https?|ftp)://[A-Za-z0-9-_]+\.[A-Za-z0-9-_%&\?\/\.=]+" invalidmessage="โปรดใส่ชื่อของท่าน">
+        </td>
+    </tr>
+    <tr>
+        <td id="left">Comment:</td>
+        <td>
+            <textarea name="content" dojotype="dijit.Editor"></textarea></td>
+    </tr>
+    <tr>
+        <td id="left"> </td>
+        <td><div dojotype="dijit.form.Button">Comment</div></td>
+    </tr>
+    </tbody>
+    </table>
+</FORM>
+<!--Or_Skin[body]-->
+</body>
+</html>
