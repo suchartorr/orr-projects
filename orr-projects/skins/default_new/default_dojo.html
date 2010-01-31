@@ -17,7 +17,8 @@
     dojo.require("dojo.parser");
     dojo.require("dijit.layout.ContentPane");
     dojo.require("dijit.layout.TabContainer");
-    dojo.require("dijit.form.Slider");
+    dojo.require("dijit.form.CheckBox");
+    dojo.require("dijit.form.ComboBox");
     dojo.require("dijit.form.Form");
     dojo.require("dijit.form.TextBox");
     dojo.require("dijit.form.ValidationTextBox");
@@ -25,6 +26,9 @@
     dojo.require("dojox.validate.regexp");
     dojo.require("dijit.Editor");
     dojo.require("dijit.Menu");
+    function setVal1(value) {
+        console.debug("Selected "+value);
+    }
     function call_function(choice) {
         alert(choice+" was clicked.");
     }
@@ -90,8 +94,21 @@
         </td>
     </tr>
     <tr>
-        <td id="left">Sider:</td>
-        <td><div id="horizontalSlider" dojoType="dijit.form.HorizontalSlider" value="5" minimum="-10" maximum="10" discreteValues="11" intermediateChanges="true" onChange="dojo.byId('horizontalSlider').value = arguments[0];" handleSrc="preciseSliderThumb.png"></div></td>
+        <td id="left">Checkbox:</td>
+        <td><input id="cb" dojotype="dijit.form.CheckBox" name="developer" checked="checked" value="on" type="checkbox" /> <label for="cb"> Are you a Developer </label> </td>
+    </tr>
+    <tr>
+    <tr>
+        <td id="left">Combo Box:</td>
+        <td><select name="country" dojoType="dijit.form.ComboBox" autocomplete="false" value="country" onChange="setVal1">
+                <option>India</option>
+                <option>California</option>
+                <option >Illinois</option>
+                <option >New York</option>
+                <option >กรุงเทพ</option>
+                <option >อุบลราชธานี</option>
+      <option >Texas</option>
+    </select></td>
     </tr>
     <tr>
         <td id="left">Comment:</td>
