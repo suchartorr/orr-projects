@@ -17,7 +17,7 @@
  * @version    2550
  */
  
-require_once('../../orr_lib/Or.php');
+require_once('../../Or!Lib/Or.php');
 require_once('config.inc.php');
 
  /**
