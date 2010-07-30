@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<!--
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+-->
+
+
+<head>
+<title>TabContainer Demo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+<link rel="stylesheet" type="text/css" href="./skins/default/my_page.css">
+<script type="text/javascript">
+	var djConfig = { isDebug: true };
+</script>
+<script type="text/javascript" src="./lib/dojo/dojo.js"></script>
+<script type="text/javascript">
+	dojo.require("dojo.widget.TabContainer");
+	dojo.require("dojo.widget.LinkPane");
+	dojo.require("dojo.widget.ContentPane");
+	dojo.require("dojo.widget.LayoutContainer");
+	dojo.require("dojo.widget.Checkbox");
+</script>
+
+<style type="text/css">
+body {
+	font-family : sans-serif;
+}
+.dojoTabPaneWrapper {
+  padding : 10px 10px 10px 10px;
+}
+
+</style>
+</head>
+
+<body>
+	<div dojoType="PopupMenu2" widgetId="submenu1" contextMenuForWindow="true">
+	<div dojoType="MenuItem2" iconSrc="./skins/default/image/icon/my_sys.png" caption="โปรแกรม" onClick="window.location.href = 'my_sys.php'"></div>
+	<div dojoType="MenuItem2" iconSrc="./skins/default/image/icon/my_user.png" caption="ผู้ใช้ระบบ" onClick="window.location.href = 'my_user.php'"></div>
+	<div dojoType="MenuSeparator2"></div>
+</div>
+
+<div dojoType="PopupMenu2" widgetId="submenu2">
+	<div dojoType="MenuItem2" caption="รายการโปรแกรม" onClick="window.location.href = 'my_sys_list.php'"></div>
+	<div dojoType="MenuItem2" caption="รายการโปรแกรม" onClick="window.location.href = 'my_sys_list.php'"></div>
+	<div dojoType="MenuItem2" caption="รายการโปรแกรม" onClick="window.location.href = 'my_sys_list.php'"></div>
+	<div dojoType="MenuItem2" caption="รายการโปรแกรม" onClick="window.location.href = 'my_sys_list.php'"></div>
+	<div dojoType="MenuItem2" caption="รายการโปรแกรม" onClick="window.location.href = 'my_sys_list.php'"></div>
+	<div dojoType="MenuItem2" caption="รายการโปรแกรม" onClick="window.location.href = 'my_sys_list.php'"></div>
+	<div dojoType="MenuItem2" caption="รายการโปรแกรม" onClick="window.location.href = 'my_sys_list.php'"></div>
+	<div dojoType="MenuItem2" caption="รายการโปรแกรม" onClick="window.location.href = 'my_sys_list.php'"></div>
+	<div dojoType="MenuItem2" caption="รายการโปรแกรม" onClick="window.location.href = 'my_sys_list.php'"></div>
+	<div dojoType="MenuItem2" caption="รายการโปรแกรม" onClick="window.location.href = 'my_sys_list.php'"></div>
+	<div dojoType="MenuItem2" caption="รายการโปรแกรม" onClick="window.location.href = 'my_sys_list.php'"></div>
+</div>
+
+<div dojoType="MenuBar2">
+	<div dojoType="MenuBarItem2" caption="แฟ้ม" submenuId="submenu1"></div>
+	<div dojoType="MenuBarItem2" caption="รายการ" submenuId="submenu2"></div>
+	<div dojoType="MenuBarItem2" caption="ระบบ" disabled="true"></div>
+	<div dojoType="MenuBarItem2" caption="ออกจากระบบ" onClick="alert('คุณต้องการออกจากระบบ');"></div>
+</div>
+	<p>These tabs are made up of local and external content. Tab 1 and Tab 2 are loading
+	files tab1.html and tab2.html. Tab 3 and Another Tab are using content that is already
+	part of this page.</p>
+
+	<div id="mainTabContainer" dojoType="TabContainer" style="width: 100%; height: 70%" selectedTab="tab1" >
+	
+		<div id="tab1" dojoType="ContentPane" label="Tab 1" >
+			<h1>First Tab</h1>
+			I'm the first tab and my content is local.  Try clicking tab#2.  It's loading remotely.
+			<input type="checkbox" name="cb1" id="cb1" dojoType="Checkbox" /> <label for="cb1">hello world</label>
+		</div>
+		
+		<a dojoType="LinkPane" href="doc0.html" refreshOnShow="true" style="display: none">Tab 2</a>
+		
+		<div dojoType="ContentPane" label="Tab 3" style="display: none">
+			<h1>I am tab 3</h1>
+			<p>Did you know that the children of a TabContainer can be any widget, such as a SplitContainer
+			or LayoutContainer?  The next tab is itself a TabContainer...</p>
+		</div>
+
+		<div id="subTabContainer" dojoType="TabContainer" label="Sub TabContainer">	
+			<a dojoType="LinkPane" href="../../tests/widget/tab1.html" style="display: none">SubTab 1</a>		
+			<a dojoType="LinkPane" href="../../tests/widget/tab2.html" selected="true">SubTab 2</a>
+		</div>
+
+	</div>
+</body>
+</html>
