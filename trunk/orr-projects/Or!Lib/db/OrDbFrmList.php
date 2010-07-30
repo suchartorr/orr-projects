@@ -139,8 +139,9 @@ class OrDbFrmList extends OrDbFormList {
 	 */
 	function is_group_filter($field_name){
 		$field_name = ltrim($field_name);
-		$str_function = "^sum|^count|^max|^min|^avg";
-		if(eregi($str_function , $field_name)){
+		$field_name = strtolower($field_name);
+                $str_function = "^sum|^count|^max|^min|^avg";
+		if(preg_replace($str_function , $field_name)){
 			$my_value = true;
 		}else{
 			$my_value = false;
@@ -153,8 +154,8 @@ class OrDbFrmList extends OrDbFormList {
 
 		debug_mode(__FILE__, __LINE__, $sql , 'function fetch_record');
 		
-		
-		if(eregi(".group by" , $sql)){
+		$sql = strtolower($sql);
+		if(preg_replace(".group by" , $sql)){
 			$is_group_by = true;
 		}else{
 			$is_group_by =false;
@@ -192,7 +193,7 @@ class OrDbFrmList extends OrDbFormList {
 			/**
 			* ตรวจสอบคำสั่ง Group By
 			*/
-			if(eregi(".group by" , $sql)){
+			if(preg_replace(".group by" , $sql)){
 				$is_group_by = true;
 			}else{
 				$is_group_by =false;
