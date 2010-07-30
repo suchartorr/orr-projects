@@ -158,7 +158,7 @@ class OrDbFrmList extends OrDbFormList {
 		debug_mode(__FILE__, __LINE__, $sql , 'function fetch_record');
 		
 		
-		if(eregi(".group by" , $sql)){
+		if(preg_match("/.group by/i" , $sql) > 0){
 			$is_group_by = true;
 		}else{
 			$is_group_by =false;
@@ -196,7 +196,7 @@ class OrDbFrmList extends OrDbFormList {
 			/**
 			* ตรวจสอบคำสั่ง Group By
 			*/
-			if(eregi(".group by" , $sql)){
+			if(preg_match("/.group by/i" , $sql) > 0){
 				$is_group_by = true;
 			}else{
 				$is_group_by =false;

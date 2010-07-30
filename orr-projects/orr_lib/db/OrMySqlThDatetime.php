@@ -26,7 +26,7 @@ class OrMySqlThDatetime {
 		/*ตรวจสอบค่าวันที่เวลา รูปแบบ yyyy-mm-dd hh:mm:ss*/
 		/*คืนค่า true=ข้อมูล datetime ถูกต้อง*/
 		$datetime = trim(substr($datetime , 0 , 19));
-		if(ereg("([0-9]{4})-([0-9]{1,2})-([0-9]{1,2}) ([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})",$datetime,$value)){
+		if(preg_match("/([0-9]{4})-([0-9]{1,2})-([0-9]{1,2}) ([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})/",$datetime,$value) > 0){
 			if(checkdate($value[2],$value[3],$value[1]) AND $this->check_time($value[4] , $value[5] , $value[6])){
 				$this->get_date["year"]=$value[1];
 				$this->get_date["mon"]=$value[2];
@@ -50,7 +50,7 @@ class OrMySqlThDatetime {
 		/*ตรวจสอบค่าวันที่เวลา รูปแบบ dd/mm/bbbb hh:mm:ss*/
 		/*คืนค่า true=ข้อมูล datetime ถูกต้อง*/
 		$datetime = trim(substr($datetime , 0 , 19));
-		if(ereg("([0-9]{1,2})/([0-9]{1,2})/([0-9]{4}) ([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})",$datetime,$value)){
+		if(preg_match("/([0-9]{1,2})\/([0-9]{1,2})\/([0-9]{4}) ([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})/",$datetime,$value) > 0){
 			if(checkdate($value[2],$value[1],$value[3]-543) AND $this->check_time($value[4] , $value[5] , $value[6])){
 				$this->get_date["mday"]=$value[1];
 				$this->get_date["mon"]=$value[2];
