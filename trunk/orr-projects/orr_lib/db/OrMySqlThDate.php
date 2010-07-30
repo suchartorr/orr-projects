@@ -26,7 +26,7 @@ class OrMysqlThDate extends OrObj {
 		/*ตรวจสอบค่าวันที่เวลา รูปแบบ yyyy-mm-dd*/
 		/*คืนค่า true=ข้อมูล date ถูกต้อง*/
 		$date = trim(substr($date , 0 , 19));
-		if(ereg("([0-9]{4})-([0-9]{1,2})-([0-9]{1,2})",$date,$value)){
+		if(preg_match("/([0-9]{4})-([0-9]{1,2})-([0-9]{1,2})/",$date,$value) > 0){
 			if(checkdate($value[2],$value[3],$value[1])){
 				$this->get_date["year"]=$value[1];
 				$this->get_date["mon"]=$value[2];
@@ -48,7 +48,7 @@ class OrMysqlThDate extends OrObj {
 		/*ตรวจสอบค่าวันที่เวลา รูปแบบ dd/mm/bbbb*/
 		/*คืนค่า true=ข้อมูล date ถูกต้อง*/
 		$date = trim(substr($date , 0 , 10));
-		if(ereg("([0-9]{1,2})/([0-9]{1,2})/([0-9]{4})",$date,$value)){
+		if(preg_match("/([0-9]{1,2})\/([0-9]{1,2})\/([0-9]{4})/",$date,$value) > 0){
 			if(checkdate($value[2],$value[1],$value[3]-543)){
 				$this->get_date["mday"]=$value[1];
 				$this->get_date["mon"]=$value[2];
