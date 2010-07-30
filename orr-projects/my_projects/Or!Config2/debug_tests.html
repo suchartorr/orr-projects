@@ -1,0 +1,565 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>Aptana Debugger Test Cases (v0.4)</title>
+	</head>
+	<style><!--
+button {
+	vertical-align: middle;
+}
+li.testcase {
+	margin-bottom: 2%;
+}
+	--></style>
+	<script language="JavaScript">
+
+///////////////////////////////////////////
+// test suspend at start. Once you get to this message, you can press the "resume" button.
+dump("Start message");
+
+	</script>
+	<script language="JavaScript" src="aptana.js"></script>
+	<script language="JavaScript">
+
+///////////////////////////////////////////
+// test basic stepping
+function testStepping() {
+	// 1: Follow the white rabbit 
+	var x = 0, y = 13;
+	while ( x < y ) {
+		// 2: step into
+		stepInto1(x,y);
+		++x;
+		y-=2;
+	}	
+}
+
+function stepInto1(arg1, arg2) {
+	var sum;
+	dump("x="+arg1+",y="+arg2);
+	sum = arg1+arg2;
+	// 3: step into
+	stepInto2(sum);
+	// 4: step over/into
+}
+function stepInto2(sum) {
+	dump("sum="+sum);
+	// 5: step over
+	stepOver1();
+	// 6: step return
+	dump("sum[again]="+sum);
+}
+
+function stepOver1() {
+	dump("stepOver1 entered");
+	stepOver2();
+	dump("stepOver1 exited");
+}
+function stepOver2() {
+	dump("stepOver2 executed");
+}
+
+
+///////////////////////////////////////////
+// test breakpoints functionality
+function testBreakpoints() {
+	// Debugger will stop here by default
+	debugger;
+	// 1: set breakpoint 2 lines below on dump("breakpoint line");
+	// 2: resume execution
+	stepInto1();
+	
+	dump("breakpoint line");
+	// 3: set conditional breakpoint with hit count = 5 at stepInto1(); in breakpointHit() function
+	// 4: resume execution
+	for( var i = 1; i < 10; ++i ) {
+		breakpointHit(i);
+	}
+	dump("running to next line");
+	dump("run to this line"); // Place cursor on this line
+}
+
+function breakpointHit(hit) {
+	dump("hit count="+hit);
+	stepInto1(); // Place breakpoint here
+	// 5: check hit value equals to 5
+	// 6 breakpoint will be disabled when hit count reached
+	// 7: place cursor on dump("run to this line"); line in testBreakpoints() function
+	// 8: Right-click on the line with your cursor and select "Run to line' in context menu
+} 
+
+
+///////////////////////////////////////////
+// test console logging functionality
+function testLogging() {
+	dump("Simple dump('message') logging");
+	try {
+		console.log("Use console.log('message')");
+	} catch( exc ) {
+		dump("console object wasn't found. Opened in another browser than Firefox ?");
+	}
+	try {
+		aptana.log("Use aptana.log('message')");
+		aptana.trace("Use aptana.trace('message') with stack trace");
+	} catch( exc ) {
+		dump("aptana object wasn't found. Opened in another browser than Firefox ?");
+	}
+	showExceptionStackTrace();
+	debugger;
+	// 1: Check messages in IDE console. Press green "resume" arrow to continue
+}
+
+function showExceptionStackTrace() {
+	// 2: Check exception (ReferrenceError) stack trace in IDE console
+	// Generated stack trace should have hyperlinks to source lines. 
+	try {
+		no_such_object.no_such_method();
+		// Press green "resume" arrow to continue
+	} catch(exc) {
+	}
+}
+
+
+///////////////////////////////////////////
+// test variables/details functionality
+function testVariables() {
+	var vArray = new Array(4);
+	vArray[0] = "item0";
+	vArray[vArray.length-1] = "itemN";
+	
+	var vBool = new Boolean();
+	var vDate = new Date();
+	var vError = new Error();
+	var vNum = new Number(7);
+	var vObj = new Object();
+		
+	var vObj2 = new Object();
+	vObj2.toString = function() { return "Object toString() method is used here";};
+	vObj2.str = "string";
+	vObj2.num = 2;
+	vObj2.date = vDate;
+
+	function MyObject(str,num) {
+		this.str = str;
+		this.num = num;
+		this.date = new Date();
+	}
+	
+	var vMyObj = new MyObject("some text",5);
+
+	function Shape() {
+		this.type = "shape";
+	}
+	function Rect(x,y,w,h) {
+		this.type = "rect";
+		this.x = x;
+		this.y = y;
+		this.width = w;
+		this.height = h;
+	}
+	Rect.prototype = new Shape;
+	
+	var vRect = new Rect(0,0,1,1);
+	
+	var vStr = new String("Hello, World!");
+	
+	debugger;
+	// 1: Check variables values in IDE Variables view:
+	// vArray = item0,,,itemN
+	// vBool = false
+	// vDate = e.g. 'Fri Oct 27 2006 00:43:08'
+	// vError = Error
+	// vNum = 7
+	// vObj = [object Object]
+	// vObj2 = Object toString() method is used here
+	// vStr = "Hello, World!"
+	
+	// 2: Check values in details pane for object(s):
+	// vDate: e.g. '00:43:08'
+	// vObj2:
+	//   object[toString]=function () {return "Object toString() method is used here";}
+	//   object[str]=string
+	//   object[num]=2
+	//   object[date]=Fri Oct 27 2006 00:43:08
+	
+}
+
+
+///////////////////////////////////////////
+// test anonymous functions name resolving
+function testAnonymousFunctions() {
+	try {
+		obj.myFunc2();
+	} catch(exc) {
+	}
+	debugger;
+}
+
+var myFunc0 = function() {
+	showExceptionStackTrace();
+}
+var myFunc1
+=
+function()
+{
+	myFunc0();	
+}
+var obj = {};
+obj.myFunc2 = function() {
+	myFunc1();
+}
+
+///////////////////////////////////////////
+// test javascript: URLs handling
+function testJavascriptURLs() {
+	aptana.trace("");
+	debugger;
+}
+
+///////////////////////////////////////////
+// test exceptions handling
+function testExceptions() {
+	try {
+		throwError();
+	} catch(exc) {
+		aptana.trace(exc); // Error is not handled as error but as exception, trace it manually
+	}
+	try {
+		throwString();
+	} catch(exc) {
+		aptana.trace(exc); // String is handled as exception, trace it manually
+	}
+	try {
+		throwObject();
+	} catch(exc) {
+		aptana.trace(exc); // Object is handled as exception, trace it manually
+	}
+	try {
+		throwSyntaxError();
+	} catch(exc) {
+		aptana.trace(exc); // SyntaxError is not handled as error but as exception, trace it manually
+	}
+	try {
+		throwReferrenceError();
+	} catch(exc) {
+	}
+	try {
+		throwRangeError();
+	} catch(exc) {
+	}
+	try {
+		throwTypeError();
+	} catch(exc) {
+	}
+}
+
+function throwError() {
+	throw new Error("My Error");
+}
+
+function throwString() {
+	throw "My String";
+}
+
+function throwObject() {
+	throw new Object();
+}
+
+function throwSyntaxError() {
+	eval("if ( 2 > 1 ) { break; }");
+}
+
+function throwReferrenceError() {
+	no_such_object.no_such_method();
+}
+
+function throwRangeError() {
+	var a = new Array(0x100000000);
+}
+
+function throwTypeError() {
+	var x = null;
+	x.num = 5;
+}
+
+
+///////////////////////////////////////////
+// test XMLHttpRequest spying
+function testXHR() {
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET", "debug_tests.html",true);
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState==4) {
+			dump("Response text: "+xmlhttp.responseText);
+		}
+	}
+	try {
+		xmlhttp.send("Hello, Ajax!");
+	} catch( exc ) {
+		dump("XMLHttpRequest exception: "+exc);
+	}
+}
+
+
+///////////////////////////////////////////
+// test asserts functionality
+function testAsserts() {
+	try {
+		aptana.fail("#1 Use aptana.fail(this message,arg1,arg2,...)", "arg1", "arg2");
+		aptana.assert(null,"#2 Use aptana.assert(object,arguments)", "arg1", "arg2");
+		aptana.assertEquals(1,2,"#3 Use aptana.assertEquals(o1,o2,arguments)", "arg1", "arg2");
+		aptana.assertNotEquals(1,1,"#4 Use aptana.assertNotEquals(o1,o2,arguments)", "arg1", "arg2");
+		aptana.assertGreater(1,2,"#5 Use aptana.assertGreater(o1,o2,arguments)", "arg1", "arg2");
+		aptana.assertNotGreater(1,2,"#6 Use aptana.assertNotGreater(o1,o2,arguments)", "arg1", "arg2");
+		aptana.assertLess(2,1,"#7 Use aptana.assertLess(o1,o2,arguments)", "arg1", "arg2");
+		aptana.assertNotLess(2,1,"#8 Use aptana.assertNotLess(o1,o2,arguments)", "arg1", "arg2");
+		aptana.assertContains("x",window,"#9 Use aptana.assertContains(o1,o2,arguments)", "arg1", "arg2");
+		aptana.assertNotContains("document",window,"#10 Use aptana.assertNotContains(o1,o2,arguments)", "arg1", "arg2");
+		aptana.assertTrue(false,"#11 Use aptana.assertTrue(object,arguments)", "arg1", "arg2");
+		aptana.assertFalse(true,"#12 Use aptana.assertFalse(object,arguments)", "arg1", "arg2");
+		aptana.assertNull(window,"#13 Use aptana.assertNull(object,arguments)", "arg1", "arg2");
+		aptana.assertNotNull(null,"#14 Use aptana.assertNotNull(object,arguments)", "arg1", "arg2");
+		aptana.assertUndefined(window,"#15 Use aptana.assertUndefined(object,arguments)", "arg1", "arg2");
+		var x; aptana.assertNotUndefined(x,"#16 Use aptana.assertNotUndefined(object,arguments)", "arg1", "arg2");
+		aptana.assertInstanceOf("str",Date,"#17 Use aptana.assertInstanceOf(o1,o2,arguments)", "arg1", "arg2");
+		aptana.assertNotInstanceOf(new Date(),Date,"#18 Use aptana.assertNotInstanceOf(o1,o2,arguments)", "arg1", "arg2");
+		aptana.assertTypeOf(1,"string","#19 Use aptana.assertTypeOf(o1,o2,arguments)", "arg1", "arg2");
+		aptana.assertNotTypeOf(1,"number","#20 Use aptana.assertNotTypeOf(o1,o2,arguments)", "arg1", "arg2");
+
+	} catch( exc ) {
+		alert("aptana object wasn't found. Opened in another browser than Firefox ?\n"+exc);
+	}
+}
+
+
+///////////////////////////////////////////
+// test debug in related windows (popups)
+function testPopup() {
+	var popupWindow = window.open("debug_timer.html", "popup","location=0,status=0,scrollbars=0,menubar=0,width=200,height=200");
+}
+
+
+///////////////////////////////////////////
+// test Firebug console logging functionality
+function testFirebugConsole() {
+	try {
+		console.log("Use console.log('message')");
+		console.debug("Use console.debug('message')");
+		console.info("Use console.info('message')");
+		console.warn("Use console.warn('message')");
+		console.error("Use console.error('message')");
+		try {
+			console.assert(null,"Use console.assert(null,'message')");
+		} catch(exc) {
+			aptana.trace(exc);
+		}
+		console.trace();
+	} catch( exc ) {
+		dump("console object wasn't found. Opened in another browser than Firefox ?");
+	}
+	debugger;
+	// 1: Check messages in IDE console. Press green "resume" arrow to continue
+}
+
+///////////////////////////////////////////
+// simple timer test
+var timerID = 0;
+var timerStartTime  = null;
+
+function timerStart() {
+	timerStartTime   = new Date();
+	document.getElementById("timer").value = "00:00";
+	timerID  = setTimeout("timerUpdate()", 1000);
+}
+
+function timerStop() {
+	if( timerID ) {
+		clearTimeout(timerID);
+		timerID  = 0;
+	}
+	timerStartTime = null;
+}
+
+function timerUpdate() {
+	if( timerID ) {
+		clearTimeout(timerID);
+		timerID  = 0;
+	}
+	var d = new Date();
+	var diff = d.getTime() - timerStartTime.getTime();
+	d.setTime(diff);
+	var timeString = ""+ d.getMinutes() + ":" + d.getSeconds();
+	document.getElementById("timer").value = timeString;
+	dump(timeString);
+	timerID = setTimeout("timerUpdate()", 1000);
+}
+
+
+	</script>
+	<body>
+		<h3>Aptana Debugger Test Cases (v0.4)</h3>	
+		<ul>
+			<li class="testcase">Basic stepping.
+				<small>
+				<ol>
+					<li>Press suspend button on IDE or using Aptana logo at the right-bottom corner of browser. (On OSX, you may need to "View > Status Bar" to see it)</li>
+					<li>Then press 'Start test' button. <button onclick="testStepping()" style="">Start test</button></li>
+					<li>Follow the instructions in comments</li>
+				</ol>
+				</small>
+			</li>
+			<li class="testcase">Suspend on page load.
+				<small>
+				<ol>
+					<li>Open JavaScript Debug Preferences (menu Window\Preferences\Aptana\JavaScript Debug\) or Launch configuration settings (menu Run\Debug...\&lt;launch configuration&gt;\Debug)</li>
+					<li>Turn on "Suspend at start" option</li>
+					<li>Launch debugger</li>
+					<li>Debugger should suspend on line:<pre>dump("Start message");</pre></li>
+					<li>Turn off "Suspend at start" option after test completion</li>
+				</ol>
+				</small>
+			</li>
+			<li class="testcase">Breakpoints.
+				<small>
+				<ol>
+					<li>Press 'Start test' button. <button onclick="testBreakpoints()" style="">Start test</button></li>
+					<li>Follow the instructions in comments</li>
+				</ol>
+				</small>
+			</li>
+			<li class="testcase">Console logging.
+				<small>
+				<ol>
+					<li>Press 'Start test' button. <button onclick="testLogging()" style="">Start test</button></li>
+					<li>Check messages in IDE console. It should contain:
+					<pre>
+Simple dump('message') logging
+Use console.log('message')
+Use aptana.log('message')
+Use aptana.trace('message') with stack trace
+	at testLogging(...) (<a href="#">test/debug_tests.html:91</a>)
+	at onclick(...) (<a href="#">test/debug_tests.html:1</a>)
+<span style="color: red;">ReferenceError: no_such_object is not defined
+	at showExceptionStackTrace() (<a href="#">test/debug_tests.html:104</a>)
+	at testLogging() (<a href="#">test/debug_tests.html:95</a>)
+	at onclick(MouseEvent) (<a href="#">test/debug_tests.html:1</a>)</span>
+					</pre></li>
+					<li>Debugger will suspend on statement that generated error if configured in Preferences. See 'Suspend on errors'. Checked by default.</li>
+				</ol>
+				</small>
+			</li>
+			<li class="testcase">Variables.
+				<small>
+				<ol>
+					<li>Open menu Window\Preferences\Aptana\JavaScript Debug\Detail Formatters in IDE</li>
+					<li>Create detail formatter for Date type with snippet code <pre>return this.toTimeString();</pre></li>
+					<li>Create detail formatter for Object type with snippet code <pre>var out = ""; for( var i in this ) { out += "object["+i+"]="+this[i]+"\n"; } return out;</pre></li>
+					<li>Then press 'Start test' button. <button onclick="testVariables()" style="">Start test</button></li>
+					<li>Follow the instructions in comments</li>
+				</ol>
+				</small>
+			</li>
+			<li class="testcase">Scripts and anonymous functions name resolving.
+				<small>
+				<ol>
+					<li>Then press 'Start test' button. <button onclick="testAnonymousFunctions()" style="">Start test</button></li>
+					<li>Check messages in IDE console. It should contain:
+					<pre>
+ReferenceError: no_such_object is not defined
+	at showExceptionStackTrace() (<a href="#">test/debug_tests.html:104</a>)
+	at myFunc0() (<a href="#">test/debug_tests.html:160</a>)
+	at myFunc1() (<a href="#">test/debug_tests.html:166</a>)
+	at myFunc2() (<a href="#">test/debug_tests.html:170</a>)
+	at testAnonymousFunctions() (<a href="#">test/debug_tests.html:156</a>)
+	at onclick(MouseEvent) (<a href="#">test/debug_tests.html:1</a>)
+					</pre></li>
+					<li>Debugger will suspend on statement that generated error if configured in Preferences. See 'Suspend on errors' and 'Suspend on debugger keyword'. Checked by default.</li>
+					<li>Use Scripts view to navigate in scripts tree</li>
+				</ol>
+				</small>
+			</li>
+			<li class="testcase">javascript: URLs handling
+				<small>
+				<ol>
+					<li>Press 'Start test' link. <a href="javascript:testJavascriptURLs()" style="">Start test</a></li>
+				</ol>
+				</small>
+			</li>
+			<li class="testcase">Exceptions handling.
+				<small>
+				<ol>
+					<li>Open JavaScript Debug Preferences (menu Window\Preferences\Aptana\JavaScript Debug\) or Launch configuration settings (menu Run\Debug...\&lt;launch configuration&gt;\Debug)</li>
+					<li>Turn off "Suspend on exceptions" and "Suspend on errors" options</li>
+					<li>Use menu Run\Add JavaScript Exception Breakpoint... to create breakpoints for types: String, Error, SyntaxError*, ReferrenceError*, RangeError*, TypeError*
+					<br/><small>Note that types marked with <b>*</b> are also handled as Error type</small>
+					</li>
+					<li>Then press 'Start test' button. <button onclick="testExceptions()" style="">Start test</button></li>
+					<li>Debugger will suspend when exception with appropriate type is thrown</li>
+					<li><b>exception</b> variable should be shown in Variables view</li>
+				</ol>
+				</small>
+			</li>
+			<li class="testcase">Assert API.
+				<small>
+				<ol>
+					<li>Press 'Start test' button. <button onclick="testAsserts()" style="">Start test</button></li>
+					<li>JavaScript Runtime Assert dialogs (#1-#20) will appear</li>
+					<li>Use "Continue" button to continue execution, "Suspend" to suspend in debugger or "Stop" to terminate execution</li>
+				</ol>
+				</small>
+			</li>
+			<!--
+			<li class="testcase">XMLHttpRequest sniffing.
+				<small>
+				<ol>
+					<li>Place this debug_tests.html file to any web location and use this location in launch configuration</li>
+					<li>Then press 'Start test' button. <button onclick="testXHR()" style="">Start test</button></li>
+					<li>Sniffed XMLHttpRequest should be shown in Ajax Monitor view (Note: Debug target should be selected in Debug view for now)</li>
+				</ol>
+				</small>
+			</li>
+			-->
+			<li class="testcase">Debug in popup windows.
+				<small>
+				<ol>
+					<li>Put a breakpoint in debug_timer.html.</li>
+					<li>Then press 'Start test' button. <button onclick="testPopup()" style="">Start test</button></li>
+				</ol>
+				</small>
+			</li>
+			<li class="testcase">Firebug Console logging.
+				<small>
+				<ol>
+					<li>Press 'Start test' button. <button onclick="testFirebugConsole()" style="">Start test</button></li>
+					<li>Check messages in IDE console. It should contain:
+					<pre>
+Use console.log('message')
+Use console.debug('message')
+Use console.info('message')
+Use console.warn('message')
+<span style="color: red;">Use console.error('message')</span>
+Stack trace:
+	at testFirebugConsole() (<a href="#">test/debug_tests.html:356</a>)
+	at onclick(event) (<a href="#">test/debug_tests.html:1</a>)
+
+					</pre></li>
+				</ol>
+				</small>
+			</li>
+
+			<li class="testcase">Simple Timer test.
+				<small>
+				<ul>
+					<li>Use Start/Stop buttons to operate timer.</li>
+					<li>
+						<button onclick="timerStart()" style="">Start</button>
+						<input type="text" name="timer" id="timer" size="5"/>
+						<button onclick="timerStop()" style="">Stop</button>
+					</li>
+				</ul>
+				</small>
+			</li>
+		</ul>
+	</body>
+</html>

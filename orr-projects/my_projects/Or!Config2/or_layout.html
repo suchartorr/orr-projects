@@ -1,0 +1,163 @@
+<html>
+<head>
+  <title>Or Layout</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+	<link rel="stylesheet" type="text/css" href="lib/ext/resources/css/ext-all.css" />
+    
+    <!-- GC -->
+ 	<!-- LIBS -->
+ 	<script type="text/javascript" src="lib/ext/adapter/ext/ext-base.js"></script>
+ 	<!-- ENDLIBS -->
+
+    <script type="text/javascript" src="lib/ext/ext-all.js"></script>
+  
+    <!--<script language="javascript" src="../grid/PropsGrid.js"></script>-->
+	<style type="text/css">
+	html, body {
+        font:normal 12px verdana;
+        margin:0;
+        padding:0;
+        border:0 none;
+        overflow:hidden;
+        height:100%;
+    }
+	p {
+	    margin:5px;
+	}
+    .settings {
+        background-image:url(../shared/icons/fam/folder_wrench.png);
+    }
+    .nav {
+        background-image:url(../shared/icons/fam/folder_go.png);
+    }
+    </style>
+	<script type="text/javascript">
+       Ext.onReady(function(){
+
+       Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
+	   
+	   var nav1 = new Ext.Panel({
+	   	 	contentEl: 'nav1',
+            title:'ระบบงาน',
+            border:false,
+            //iconCls:'nav1'
+	   });
+	   
+	   var nav2 = new Ext.Panel({
+	   	 	contentEl: 'nav2',
+            title:'ผู้ใช้ระบบ',
+            border:false,
+            //iconCls:'nav2'
+	   });
+	   
+	   var nav3 = new Ext.Panel({
+	   	 	contentEl: 'nav3',
+            title:'สิทธิการใช้ระบบ',
+            border:false,
+            //iconCls:'nav3'
+	   });
+	   
+	   var north = new Ext.BoxComponent({
+	   		region:'north',
+        	el: 'north',
+            height:32
+	   });
+	   
+	   var south = new Ext.Panel({
+	   		region:'south',
+        	contentEl: 'south',
+            split:true,
+            height: 100,
+            minSize: 100,
+            maxSize: 200,
+            collapsible: true,
+            title:'ข้อมูล ข่าวสาร',
+            margins:'0 0 0 0'
+	   });
+	   
+	   var east = new Ext.Panel({
+	    	region:'east',
+            title: 'ติดต่อ สื่อสาร',
+            collapsible: true,
+            split:true,
+            width: 225,
+            minSize: 175,
+            maxSize: 400,
+            layout:'fit',
+            margins:'0 5 0 0',
+		});
+		
+		var west = new Ext.Panel({
+			region:'west',
+            id:'west-panel',
+            title:'รายการ',
+            split:true,
+            width: 200,
+            minSize: 175,
+            maxSize: 400,
+            collapsible: true,
+            margins:'0 0 0 5',
+            layout:'accordion',
+            layoutConfig:{
+				animate:true
+            },
+			items: [nav1,nav2,nav3]
+		});
+		
+		var center = new Ext.TabPanel({
+			region:'center',
+            deferredRender:false,
+            activeTab:0,
+            items:[{
+				contentEl:'center1',
+                title: 'คำแนะนำ',
+                closable:true,
+                autoScroll:true
+			},{
+               contentEl:'center2',
+               title: 'เนื้อหาของระบบ',
+               autoScroll:true
+			}]
+		});
+		
+	   var viewport = new Ext.Viewport({
+            layout:'border',
+            items: [north, south, east, west, center]
+       });
+	});
+	
+	</script>
+</head>
+<body>
+  <div id="west">
+    <p>Hi. I'm the west panel.</p>
+  </div>
+  <div id="nav1">
+    <p>Hi. I'm the nav1.</p>
+  </div>
+  <div id="nav2">
+    <p>Hi. I'm the nav2.</p>
+  </div>
+  <div id="nav3">
+    <p>Hi. I'm the nav3.</p>
+  </div>
+  <div id="west_3">
+    <p></p>
+  </div>
+  <div id="north">
+    <p>north - generally for menus, toolbars and/or advertisements</p>
+  </div>
+  <div id="center2">
+        <iframe name="frm_sub_center2" frameborder="0" height="100%" width="100%" scrolling="auto" src="index.php" > #</iframe>
+  </div>
+  <div id="center1">
+        
+  </div>
+  <div id="props-panel" style="width:200px;height:200px;overflow:hidden;">
+  </div>
+  <div id="south">
+    <p>south - generally for informational stuff, also could be for status bar</p>
+  </div>
+
+ </body>
+</html>

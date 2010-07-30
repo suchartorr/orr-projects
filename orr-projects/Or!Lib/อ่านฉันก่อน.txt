@@ -1,0 +1,5 @@
+โฟลเดอร์ Or!Lib ไฟล์ Class สำหรับ application ในโครงการ
+18/11/2550
+แก้ไข Function property ตรวจสอบการสร้าง property ซ้ำซ้อนในการสร้าง class
+แก้ไข การสร้าง property ที่ซ้ำซ้อน
+ทดสอบการใช้ SVN

@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title><!--Or_Skin[title]--></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+<!--Or_Skin[meta]-->
+<!--Or_Skin[ccs_src]-->
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../lib/dojo/dijit/themes/tundra/tundra.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../lib/dojo/dojo/resources/dojo.css" />
+<style type="text/css">
+<!--Or_Skin[style]-->
+</style>
+<script type="text/javascript" src="../../lib/dojo/dojo/dojo.js" charset="utf-8" djconfig="parseOnLoad: true"></script>
+<!--Or_Skin[script_src]-->
+<script language="JavaScript">
+    <!--
+    dojo.require("dojo.parser");
+    dojo.require("dijit.layout.ContentPane");
+    dojo.require("dijit.layout.TabContainer");
+    dojo.require("dijit.form.CheckBox");
+    dojo.require("dijit.form.ComboBox");
+    dojo.require("dijit.form.Form");
+    dojo.require("dijit.form.TextBox");
+    dojo.require("dijit.form.ValidationTextBox");
+    dojo.require("dijit.form.Button");
+    dojo.require("dojox.validate.regexp");
+    dojo.require("dijit.Editor");
+    dojo.require("dijit.Menu");
+    function setVal1(value) {
+        console.debug("Selected "+value);
+    }
+    function call_function(choice) {
+        alert(choice+" was clicked.");
+    }
+    function save_function() {
+        alert("Save Button");
+    }
+    function save_as_function(choice) {
+        alert("Save As Button");
+    }
+    //-->
+<!--Or_Skin[script]-->
+</script>
+</head>
+<body class="tundra">
+    <b>Creating DropDownButtons</b><br>
+    <div dojoType="dijit.form.ComboButton" onclick="save_function">
+        <span>File</span>
+        <div dojoType="dijit.Menu" id="saveMenu" toggle="fade" style="display: none;">
+            <div dojoType="dijit.MenuItem" iconClass="dijitEditorIcon dijitEditorIconSave" onclick="save_function">Save</div>
+            <div dojoType="dijit.MenuItem" onclick="save_as_function">Save As</div>
+        </div>
+    </div>
+    <div dojoType="dijit.form.DropDownButton">
+        <span>Edit</span>
+        <div dojoType="dijit.Menu" id="Edit">
+            <div dojoType="dijit.MenuItem" label="Copy" onclick="call_function('copy');"></div>
+            <div dojoType="dijit.MenuItem" label="Cut" onclick="call_function('cut');"></div>
+            <div dojoType="dijit.MenuItem" label="Paste" onclick="call_function('paste');"></div>
+        </div>
+    </div>
+    <h1>Submenu</h1>
+    <style>
+        .myIcon {background-image:url(http://o.aolcdn.com/dojo/1.0.0/dijit/themes/tundra/images/checkmark.gif);background-position: -16px 0px;width: 16px;height: 16px;}
+    </style>
+    <div dojoType="dijit.Menu" id="submenu1" contextMenuForWindow="true">
+        <div dojoType="dijit.MenuItem" iconClass="myIcon" onClick="alert('Hello world');">Enabled Item</div>
+        <div dojoType="dijit.PopupMenuItem" id="submenu2">
+            <span>Submenu</span>
+            <div dojoType="dijit.Menu">
+                <div dojoType="dijit.MenuItem" onClick="alert('Submenu 1!')">Submenu Item One</div>
+                <div dojoType="dijit.MenuItem" onClick="alert('Submenu 2!')">Submenu Item Two</div>
+            </div>
+        </div>
+    </div>
+     <FORM METHOD=POST ACTION="javascript:void(0)" dojoType="dijit.form.Form">
+    <table>
+    <tbody><tr>
+        <td id="left">Name:</td>
+        <td>
+            <input type="text" name="j_username" dojotype="dijit.form.ValidationTextBox" required="true" propercase="true" promptmessage="ชื่อของท่าน" invalidmessage="โปรดใส่ชื่อของท่าน">
+        </td>
+    </tr>
+    <tr>
+        <td id="left">Email:</td>
+        <td>
+            <input type="text" name="j_email" dojotype="dijit.form.ValidationTextBox" required="true" propercase="true" promptmessage="อีเมล์ของท่าน" invalidmessage="โปรดใส่อีกเมล์ของท่าน">
+        </td>
+    </tr>
+    <tr>
+        <td id="left">Web Site:</td>
+        <td>
+            <input type="text" name="j_url" dojotype="dijit.form.TextBox" required="true" propercase="false" promptmessage="เว็บของท่าน" regexp="(https?|ftp)://[A-Za-z0-9-_]+\.[A-Za-z0-9-_%&\?\/\.=]+" invalidmessage="โปรดใส่ชื่อของท่าน">
+        </td>
+    </tr>
+    <tr>
+        <td id="left">Checkbox:</td>
+        <td><input id="cb" dojotype="dijit.form.CheckBox" name="developer" checked="checked" value="on" type="checkbox" /> <label for="cb"> Are you a Developer </label> </td>
+    </tr>
+    <tr>
+    <tr>
+        <td id="left">Combo Box:</td>
+        <td><select name="country" dojoType="dijit.form.ComboBox" autocomplete="false" value="country" onChange="setVal1">
+                <option>India</option>
+                <option>California</option>
+                <option >Illinois</option>
+                <option >New York</option>
+                <option >กรุงเทพ</option>
+                <option >อุบลราชธานี</option>
+      <option >Texas</option>
+    </select></td>
+    </tr>
+    <tr>
+        <td id="left">Comment:</td>
+        <td>
+            <textarea name="content" dojotype="dijit.Editor"></textarea></td>
+    </tr>
+    <tr>
+        <td id="left"> </td>
+        <td><div dojotype="dijit.form.Button">Comment</div></td>
+    </tr>
+    </tbody>
+    </table>
+    </FORM>
+    <h1>Tab Container</h1>
+<div id="mainTabContainer" dojoType="dijit.layout.TabContainer"
+        style="width:500px;height:100px">
+      <div id="tab1" dojoType="dijit.layout.ContentPane" title="First Tab"  selected="true" closable="true">
+      First Tab
+      </div>
+      <div id="tab2" dojoType="dijit.layout.ContentPane" title="Second Tab" closable="true">
+      Second Tab
+      </div>
+      <div id="tab3" dojoType="dijit.layout.ContentPane" title="Third Tab" closable="true">
+      Third Tab
+      <textarea name="content" dojotype="dijit.Editor"></textarea>
+      </div>
+
+   </div>
+<!--Or_Skin[body]-->
+</body>
+</html>

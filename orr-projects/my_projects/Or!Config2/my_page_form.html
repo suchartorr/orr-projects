@@ -1,0 +1,49 @@
+
+<html>
+<head>
+<title><!--Or_Skin[title]--></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+<!--Or_Skin[meta]-->
+<link rel="stylesheet" type="text/css" href="./skins/default/my_page.css">
+<!--Or_Skin[ccs_src]-->
+<style type="text/css">
+<!--Or_Skin[style]-->
+</style>
+<script language="JavaScript" src="./lib/dojo/dojo.js"></script>
+<!--Or_Skin[script_src]-->
+<script language="JavaScript">
+
+dojo.require("dojo.widget.*");
+dojo.hostenv.writeIncludes();
+<!--Or_Skin[script]-->
+</script>
+</head>
+<body>
+<div dojoType="PopupMenu2" widgetId="submenu1" contextMenuForWindow="true">
+	<div dojoType="MenuItem2" iconSrc="./skins/default/image/icon/my_sys.png" caption="โปรแกรม" onClick="window.location.href = 'my_sys.php'"></div>
+	<div dojoType="MenuItem2" iconSrc="./skins/default/image/icon/my_user.png" caption="ผู้ใช้ระบบ" onClick="window.location.href = 'my_user.php'"></div>
+	<div dojoType="MenuSeparator2"></div>
+</div>
+
+<div dojoType="PopupMenu2" widgetId="submenu2">
+	<div dojoType="MenuItem2" caption="รายการโปรแกรม" onClick="window.location.href = 'my_sys_list.php'"></div>
+</div>
+
+<div dojoType="MenuBar2">
+	<div dojoType="MenuBarItem2" caption="แฟ้ม" submenuId="submenu1"></div>
+	<div dojoType="MenuBarItem2" caption="รายการ" submenuId="submenu2"></div>
+	<div dojoType="MenuBarItem2" caption="ระบบ" disabled="true"></div>
+	<div dojoType="MenuBarItem2" caption="ออกจากระบบ" onClick="alert('คุณต้องการออกจากระบบ');"></div>
+</div>
+<div id="mainTabContainer" dojoType="TabContainer" style="width: 100%; height: 70%" selectedTab="tab1" >
+<div id="tab1" dojoType="ContentPane" label="Tab 1" >
+			<h1>First Tab</h1>
+			I'm the first tab and my content is local.  Try clicking tab#2.  It's loading remotely.
+			<input type="checkbox" name="cb1" id="cb1" dojoType="Checkbox" /> <label for="cb1">hello world</label>
+		</div>
+		
+		<a dojoType="LinkPane" href="doc0.html" refreshOnShow="true" style="display: none">Tab 2</a>
+<div>
+<!--Or_Skin[body]-->
+</body>
+</html>

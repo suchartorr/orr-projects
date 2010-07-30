@@ -1,0 +1,141 @@
+<html>
+<head>
+  <title>Complex Layout</title>
+	<link rel="stylesheet" type="text/css" href="lib/ext/resources/css/ext-all.css" />
+
+    <!-- GC --> <!-- LIBS -->     <script type="text/javascript" src="lib/ext/adapter/ext/ext-base.js"></script>     <!-- ENDLIBS -->
+    <script type="text/javascript" src="lib/ext/ext-all.js"></script>
+  
+    <!--<script language="javascript" src="../grid/PropsGrid.js"></script>-->
+	<style type="text/css">
+	html, body {
+        font:normal 12px verdana;
+        margin:0;
+        padding:0;
+        border:0 none;
+        overflow:hidden;
+        height:100%;
+    }
+	.x-layout-panel-north {
+	    border:0px none;
+	}
+	#nav {
+	}
+	#autoTabs, #center1, #center2, #west {
+	    padding:10px;
+	}
+	#north, #south{
+	    font:normal 8pt arial, helvetica;
+	    padding:4px;
+	}
+	.x-layout-panel-center p {
+	    margin:5px;
+	}
+	#props-panel .x-grid-col-0{
+	}
+	#props-panel .x-grid-col-1{
+	}
+	</style>
+	<script type="text/javascript">
+	Example = function(){
+	        var layout;
+	        return {
+	            init : function(){
+	               layout = new Ext.BorderLayout(document.body, {
+	                    north: {
+	                        split:false,
+	                        initialSize: 32,
+	                        titlebar: false
+	                    },
+	                    west: {
+	                        split:true,
+	                        initialSize: 200,
+	                        minSize: 175,
+	                        maxSize: 400,
+	                        titlebar: true,
+	                        collapsible: true,
+                            animate: true
+	                    },
+	                    east: {
+	                        split:true,
+	                        initialSize: 202,
+	                        minSize: 175,
+	                        maxSize: 400,
+	                        titlebar: true,
+	                        collapsible: true,
+                            animate: true
+	                    },
+	                    south: {
+	                        split:true,
+	                        initialSize: 100,
+	                        minSize: 100,
+	                        maxSize: 200,
+	                        titlebar: true,
+	                        collapsible: true,
+                            animate: true
+	                    },
+	                    center: {
+	                        titlebar: true,
+	                        autoScroll:true,
+                            closeOnTab: true
+                        }
+	                });
+
+                    layout.beginUpdate();
+	                layout.add('north', new Ext.ContentPanel('north', 'North'));
+	                layout.add('south', new Ext.ContentPanel('south', {title: 'South', closable: true}));
+	                layout.add('west', new Ext.ContentPanel('west', {title: 'West'}));
+	                layout.add('east', new Ext.ContentPanel(Ext.id(), {autoCreate:true, title: 'Dynamic Tab', closable: true}));
+	                layout.add('east', new Ext.ContentPanel('autoTabs', {title: 'Auto Tabs', closable: true}));
+	                layout.add('center', new Ext.ContentPanel('center1', {title: 'Close Me', closable: true}));
+	                layout.add('center', new Ext.ContentPanel('center2', {title: 'Center Panel', closable: false}));
+	                layout.getRegion('center').showPanel('center1');
+	                //layout.getRegion('west').hide();
+					layout.getRegion('south').hide();
+					layout.getRegion('east').hide();
+	                layout.endUpdate();
+	           },
+
+	           toggleWest : function(link){
+	                var west = layout.getRegion('west');
+	                if(west.isVisible()){
+	                    west.hide();
+	                    link.innerHTML = 'Show West Region';
+	                }else{
+	                    west.show();
+	                    link.innerHTML = 'Hide West Region';
+	                }
+	           }
+	     };
+	       
+	}();
+	Ext.EventManager.onDocumentReady(Example.init, Example, true);
+	</script>
+</head>
+<body>
+<script type="text/javascript" src="examples.js"></script><!-- EXAMPLES -->
+<div id ="container">
+  <div id="west" class="x-layout-inactive-content">
+    Hi. I'm the west panel.
+  </div>
+  <div id="north" class="x-layout-inactive-content">
+    north - generally for menus, toolbars and/or advertisements 
+  </div>
+  <div id="autoTabs" class="x-layout-inactive-content">
+      The layout manager will automatically create and/or remove the TabPanel component when a region has more than one panel. Close one of my panels and you can see what I mean.
+  </div>
+  <div id="center2" class="x-layout-inactive-content">
+        <p><a href="#" onclick="Example.toggleWest(this);return false;">Show West Region</a></p>
+        <iframe name="frm_sub_center2" frameborder="0" height="100%" width="100%" scrolling="auto" src="index.php" > #</iframe>
+  </div>
+  <div id="center1" class="x-layout-inactive-content">
+		<iframe name="frm_sub_center1" frameborder="0" height="100%" width="100%" scrolling="auto" src="http://www.theptarin.com" > #</iframe>
+  </div>
+  <div id="props-panel" class="x-layout-inactive-content" style="width:200px;height:200px;overflow:hidden;">
+  </div>
+  <div id="south" class="x-layout-inactive-content">
+    south - generally for informational stuff, also could be for status bar
+  </div>
+</div>
+ </body>
+</html>
