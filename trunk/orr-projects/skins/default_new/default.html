@@ -10,6 +10,28 @@
 <style type="text/css">
     body, html { font-family:helvetica,arial,sans-serif; font-size:90%; }
     html, body { width: 100%; height: 100%; margin: 0; }
+    .box {
+    margin-top: 10px;
+    color: #292929;
+    width: 300px;
+    border: 1px solid #BABABA;
+    background-color: #ddd;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 1em;
+    -o-border-radius: 10px;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 10px;
+    -webkit-box-shadow: 0px 3px 7px #adadad;
+    border-radius: 10px;
+    -moz-box-sizing: border-box;
+    -opera-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -khtml-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
 <!--Or_Skin[style]-->
 </style>
 <script type="text/javascript" src="../../lib/dojo/dojo/dojo.js" charset="utf-8" djconfig="parseOnLoad: true"></script>
@@ -20,13 +42,20 @@
     dojo.require("dijit.layout.TabContainer");
     dojo.require("dijit.layout.AccordionContainer");
     dojo.require("dijit.layout.ContentPane");
+
+    dojo.require("dojo.fx");
+    dojo.addOnLoad(function(){
+        // create On Load funtion
+       //dojo.fx.wipeIn({node: "animDiv",duration: 1000}).play();
+       //dojo.fx.slideTo({node: "animDiv",duration: 1000, left: 300, top: 0}).play();     
+    });
     //-->
 <!--Or_Skin[script]-->
 </script>
 </head>
 <body class="tundra">
     <div dojoType="dijit.layout.BorderContainer" style="width: 100%; height: 100%">
-        <div dojoType="dijit.layout.ContentPane" region="top">
+        <div  dojoType="dijit.layout.ContentPane" region="top">
             หัวข้อเรื่อง + ข้อมูลเกี่ยวกับผู้ใช้ระบบ<!--Or_Skin[top]-->
         </div>
         <div dojoType="dijit.layout.ContentPane" region="center">
