@@ -81,7 +81,7 @@
 		foreach($skins as $key=>$val)
 		{
 			$skin_key ='<!--Or_Skin\[' . $key . '\]-->';
-			$line = ereg_replace($skin_key,$val,$line);
+			$line = preg_replace($skin_key,$val,$line);
 		}
 		$skin_tag[] = $line;
 	}
