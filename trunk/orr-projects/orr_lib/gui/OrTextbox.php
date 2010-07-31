@@ -20,18 +20,17 @@ class OrTextbox extends OrControls {
   //@return null
   //@access public
   
-  function OrTextbox($id, $name = null , $idx = null)
-  {
-	  $this->OrControls($id ,$name ,$idx);
-	  
-	  $this->property('maxlength','integer');
-	  $this->property('size','integer');
-	  $this->property('password','boolean',false);
-	   
-	  $this->OP_[type]->set('text');
-  }
+  function __construct($id, $name = null, $idx = null) {
+        $this->OrControls($id, $name, $idx);
 
-  // end of member function OrTextbox
+        $this->property('maxlength', 'integer');
+        $this->property('size', 'integer');
+        $this->property('password', 'boolean', false);
+
+        $this->OP_[type]->set('text');
+    }
+
+    // end of member function OrTextbox
   //
   //กำหนดความกว้าง
   //
@@ -40,16 +39,15 @@ class OrTextbox extends OrControls {
   //@return null
   //@access public
   
-  function set_size($size, $maxlength = 0 )
-  {
-	  $this->OP_[size]->set($size);
-	  if($maxlength == 0){
-		  $this->OP_[maxlength]->set($size);
-	  }else if($maxlength > 0){
-		  $this->OP_[maxlength]->set($maxlength);
-	  }
-	  return null;
-  }
+  function set_size($size, $maxlength = 0) {
+        $this->OP_[size]->set($size);
+        if ($maxlength == 0) {
+            $this->OP_[maxlength]->set($size);
+        } else if ($maxlength > 0) {
+            $this->OP_[maxlength]->set($maxlength);
+        }
+        return null;
+    }
 
   // end of member function set_size
   //

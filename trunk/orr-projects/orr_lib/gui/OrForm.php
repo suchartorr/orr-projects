@@ -39,7 +39,7 @@ class OrForm extends OrGui {
   
   public $skin;
 
-  function OrForm($id, $name = "")
+  function __construct($id, $name = "")
   {
    	global $PHP_SELF;
    	$val_ = new OrSysvalue();
