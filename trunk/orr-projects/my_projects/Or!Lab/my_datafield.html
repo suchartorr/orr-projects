@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Or!Lab ต้นแบบ : เขตข้อมูล</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+
+<link rel="stylesheet" type="text/css" href="../../skins/default_new/my_form.css">
+
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../lib/dojo/dijit/themes/tundra/tundra.css" />
+<LINK REL="stylesheet" TYPE="text/css" HREF="../../lib/dojo/dojo/resources/dojo.css" />
+<style type="text/css">
+    body, html { font-family:helvetica,arial,sans-serif; font-size:90%; }
+    html, body { width: 100%; height: 100%; margin: 0; }
+    .box {
+    margin-top: 10px;
+    color: #292929;
+    width: 300px;
+    border: 1px solid #BABABA;
+    background-color: #ddd;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 1em;
+    -o-border-radius: 10px;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 10px;
+    -webkit-box-shadow: 0px 3px 7px #adadad;
+    border-radius: 10px;
+    -moz-box-sizing: border-box;
+    -opera-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -khtml-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+</style>
+<script type="text/javascript" src="../../lib/dojo/dojo/dojo.js" charset="utf-8" djconfig="parseOnLoad: true"></script>
+
+<script language="JavaScript">
+    <!--
+    dojo.require("dijit.layout.BorderContainer");
+    dojo.require("dijit.layout.TabContainer");
+    dojo.require("dijit.layout.AccordionContainer");
+    dojo.require("dijit.layout.ContentPane");
+    dojo.require("dijit.form.Form");
+    dojo.require("dijit.form.ValidationTextBox");
+
+    dojo.require("dojo.fx");
+    dojo.addOnLoad(function(){
+        // create On Load funtion
+       //dojo.fx.wipeIn({node: "animDiv",duration: 1000}).play();
+       //dojo.fx.slideTo({node: "animDiv",duration: 1000, left: 300, top: 0}).play();
+    });
+    //-->
+
+</script>
+</head>
+<body class="tundra">
+    <div dojoType="dijit.layout.BorderContainer" style="width: 100%; height: 100%">
+        <div  dojoType="dijit.layout.ContentPane" region="top">
+            หัวข้อเรื่อง + ข้อมูลเกี่ยวกับผู้ใช้ระบบ<!--Or_Skin[top]-->
+        </div>
+        <div dojoType="dijit.layout.ContentPane" region="center">
+            <div dojoType="dijit.form.Form" encType="multipart/form-data"  action="/orr-projects/my_projects/Or!Lab/my_datafield.php" id="my_form" method="post" name="my_form">
+<script type="dojo/method" event="onSubmit">
+var btn_navigator = document.my_form.evt_form_db[navigator].value;
+alert(btn_navigator );
+if (this.validate()) {
+} else {
+
+alert(btn_navigator + 'Form contains invalid data.  Please correct first');
+return false;
+}
+return true;
+</script>
+<input id="evt_on_load" name="evt_form_db[on_load]" type="hidden" value="1">
+<input id="evt_form_db[cmd_filter]" name="evt_form_db[cmd_filter]" type="hidden" value="">
+<input id="evt_form_db[cmd_order]" name="evt_form_db[cmd_order]" type="hidden" value="">
+<input id="evt_form_db[cmd_msg]" name="evt_form_db[cmd_msg]" type="hidden" value="">
+<input id="sec_user" name="val_controls[db_field][sec_user]" type="hidden" value="root">
+<table id="tbl_my" name="tbl_my" class="tbl_my">
+
+
+
+  <tbody>
+
+
+
+    <tr>
+
+
+
+      <td>
+
+      <table id="tbl_header" name="tbl_header" class="tbl_header">
+
+
+
+        <tbody>
+
+
+
+          <tr>
+
+
+
+            <td style = "vertical-align: middle; padding-bottom: 5px; padding-top: 5px;">
+
+			<table align="center" class="tbl_body" name="table_query" id="table_query"><tbody><tr><td>ค้นหา <input id="filter_by" name="val_filter[filter_by]"   type="text" maxlength="20" size="20" value="" title=""> เรียง <select id="order_by" name="val_msg[order_by]"  title="">
+		<option value="" selected="selected"></option>
+		<option value="field_id" >ฟิลด์</option>
+		<option value="name" >ชื่อ</option>
+		<option value="description" >คำอธิบาย</option>
+</select>
+ <button id="btn_filter" name="val_msg[btn_filter]" type="submit" class="toolbar" value="Filter" title="ค้นหา" ><img src="../../skins/default_new/image/button/filter.png"></button><button id="btn_query" name="val_msg[btn_query]" type="submit" class="toolbar" value="Query" title="ตั้งคำถาม" ><img src="../../skins/default_new/image/button/query.png"></button><button id="btn_list" name="val_msg[btn_list]" type="button" class="toolbar" value="List" title="รายการข้อมูล" onClick = "window.location.href = 'my_datafield_list.php'"><img src="../../skins/default_new/image/button/list_page.png"></button><!--Or_Skin[query]--></td></tr></tbody></table>
+
+            </td>
+
+
+
+          </tr>
+
+
+
+        </tbody>
+
+      </table>
+
+
+
+      </td>
+
+
+
+    </tr>
+
+
+
+    <tr>
+
+
+
+      <td style = "background:#ECE9D8;"><!--Or_Skin[hidden]--><table id="db_my_form" name="db_my_form" class="tbl_body"  align="center">
+
+<tr class="tr_body"><td class="td_caption">ฟิลด์</td><td class="td_data"><input id="field_id" name="val_controls[db_field][field_id]" class="input_need"  type="text" dojoType="dijit.form.ValidationTextBox"  regExp="[^\s]+"  required="true"  invalidMessage="Invalid Text"  maxlength="50" style="width: 140px;" value="id" title="Field Name ที่ต้องการกำหนดคุณสมบัติ"></td></tr>
+
+<tr class="tr_body"><td class="td_caption">ชื่อ</td><td class="td_data"><input id="name" name="val_controls[db_field][name]" class="input_need"  type="text" dojoType="dijit.form.ValidationTextBox"  regExp="[^\s]+"  required="true"  invalidMessage="Invalid Text"  maxlength="50" style="width: 140px;" value="รหัส" title="ชื่อของ Field Name ที่ต้องการแสดงในโปรแกรม"></td></tr>
+
+<tr class="tr_body"><td class="td_caption">คำอธิบาย</td><td class="td_data"><input id="description" name="val_controls[db_field][description]" class="input_normal"  type="text" maxlength="50" size="30" value="ข้อความ หรือต้วเลบ ที่ใช้อ้างอิงรายการข้อมูล" title="คำอธิบายต่างๆ ใน Title ของ Field"></td></tr>
+
+</table>
+
+      </td>
+
+
+
+    </tr>
+
+    <tr>
+
+
+
+      <td style = " text-align: center; padding-top: 5px; border-top: 1pt solid #EEEEEE; padding-bottom:0px; vertical-align: middle;"><input id="evt_form_db[total_rec]" name="evt_form_db[total_rec]" type="hidden" value="72">
+<input id="evt_form_db[cur_rec]" name="evt_form_db[cur_rec]" type="hidden" value="1">
+<table border="0" align="center" cellspacing="0" cellpadding="0">
+<tr>
+<td><button name="evt_form_db[navigator]" type="submit" class="toolbar" value="New" title="ใหม่"><img src="../../skins/default/image/button/document_new.png"></button></td>
+<td><button name="evt_form_db[navigator]" type="submit" class="toolbar" value="Save" title="บันทึก"><img src="../../skins/default/image/button/document_save.png"></button></td>
+<td><button name="evt_form_db[navigator]" type="submit" class="toolbar" value="First" title="เริ่ม"><img src="../../skins/default/image/button/go_first.png"></button></td>
+<td><button name="evt_form_db[navigator]" type="submit" class="toolbar" value="Next" title="ถัดไป"><img src="../../skins/default/image/button/go_next.png"></button></td>
+<td><SPAN  style=" vertical-align: middle; font-size: 24px ; color : #996633;" title="ลำดับ และรายการทั้งหมด">1 of 72</SPAN></td>
+<td><button name="evt_form_db[navigator]" type="submit" class="toolbar" value="Prev" title="ก่อนหน้า"><img src="../../skins/default/image/button/go_previous.png"></button></td>
+<td><button name="evt_form_db[navigator]" type="submit" class="toolbar" value="Last" title="สุดท้าย"><img src="../../skins/default/image/button/go_last.png"></button></td>
+<td><button name="evt_form_db[navigator]" type="submit" class="toolbar" value="Ref" title="ปรับปรุง"><img src="../../skins/default/image/button/reload.png"></button></td>
+<td><button name="evt_form_db[navigator]" type="submit" class="toolbar" value="Delete" title="ลบ"><img src="../../skins/default/image/button/user_trash.png"></button></td>
+</tr>
+</table></td>
+
+
+
+    </tr>
+
+  <tr>
+
+
+
+      <td style = "font-size: 14px;  text-align: center; padding-top: 0px; padding-bottom: 1px; border-bottom: 1pt solid #EEEEEE; vertical-align: top;">ผู้ใช้ระบบ : root | เจ้าของ : <button name="evt_form_db[chg_owner]" type="submit" value="->" title="แก้ไขเจ้าของข้อมูล">root</button> | ระบบ : my_datafield.php | ระดับสิทธิ์ : 3</td>
+
+
+
+    </tr>
+
+  </tbody>
+
+</table>
+
+
+</div>
+        </div>
+        <div dojoType="dijit.layout.ContentPane" region="bottom">
+            รายละเอียดอื่นๆ<!--Or_Skin[bottom]-->
+        </div>
+    </div>
+</body>
+</html> 

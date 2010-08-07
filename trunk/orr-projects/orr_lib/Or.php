@@ -158,7 +158,9 @@ require_once('ajax/OrPage.php');
 require_once('ajax/OrMenu.php');
 
 //Dojo
+require_once('dojo/OrDojoForm.php');
 require_once('dojo/OrDojoTextbox.php');
+
 //db
 require_once('db/OrDb.php');
 require_once('db/OrDbForm.php');

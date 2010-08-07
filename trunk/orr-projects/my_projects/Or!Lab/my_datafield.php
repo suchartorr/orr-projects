@@ -36,7 +36,7 @@ class my extends my_page {
 		$my_form->controls[field_id]->OP_[title]->set('Field Name ที่ต้องการกำหนดคุณสมบัติ');
 		$my_form->controls[field_id]->set_size(20,50);
 		
-		$my_form->set_controls(new OrTextbox('name')  );
+		$my_form->set_controls(new OrDojoTextbox('name')  );
 		$my_form->controls[name]->OP_[title]->set('ชื่อของ Field Name ที่ต้องการแสดงในโปรแกรม');
 		$my_form->controls[name]->set_size(20,50);
 		
