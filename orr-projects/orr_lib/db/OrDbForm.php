@@ -30,7 +30,7 @@ class OrDbForm extends OrForm {
   function __construct($id, $name = "")
   {
 		/*Constructors*/
-		$this->OrForm($id,$name);
+		parent :: __construct($id,$name);
 		$this->OP_[db_form]->set(true);
 		/*เริ่ม กำหนดคุณสมบัติของ Calss*/
 		$this->property('total_rec','integer',1);
