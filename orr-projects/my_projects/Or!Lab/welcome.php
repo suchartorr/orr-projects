@@ -21,7 +21,7 @@ class my extends my_page {
             $my_sec->logout();
         }
 
-        $my_form = new OrForm('my_form');
+        $my_form = new OrDojoForm('my_form');
         
         if ($my_sec->OP_[user]->get() == '') {
             $my_form->set_controls(new OrDojoTextbox('user'));

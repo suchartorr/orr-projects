@@ -14,7 +14,7 @@ class OrDojoTextbox extends OrTextbox {
 
     function __construct($id, $name = null, $idx = null) {
         parent::__construct($id, $name, $idx);
-        $this->property('reg_exp', 'string','[^\s]+'); //รูปแบบข้อมูลตาม regExp
+        $this->property('reg_exp', 'string'); //รูปแบบข้อมูลตาม regExp เช่น '[^\s]+'
         $this->property('invalid_message', 'string', 'Invalid Text'); //ข้อความที่ต้องการแสดงเมื่อรูปแบบข้อมูลไม่ถูกต้อง
         $this->property('required', 'boolean', TRUE); //เป็นช่องที่ต้องการข้อมูลใส่ TRUE ไม่ต้องการใส่ FALSE
     }
@@ -73,7 +73,12 @@ class OrDojoTextbox extends OrTextbox {
         }  else {
             $dojo_required = ' required="false" ';
         }
-        $dojo_reg_exp = ' regExp="' . $this->OP_[reg_exp]->get() . '" ';
+        if ($this->OP_[reg_exp]->get() == null) {
+            $dojo_reg_exp = null;
+        } else {
+            $dojo_reg_exp = ' regExp="' . $this->OP_[reg_exp]->get() . '" ';
+        }
+
         $dojo_invalid_message = ' invalidMessage="' .  $this->OP_[invalid_message]->get() . '" ';
         $this->clip_value($value);
         $value = 'value="' . $value . '"';

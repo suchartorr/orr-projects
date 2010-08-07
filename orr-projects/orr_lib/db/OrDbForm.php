@@ -8,7 +8,7 @@
 //class OrDbForm
 //
 
-class OrDbForm extends OrForm {
+class OrDbForm extends OrDojoForm {
   //
   //Object ฐานข้อมูล
   //@access public
