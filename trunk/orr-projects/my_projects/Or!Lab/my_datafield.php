@@ -32,7 +32,7 @@ class my extends my_page {
 		/*
 		 * สร้าง Control ในฟอร์ม ประกอบด้วย Class ในกลุ่ม GUI
 		 */
-		$my_form->set_controls(new OrTextbox('field_id'));
+		$my_form->set_controls(new OrDojoTextbox('field_id'));
 		$my_form->controls[field_id]->OP_[title]->set('Field Name ที่ต้องการกำหนดคุณสมบัติ');
 		$my_form->controls[field_id]->set_size(20,50);
 		

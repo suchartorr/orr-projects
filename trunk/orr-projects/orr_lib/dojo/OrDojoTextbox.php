@@ -1,17 +1,22 @@
 <?php
-/* 
+
+/*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 
 /**
  * Description of OrDojoTextbox
- *
+ * ตรวจสอบรูปแบบการคีย์ข้อมูลตาม regExp
  * @author orr
  */
-class OrDojoTextbox extends OrTextbox{
-    function  __construct($id, $name = null, $idx = null) {
+class OrDojoTextbox extends OrTextbox {
+
+    function __construct($id, $name = null, $idx = null) {
         parent::__construct($id, $name, $idx);
+        $this->property('reg_exp', 'string','[^\s]+'); //รูปแบบข้อมูลตาม regExp
+        $this->property('invalid_message', 'string', 'Invalid Text'); //ข้อความที่ต้องการแสดงเมื่อรูปแบบข้อมูลไม่ถูกต้อง
+        $this->property('required', 'boolean', TRUE); //เป็นช่องที่ต้องการข้อมูลใส่ TRUE ไม่ต้องการใส่ FALSE
     }
 
     function get_tag($value = null) {
@@ -32,6 +37,7 @@ class OrDojoTextbox extends OrTextbox{
         $type = 'type="' . $this->OP_[type]->get() . '"';
 
         if ($this->OP_[password]->get()
+
             )$type = 'type="password"';
         if ($value == null AND !is_numeric($value)) {
             $value = $this->OP_[post_value]->get();
@@ -60,12 +66,23 @@ class OrDojoTextbox extends OrTextbox{
         } else {
             $class = 'class="' . $this->OP_[class_name]->get() . '"';
         }
+
+
+        if ($this->OP_[required]->get()){
+            $dojo_required = ' required="true" ';
+        }  else {
+            $dojo_required = ' required="false" ';
+        }
+        $dojo_reg_exp = ' regExp="' . $this->OP_[reg_exp]->get() . '" ';
+        $dojo_invalid_message = ' invalidMessage="' .  $this->OP_[invalid_message]->get() . '" ';
         $this->clip_value($value);
         $value = 'value="' . $value . '"';
         $title = 'title="' . $this->OP_[title]->get() . '"';
-        $dojo_type = 'dojoType="dijit.form.ValidationTextBox" regExp="[^\s]+" required="true" invalidMessage="Invalid Non-Space Text."';
-        $my_value = "<input $id $class  $type $dojo_type $maxlength $size $value $title>" . $this->get_properties_tag();
+       // $dojo_property = 'dojoType="dijit.form.ValidationTextBox" regExp="[^\s]+" required="true" invalidMessage="Invalid Non-Space Text."';
+        $dojo_property = 'dojoType="dijit.form.ValidationTextBox" ' . $dojo_reg_exp . $dojo_required .  $dojo_invalid_message ;
+        $my_value = "<input $id $class  $type $dojo_property $maxlength $size $value $title>" . $this->get_properties_tag();
         return $my_value;
     }
+
 }
 ?>
