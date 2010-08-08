@@ -71,7 +71,7 @@ class my extends my_page
 		$my_form->set_controls(new OrTextbox('title'));
 		$my_form->controls[sys_id]->set_size(20,50);
 		
-		$my_form->set_controls(new OrTextarea('description'));
+		$my_form->set_controls(new OrDojoTextarea('description'));
 		$my_form->controls['description']->set_rowcol('5','50'); //กำหนดจำนวนแถวที่ Row จำนวน 
 		$my_form->controls['description']->OP_[check_null]->set(false);
 		

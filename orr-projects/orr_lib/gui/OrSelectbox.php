@@ -15,11 +15,11 @@ class OrSelectbox extends OrControls {
   
   public $use_ajax =  false;
 
-  function __construct($id, $name = null , $idx = null )
-  {
-	  $this->OrControls($id ,$name ,$idx);
-	  $this->property('option','array');
-  }
+  function __construct($id, $name = null, $idx = null) {
+        parent::__construct($id, $name, $idx);
+        //$this->OrControls($id, $name, $idx);
+        $this->property('option', 'array');
+    }
 
   //
   //

@@ -41,12 +41,12 @@ class OrFieldHidden extends OrControls {
   //@return 
   //@access public
   
-  function OrFieldHidden($id, $name = null , $idx = null )
-  {
-    $this->OrControls($id ,$name ,$idx);
-    $this->OP_[type]->set('hidden');
-    $this->OP_[read_only]->set(true);
-  }
+ function __construct($id, $name = null, $idx = null) {
+        parent:: __construct($id, $name, $idx);
+        //$this->OrControls($id ,$name ,$idx);
+        $this->OP_[type]->set('hidden');
+        $this->OP_[read_only]->set(true);
+    }
 
   // end of member function OrFieldHidden
   //
