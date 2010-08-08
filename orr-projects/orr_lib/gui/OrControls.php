@@ -8,7 +8,7 @@
 //class OrControls
 
 class OrControls extends OrGui {
-  function OrControls($id, $name = null, $idx = null )
+  function __construct($id, $name = null, $idx = null )
   {
 	  parent:: __construct($id,$name,$idx);
 	  $this->property('script','array');

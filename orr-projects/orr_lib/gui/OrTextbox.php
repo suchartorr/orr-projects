@@ -21,7 +21,8 @@ class OrTextbox extends OrControls {
   //@access public
   
   function __construct($id, $name = null, $idx = null) {
-        $this->OrControls($id, $name, $idx);
+        parent::__construct($id, $name, $idx);
+//$this->OrControls($id, $name, $idx);
 
         $this->property('maxlength', 'integer');
         $this->property('size', 'integer');

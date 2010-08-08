@@ -41,12 +41,12 @@ class OrTextarea extends OrControls {
   //@return 
   //@access public
   
-  function OrTextarea($id, $name = null , $idx = null )
-  {
-	  $this->OrControls($id ,$name ,$idx);
-	  $this->property('rows' , 'integer', 5);
-	  $this->property('cols' , 'integer' , 50);
-  }
+  function __construct($id, $name = null, $idx = null) {
+        parent:: __construct($id, $name , $idx );
+        //$this->OrControls($id, $name, $idx);
+        $this->property('rows', 'integer', 5);
+        $this->property('cols', 'integer', 50);
+    }
 
   // end of member function OrTextarea
   function set_rowcol($rows, $cols)

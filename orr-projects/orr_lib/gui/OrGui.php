@@ -20,7 +20,7 @@ class OrGui extends OrObj {
   //@return null
   //@access public
   
-  function OrGui($id, $name = null , $idx = null )
+  function __construct($id, $name = null , $idx = null )
   {
 	  $this->property('id','string');
 	  $this->property('idx','string');
