@@ -40,7 +40,7 @@ class my extends my_page {
 		$my_form->controls[name]->OP_[title]->set('ชื่อของ Field Name ที่ต้องการแสดงในโปรแกรม');
 		$my_form->controls[name]->set_size(20,50);
 		
-		$my_form->set_controls(new OrTextbox('description') );
+		$my_form->set_controls(new OrDojoTextbox('description') );
 		$my_form->controls[description]->OP_[title]->set('คำอธิบายต่างๆ ใน Title ของ Field');
 		$my_form->controls[description]->set_size(30,50);
 		$my_form->controls[description]->OP_[check_null]->set(false);
