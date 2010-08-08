@@ -16,7 +16,7 @@ class OrDojoTextbox extends OrTextbox {
         parent::__construct($id, $name, $idx);
         $this->property('reg_exp', 'string'); //รูปแบบข้อมูลตาม regExp เช่น '[^\s]+'
         $this->property('invalid_message', 'string', 'Invalid Text'); //ข้อความที่ต้องการแสดงเมื่อรูปแบบข้อมูลไม่ถูกต้อง
-        $this->property('required', 'boolean', TRUE); //เป็นช่องที่ต้องการข้อมูลใส่ TRUE ไม่ต้องการใส่ FALSE
+        //$this->property('required', 'boolean', TRUE); //เป็นช่องที่ต้องการข้อมูลใส่ TRUE ไม่ต้องการใส่ FALSE ##แทนด้วย checknull
     }
 
     function get_tag($value = null) {
@@ -68,7 +68,7 @@ class OrDojoTextbox extends OrTextbox {
         }
 
 
-        if ($this->OP_[required]->get()){
+        if ($this->OP_[check_null]->get()){
             $dojo_required = ' required="true" ';
         }  else {
             $dojo_required = ' required="false" ';
