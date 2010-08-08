@@ -13,13 +13,12 @@ class OrButton extends OrControls {
   //@return 
   //@access public
   
-  function OrButton($id, $name = null , $idx = null )
-  {
-	   $this->OrControls($id ,$name ,$idx);
-	   $this->property('image_source','string');
-	   $this->OP_[type]->set('submit');
-	   
-  }
+  function __construct($id, $name = null, $idx = null) {
+        parent::__construct($id, $name, $idx);
+        //$this->OrControls($id, $name, $idx);
+        $this->property('image_source', 'string');
+        $this->OP_[type]->set('submit');
+    }
 
   // end of member function OrButton
   //
