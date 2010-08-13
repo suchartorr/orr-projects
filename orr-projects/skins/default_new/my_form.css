@@ -12,5 +12,5 @@
 .input_normal { color: #000000; background-color : #FFFFFF; }
 .input_need {color: #000000; background-color : #FFCC66; }
 .read_only {border : 1px solid  #FFFFFF;}
-.toolbar{margin: 2px  2px; padding: 0px  0px; background: transparent; border: none; vertical-align: top;}
+.toolbar{height: 36px ; width: 36px; margin: 0px  0px; padding: 0px  0px; background: transparent; border: none; vertical-align: middle;}
 
