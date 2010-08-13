@@ -55,14 +55,15 @@ class OrTable extends OrGui {
   //@return null
   //@access public
   
-  function set_join_cells($row, $col, $class = null)
+  function set_join_cells($cell, $col, $row,$class = null)
   {
 		if($class != null)
 		{
 			$class='class="'.$class.'"';
 		}
-		$join = '"colspan="' . $col . '" rowspan="' . $row  . ' "';
-		$this->cols[] =  "<td $join $class>$col</td>";
+		$join = 'colspan="' . $col . '" rowspan="' . $row  . '"';
+                //$join = 'colspan="' . $col . '"' ;
+		$this->cols[] =  "<td $join $class>$cell</td>";
 		return null;
   }
 
