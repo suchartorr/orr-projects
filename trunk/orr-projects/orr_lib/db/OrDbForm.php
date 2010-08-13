@@ -632,43 +632,59 @@ class OrDbForm extends OrDojoForm {
   }
 
   //สร้าง Tag ส่วนแสดงข้อมูล
-  //@return string
-  //@access public
-  
-  function get_body_tag()
-  {
-		$my_table = new OrTable('db_' . $this->OP_[id]->get());
-		$my_table->OP_[align_table]->set('center');
-		$my_table->OP_[class_name]->set('tbl_body');
-		$my_col = 0;
-        $form_col = $this->OP_[column]->get();
-		foreach($this->controls AS $id => $control){
-			
-			if($control->OP_[auto_visible]->get())
-			{
-				if($control->OP_[type]->get() != 'hidden' AND $control->OP_[id]->get() != 'sec_user' )
-				{
-					$my_table->set_col($control->OP_[caption]->get() , "td_caption");
-					$this->set_class_name($id);
-					$my_table->set_col($control->get_tag() . $control->OP_[description]->get() , "td_data");
-					$my_col++;
-					if($my_col >= $form_col){
-						$my_table->set_row('tr_body');
-						$my_col = 0;
-					}
-				}
-				
-			}
-		}
-		/** ตรวจสอบจำนวน column ว่าครบหรือไม่ เพื่อแก้ไขปัญหา ไม่โชว์บรรทัดสุดท้าย**/
-		if($my_col > 0){
-			$my_table->set_row('tr_body');
-			$my_col = 0;
-		}
-		return $my_table->get_tag();
-  }
+    //@return string
+    //@access public
 
-  //คืนค่า tag แสดง navigator button
+    function get_body_tag() {
+        $my_table = new OrTable('db_' . $this->OP_[id]->get());
+        $my_table->OP_[align_table]->set('center');
+        $my_table->OP_[class_name]->set('tbl_body');
+        $my_col = 0;
+        $control_count = 0;
+        $form_col = $this->OP_[column]->get();
+        /**
+         * หาจำนวนช่องข้อมูลทั้งหมด เพื่อใช้กำหนด Column Row ให้ถูกต้อง
+         */
+        foreach ($this->controls AS $id => $control) {
+            if ($control->OP_[auto_visible]->get()) {
+                $control_count++;
+            }
+        }
+        $my_row = ceil($control_count / $form_col);
+        foreach ($this->controls AS $id => $control) {
+
+            if ($control->OP_[auto_visible]->get()) {
+                if ($control->OP_[type]->get() != 'hidden' AND $control->OP_[id]->get() != 'sec_user') {
+                     $my_col++;
+                     $control_count--;
+                     
+                    $my_table->set_col($control->OP_[caption]->get(), "td_caption");
+                    $this->set_class_name($id);
+                    
+                    if ($my_row == 1 && $control_count == 1) {
+                        $colspan = (($form_col * 2) - $my_col) ;
+                        $my_table->set_join_cells($control->get_tag() . $control->OP_[description]->get(), $colspan, 0, "td_data");
+                    } else {
+                        $my_table->set_col($control->get_tag() . $control->OP_[description]->get(), "td_data");
+                    }
+                    
+                    if ($my_col >= $form_col) {
+                        $my_table->set_row('tr_body');
+                        $my_row--;
+                        $my_col = 0;
+                    }
+                }
+            }
+        }
+        /** ตรวจสอบจำนวน column ว่าครบหรือไม่ เพื่อแก้ไขปัญหา ไม่โชว์บรรทัดสุดท้าย* */
+        if ($my_col > 0) {
+            $my_table->set_row('tr_body');
+            $my_col = 0;
+        }
+        return $my_table->get_tag();
+    }
+
+    //คืนค่า tag แสดง navigator button
   //@param string skin_file ที่อยู่ของ Skin file
   //@return string
   //@access public
