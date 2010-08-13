@@ -39,7 +39,7 @@ class my extends my_page
                 $my_form->OP_[list_page_url]->set('my_sys_list.php');
 		$my_form->OP_[column]->set(2);
 		
-                $my_form->set_controls(new OrTextbox('sys_id'));
+                $my_form->set_controls(new OrDoJoTextbox('sys_id'));
 		$my_form->controls[sys_id]->set_size(20,50);
                 $my_form->controls[sys_id]->set_clip('sys_id');
 
@@ -64,7 +64,7 @@ class my extends my_page
 		$my_form->set_controls(new OrSelectbox('aut_god'));
 		$my_form->controls[aut_god]->OP_[option]->set(array('0 ไม่'=>0,'1 ใช่'=>1));
 		
-		$my_form->set_controls(new OrSelectbox('aut_can_from'));
+		$my_form->set_controls(new OrDojoSelectbox('aut_can_from'));
 		$my_form->controls[aut_can_from]->OP_[option]->set(array_merge(array('ไม่กำหนด'=>''),$my_sec->get_sys_list()));
 		$my_form->controls[aut_can_from]->OP_[check_null]->set(false);
 		
