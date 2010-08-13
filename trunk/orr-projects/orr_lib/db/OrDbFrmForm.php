@@ -281,14 +281,14 @@ class OrDbFrmForm extends OrDbForm {
   function get_button_filter($cmd_filter = '')
   {
 		global $my_cfg;
-		$btn_filter = new OrButton('btn_filter', 'val_msg[btn_filter]');
+		$btn_filter = new OrDojoButton('btn_filter', 'val_msg[btn_filter]');
 		$btn_filter->OP_[class_name]->set("toolbar");
 		$btn_filter->OP_[title]->set("ค้นหา");
 		$btn_filter->OP_[value]->set("Filter");
 		$btn_filter->OP_[image_source]->set($my_cfg[skins_path] . 'image/button/filter.png');
 		$my_tag = $btn_filter->get_tag();
 
-		$btn_query = new OrButton('btn_query', 'val_msg[btn_query]');
+		$btn_query = new OrDojoButton('btn_query', 'val_msg[btn_query]');
 		$btn_query->OP_[class_name]->set("toolbar");
 		$btn_query->OP_[title]->set("ตั้งคำถาม");
 		$btn_query->OP_[value]->set("Query");
@@ -303,7 +303,7 @@ class OrDbFrmForm extends OrDbForm {
 		}
 		
 		if($this->OP_[list_page_url]->get() != ''){
-			$btn_list= new OrButton('btn_list', 'val_msg[btn_list]');
+			$btn_list= new OrDojoButton('btn_list', 'val_msg[btn_list]');
 			$btn_list->OP_[class_name]->set("toolbar");
 			$btn_list->OP_[title]->set("รายการข้อมูล");
 			$btn_list->OP_[value]->set("List");

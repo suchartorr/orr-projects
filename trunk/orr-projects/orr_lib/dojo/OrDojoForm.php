@@ -26,7 +26,7 @@ class OrDojoForm extends OrForm{
         $tag[] = "if (this.validate()) {\n";
         //$tag[] = "return confirm('Form is valid, press OK to submit');\n";
         $tag[] = "} else {\n";
-        $tag[] = "return confirm(' เอ๊ะ! คุณใส่ข้อมูลถูกต้องแล้วนะ?');\n";
+        $tag[] = "return confirm(' เอ๊ะ! คุณมั่นใจว่าตรวจสอบ และไม่ลืมใส่ข้อมูลที่จำเป็นแล้วนะ?');\n";
         //$tag[] = "return false;\n";
         $tag[] = "}\n";
         $tag[] = "return true;\n";

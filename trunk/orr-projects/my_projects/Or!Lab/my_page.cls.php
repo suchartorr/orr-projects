@@ -64,7 +64,8 @@ class my_page extends OrHtml
 		 * $this->set_script($ajax->require_tooltip());
 		 * $this->set_ccs_src($ajax->require_tooltip_css());
 		 */
-		 $this->set_caption($caption);
+		$this->set_title( $my_cfg[title]);
+                $this->set_caption($caption);
 	}
         
         
@@ -86,6 +87,16 @@ class my_page extends OrHtml
 	 */
 	function set_caption($tag){
 		$this->skin->set_skin_tag('my_caption' , $tag);
+		$this->caption = $tag;
+		return null;
+	}
+        /**
+	 * set_caption : กำหนดชื่อระบบ
+	 * @param string $tag ชื่อระบบ
+	 * @return null
+	 */
+	function set_title($tag){
+		$this->skin->set_skin_tag('my_title' , $tag);
 		$this->caption = $tag;
 		return null;
 	}
