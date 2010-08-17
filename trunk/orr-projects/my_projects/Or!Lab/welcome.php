@@ -11,6 +11,7 @@ class my extends my_page {
     public function __construct($title = '') {
         global $my_cfg;
         parent::__construct($title);
+        $this->set_caption('บันทึกเข้าใช้งาน');
         $my_sec = new OrSec(false);
         $val_ = new OrSysvalue();
         $val_controls = $val_->controls;
@@ -34,18 +35,19 @@ class my extends my_page {
             $my_form->skin->set_skin_tag('user', $my_form->controls[user]->get_tag());
             $my_form->skin->set_skin_tag('pass', $my_form->controls[pass]->get_tag());
             $my_form->skin->set_skin_tag('login', $my_form->controls[login]->get_tag('login'));
+            $my_form->set_body($my_form->skin->get_tag());
+            $this->set_form($my_form->get_tag());
         } else {
             //header("Location:portal.php");
             $my_form->set_controls(new OrButton('logout'));
             $my_form->set_skin($my_cfg[skins_path] . "frm_logout.html");
             $my_form->skin->set_skin_tag('user_info', $my_sec->get_user_text() . '</b> [ <u>' . $my_sec->OP_[user]->get() . '</u> ] ');
             $my_form->skin->set_skin_tag('logout', $my_form->controls[logout]->get_tag('logout'));
+            $my_form->set_body($my_form->skin->get_tag());
+            $this->set_login($my_form->get_tag());
         }
         
-        $my_form->set_body($my_form->skin->get_tag());
-
-        $this->set_caption('บันทึกเข้าใช้งาน');
-        $this->set_form($my_form->get_tag());
+        
         $this->show();
     }
 
