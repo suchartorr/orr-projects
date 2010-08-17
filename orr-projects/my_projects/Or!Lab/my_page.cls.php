@@ -109,6 +109,16 @@ class my_page extends OrHtml
 		$this->skin->set_skin_tag('my_form' , $tag);
 		return null;
 	}
+
+        /**
+	 * set_form : กำหนด Form เพื่อ Login
+	 * @param string $tag คำสั่ง HTML ของ Form
+	 * @return null
+	 */
+	function set_login($tag){
+		$this->skin->set_skin_tag('my_login' , $tag);
+		return null;
+	}
 	/**
 	 * set_subpage : กำหนด Sub Page
 	 * @param string $url Address ของ Page
