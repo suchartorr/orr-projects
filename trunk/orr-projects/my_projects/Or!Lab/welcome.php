@@ -22,9 +22,10 @@ class my extends my_page {
             $my_sec->logout();
         }
 
-        $my_form = new OrDojoForm('my_form');
+        
         
         if ($my_sec->OP_[user]->get() == '') {
+            $my_form = new OrDojoForm('my_form');
             $my_form->set_controls(new OrDojoTextbox('user'));
             $my_form->controls[user]->set_size(10);
             $my_form->set_controls(new OrDojoTextbox('pass'));
@@ -39,12 +40,13 @@ class my extends my_page {
             $this->set_form($my_form->get_tag());
         } else {
             //header("Location:portal.php");
+            $my_form = new OrForm('my_form');
             $my_form->set_controls(new OrButton('logout'));
             $my_form->set_skin($my_cfg[skins_path] . "frm_logout.html");
             $my_form->skin->set_skin_tag('user_info', $my_sec->get_user_text() . '</b> [ <u>' . $my_sec->OP_[user]->get() . '</u> ] ');
             $my_form->skin->set_skin_tag('logout', $my_form->controls[logout]->get_tag('logout'));
             $my_form->set_body($my_form->skin->get_tag());
-            $this->set_login($my_form->get_tag());
+            $this->set_login(' ผู้ใช้ระบบ '.$my_sec->get_user_text() . '</b> [ <u>' . $my_sec->OP_[user]->get() . '</u> ] ');
         }
         
         
