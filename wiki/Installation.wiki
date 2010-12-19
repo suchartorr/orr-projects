@@ -5,9 +5,9 @@
 เครื่องที่ติดตั้ง orr-projects ต้องติดตั้งโปรแกรม Apache MySQL และ PHP ที่พร้อมใช้งาน และผู้ใช้ควรมีความรู้เกี่ยวกับโปรแกรมที่กล่าวมาบ้างแล้ว เพื่อจะได้สะดวกในการทำความเข้าใจเกี่ยวกับ การใช้ orr-projects เพื่อการพัฒนาระบบได้เร็วยิ่งขึ้น
 
 = ความต้องการของระบบ =
-# Apache
-# MySQL
-# PHP
+ # Apache
+ # MySQL
+ # PHP
 
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
