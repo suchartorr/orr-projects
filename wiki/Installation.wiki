@@ -11,7 +11,7 @@
 
 *โปรแกรมช่วยการเขียนระบบ*
  # phpMyAdmin
- # NetBeans IDE + Plugin PHP 
+ # NetBeans + Plugin PHP 
 
 *สิ่งที่ควรเรียนรู้มาก่อน*
  # ความรู้เกี่ยวกับ Web Server และโครงสร้างระบบ INTERNET เบื้องต้น
