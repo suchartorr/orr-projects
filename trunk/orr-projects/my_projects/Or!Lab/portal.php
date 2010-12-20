@@ -20,8 +20,6 @@ class my extends my_page {
         }
         if ($val_controls[logout] == 'logout'){
             $my_sec->logout();
-            header("Location:welcome.php");
-            die ();
         }
 
         
@@ -40,11 +38,15 @@ class my extends my_page {
             $my_form->skin->set_skin_tag('login', $my_form->controls[login]->get_tag('login'));
             $my_form->set_body($my_form->skin->get_tag());
             $this->set_form($my_form->get_tag());
-            $this->set_login('ลงทะเบียนผู้ใช้ใหม่');
         } else {
             //header("Location:portal.php");
-            $link_logout = '<a href="welcome.php?val_controls[logout]=logout" >ออกจากระบบ</a>';
-            $this->set_login( $my_sec->get_user_text() . '</b> [ <u>' . $my_sec->OP_[user]->get() . '</u> ]' . $link_logout);
+            $my_form = new OrForm('my_form');
+            $my_form->set_controls(new OrButton('logout'));
+            $my_form->set_skin($my_cfg[skins_path] . "frm_logout.html");
+            $my_form->skin->set_skin_tag('user_info', $my_sec->get_user_text() . '</b> [ <u>' . $my_sec->OP_[user]->get() . '</u> ] ');
+            $my_form->skin->set_skin_tag('logout', $my_form->controls[logout]->get_tag('logout'));
+            $my_form->set_body($my_form->skin->get_tag());
+            $this->set_login($my_form->get_tag()); //ทำไมขึ้นบรรทัดใหม่
             //$this->set_login(' ผู้ใช้ระบบ '.$my_sec->get_user_text() . '</b> [ <u>' . $my_sec->OP_[user]->get() . '</u> ] ');
         }
         
