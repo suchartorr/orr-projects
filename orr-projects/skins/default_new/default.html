@@ -1,53 +1,86 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
-<head>
-<title><!--Or_Skin[title]--></title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
-<!--Or_Skin[meta]-->
-<!--Or_Skin[ccs_src]-->
-<LINK REL="stylesheet" TYPE="text/css" HREF="../../lib/dojo/dijit/themes/tundra/tundra.css" />
-<LINK REL="stylesheet" TYPE="text/css" HREF="../../lib/dojo/dojo/resources/dojo.css" />
-<style type="text/css">
-    body, html { font-family:helvetica,arial,sans-serif; font-size:90%; }
-    html, body { width: 100%; height: 100%; margin: 0; }
-<!--Or_Skin[style]-->
-</style>
-<script type="text/javascript" src="../../lib/dojo/dojo/dojo.js" charset="utf-8" djconfig="parseOnLoad: true"></script>
-<!--Or_Skin[script_src]-->
-<script language="JavaScript">
-    <!--
-    dojo.require("dijit.layout.BorderContainer");
-    dojo.require("dijit.layout.TabContainer");
-    dojo.require("dijit.layout.AccordionContainer");
-    dojo.require("dijit.layout.ContentPane");
-    dojo.require("dijit.form.Form");
-    dojo.require("dijit.form.Button");
-    dojo.require("dijit.form.ValidationTextBox");
-    dojo.require("dijit.form.FilteringSelect");
-    dojo.require("dijit.Editor");
+    <head>
+        <title><!--Or_Skin[title]--></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+        <!--Or_Skin[meta]-->
+        <!--Or_Skin[ccs_src]-->
+        <LINK REL="stylesheet" TYPE="text/css" HREF="../../lib/dojo/dijit/themes/tundra/tundra.css" />
+        <LINK REL="stylesheet" TYPE="text/css" HREF="../../lib/dojo/dojo/resources/dojo.css" />
+        <style type="text/css">
+            ul
+            {
+                list-style-type:none;
+                margin:0;
+                padding:0;
+                padding-top:6px;
+                padding-bottom:6px;
+            }
+            li
+            {
+                display:inline;
+            }
+            a:link,a:visited
+            {
+                font-weight:bold;
+                color:#FFFFFF;
+                background-color:#98bf21;
+                text-align:center;
+                padding:6px;
+                text-decoration:none;
+                text-transform:uppercase;
+            }
+            a:hover,a:active
+            {
+                background-color:#7A991A;
+            }
+            body, html { font-family:helvetica,arial,sans-serif; font-size:90%; }
+            html, body { width: 100%; height: 100%; margin: 0; }
+            <!--Or_Skin[style]-->
+        </style>
+        <script type="text/javascript" src="../../lib/dojo/dojo/dojo.js" charset="utf-8" djconfig="parseOnLoad: true"></script>
+        <!--Or_Skin[script_src]-->
+        <script language="JavaScript">
+            <!--
+            dojo.require("dijit.layout.BorderContainer");
+            dojo.require("dijit.layout.TabContainer");
+            dojo.require("dijit.layout.AccordionContainer");
+            dojo.require("dijit.layout.ContentPane");
+            dojo.require("dijit.form.Form");
+            dojo.require("dijit.form.Button");
+            dojo.require("dijit.form.ValidationTextBox");
+            dojo.require("dijit.form.FilteringSelect");
+            dojo.require("dijit.Editor");
 
-    dojo.require("dojo.fx");
-    dojo.addOnLoad(function(){
-        // create On Load funtion
-       //dojo.fx.wipeIn({node: "animDiv",duration: 1000}).play();
-       //dojo.fx.slideTo({node: "animDiv",duration: 1000, left: 300, top: 0}).play();     
-    });
+            dojo.require("dojo.fx");
+            dojo.addOnLoad(function(){
+            // create On Load funtion
+            //dojo.fx.wipeIn({node: "animDiv",duration: 1000}).play();
+            //dojo.fx.slideTo({node: "animDiv",duration: 1000, left: 300, top: 0}).play();
+            });
 
-    //-->
-<!--Or_Skin[script]-->
-</script>
-</head>
-<body class="tundra">
-    <div dojoType="dijit.layout.BorderContainer" style="width: 938px; height: 100%; margin-left: auto ; margin-right: auto">
-        <div  dojoType="dijit.layout.ContentPane" region="top" style="height: 40px; background-color:  #FFCC66">
-            <div id="t1" style= "margin: 10px  50px; padding: 0px  0px; width: 50%"><a href="index.php" ><!--Or_Skin[my_title]--></a> | <!--Or_Skin[my_caption]-->|<!--Or_Skin[my_login]--></div>
+            //-->
+            <!--Or_Skin[script]-->
+        </script>
+    </head>
+    <body class="tundra">
+        <div dojoType="dijit.layout.BorderContainer" style="width: 938px; height: 100%; margin-left: auto ; margin-right: auto">
+            <div  dojoType="dijit.layout.ContentPane" region="top" style="height: 40px; background-color:  #FFCC66">
+                <div id="my-nav-top" style="float:right">
+                    <ul>
+                    <li><a href="index.php" ><!--Or_Skin[my_title]--></a> </li>
+                    <li><a href=""""><!--Or_Skin[my_caption]--></a></li>
+                    <li><a href=""""><!--Or_Skin[my_login]--></a></li>
+                    </ul>
+                </div>
+                <div id="my-logo" style="float:left">Logo</div>
+            </div>
+            <div dojoType="dijit.layout.ContentPane" region="center">
+                <!--Or_Skin[my_form]-->
+            </div>
+            <div dojoType="dijit.layout.ContentPane" region="bottom">
+                รายละเอียดอื่นๆ<!--Or_Skin[my_message]-->
+            </div>
         </div>
-        <div dojoType="dijit.layout.ContentPane" region="center">
-            <!--Or_Skin[my_form]-->
-        </div>
-        <div dojoType="dijit.layout.ContentPane" region="bottom">
-            รายละเอียดอื่นๆ<!--Or_Skin[my_message]-->
-        </div>
-    </div>
-</body>
+    </body>
 </html>
