@@ -36,6 +36,13 @@
             dojo.require("dijit.form.ValidationTextBox");
             dojo.require("dijit.form.FilteringSelect");
             dojo.require("dijit.Editor");
+           
+            dojo.require("dijit.MenuBar");
+            dojo.require("dijit.PopupMenuBarItem");
+            dojo.require("dijit.Menu");
+            dojo.require("dijit.MenuItem");
+            dojo.require("dijit.PopupMenuItem");
+
 
             dojo.require("dojo.fx");
             dojo.addOnLoad(function(){
@@ -49,6 +56,34 @@
         </script>
     </head>
     <body class="tundra">
+        <div dojoType="dijit.MenuBar" id="navMenu">
+            <div dojoType="dijit.PopupMenuBarItem">
+                <span>
+                    File
+                </span>
+                <div dojoType="dijit.Menu" id="fileMenu">
+                    <div dojoType="dijit.MenuItem" onClick="alert('file 1')">
+                        File #1
+                    </div>
+                    <div dojoType="dijit.MenuItem" onClick="alert('file 2')">
+                        File #2
+                    </div>
+                </div>
+            </div>
+            <div dojoType="dijit.PopupMenuBarItem">
+                <span>
+                    Edit
+                </span>
+                <div dojoType="dijit.Menu" id="editMenu">
+                    <div dojoType="dijit.MenuItem" onClick="alert('edit 1')">
+                        Edit #1
+                    </div>
+                    <div dojoType="dijit.MenuItem" onClick="alert('edit 2')">
+                        Edit #2
+                    </div>
+                </div>
+            </div>
+        </div>
         <div dojoType="dijit.layout.BorderContainer" style="height: 100%; margin-left: auto ; margin-right: auto; background-color: #784e0c">
             <div  dojoType="dijit.layout.ContentPane" region="top" style="height: 60px; background-color: #494949">
                 <div id="my-header" style="width: 999px; margin-left: auto ; margin-right: auto;">
@@ -58,11 +93,8 @@
                     </div>
                 </div>
             </div>
-            <div dojoType="dijit.layout.ContentPane" region="leading" style="background-color: #f9e2b5; border-style: solid">
-                เมนูรายการหลัก
-            </div>
             <div dojoType="dijit.layout.ContentPane" region="center" style="background-color: #f9e2b5; border-style: solid">
-                <!--Or_Skin[my_form]-->
+                <div id="my_form" style="text-align:center"><!--Or_Skin[my_form]--></div>
             </div>
             <div dojoType="dijit.layout.ContentPane" region="bottom" style="height: 30px; background-color: #996633">
                 <div id="my_footer" style="text-align:center">
