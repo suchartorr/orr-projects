@@ -38,7 +38,7 @@ class my extends my_page {
             $my_form->skin->set_skin_tag('pass', $my_form->controls[pass]->get_tag());
             $my_form->skin->set_skin_tag('login', $my_form->controls[login]->get_tag('login'));
             $my_form->set_body($my_form->skin->get_tag());
-            //$this->set_form($my_form->get_tag());
+            //
             $this->set_login($my_form->get_tag());
         } else {
             //header("Location:portal.php");
@@ -46,7 +46,8 @@ class my extends my_page {
             $this->set_login( $my_sec->get_user_text() . '</b> [ <u>' . $my_sec->OP_[user]->get() . '</u> ]' . $link_logout);
             //$this->set_login(' ผู้ใช้ระบบ '.$my_sec->get_user_text() . '</b> [ <u>' . $my_sec->OP_[user]->get() . '</u> ] ');
         }
-        
+        /* ส่วนแสดงข้อมูลหน้าจอแรก*/
+       $this->set_form('ฟอร์มข้อมูลหลัก');
         
         $this->show();
     }
