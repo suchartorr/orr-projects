@@ -8,34 +8,19 @@
         <LINK REL="stylesheet" TYPE="text/css" HREF="../../lib/dojo/dijit/themes/tundra/tundra.css" />
         <LINK REL="stylesheet" TYPE="text/css" HREF="../../lib/dojo/dojo/resources/dojo.css" />
         <style type="text/css">
-            ul
-            {
-                list-style-type:none;
-                margin:0;
-                padding:0;
-                padding-top:6px;
-                padding-bottom:6px;
-            }
-            li
-            {
-                display:inline;
-            }
             a:link,a:visited
             {
-                font-weight:bold;
-                color:#FFFFFF;
-                background-color:#98bf21;
+                color:#000000;
                 text-align:center;
                 padding:6px;
                 text-decoration:none;
-                text-transform:uppercase;
             }
             a:hover,a:active
             {
-                background-color:#7A991A;
+                color:#FF0000;
             }
             body, html { font-family:helvetica,arial,sans-serif; font-size:90%; }
-            html, body { width: 100%; height: 100%; margin: 0; }
+            html, body { width: 100%; height: 100%; margin: 0;}
             <!--Or_Skin[style]-->
         </style>
         <script type="text/javascript" src="../../lib/dojo/dojo/dojo.js" charset="utf-8" djconfig="parseOnLoad: true"></script>
@@ -64,22 +49,25 @@
         </script>
     </head>
     <body class="tundra">
-        <div dojoType="dijit.layout.BorderContainer" style="width: 938px; height: 100%; margin-left: auto ; margin-right: auto">
-            <div  dojoType="dijit.layout.ContentPane" region="top" style="height: 40px; background-color:  #FFCC66">
-                <div id="my-nav-top" style="float:right">
-                    <ul>
-                    <li><a href="index.php" ><!--Or_Skin[my_title]--></a> </li>
-                    <li><a href=""""><!--Or_Skin[my_caption]--></a></li>
-                    <li><a href=""""><!--Or_Skin[my_login]--></a></li>
-                    </ul>
+        <div dojoType="dijit.layout.BorderContainer" style="height: 100%; margin-left: auto ; margin-right: auto; background-color: #784e0c">
+            <div  dojoType="dijit.layout.ContentPane" region="top" style="height: 60px; background-color: #494949">
+                <div id="my-header" style="width: 999px; margin-left: auto ; margin-right: auto;">
+                    <div id="my_logo" style="float:left; padding:6px; font-size: large; color: #CC6633 ; font-weight: bold"><!--Or_Skin[my_caption]--></div>
+                    <div id="my_user_info" style="float:right; border-bottom-style: solid; border-bottom-color: #CC6633; padding:6px">
+                        <!--Or_Skin[my_login]-->
+                    </div>
                 </div>
-                <div id="my-logo" style="float:left">Logo</div>
             </div>
-            <div dojoType="dijit.layout.ContentPane" region="center">
+            <div dojoType="dijit.layout.ContentPane" region="leading" style="background-color: #f9e2b5; border-style: solid">
+                เมนูรายการหลัก
+            </div>
+            <div dojoType="dijit.layout.ContentPane" region="center" style="background-color: #f9e2b5; border-style: solid">
                 <!--Or_Skin[my_form]-->
             </div>
-            <div dojoType="dijit.layout.ContentPane" region="bottom">
-                รายละเอียดอื่นๆ<!--Or_Skin[my_message]-->
+            <div dojoType="dijit.layout.ContentPane" region="bottom" style="height: 30px; background-color: #996633">
+                <div id="my_footer" style="text-align:center">
+                    <!--Or_Skin[my_message]-->
+                </div>
             </div>
         </div>
     </body>
