@@ -21,7 +21,6 @@ class my extends my_page {
         if ($val_controls[logout] == 'logout'){
             $my_sec->logout();
             header("Location:welcome.php");
-            die ();
         }
 
         
@@ -39,8 +38,8 @@ class my extends my_page {
             $my_form->skin->set_skin_tag('pass', $my_form->controls[pass]->get_tag());
             $my_form->skin->set_skin_tag('login', $my_form->controls[login]->get_tag('login'));
             $my_form->set_body($my_form->skin->get_tag());
-            $this->set_form($my_form->get_tag());
-            $this->set_login('ลงทะเบียนผู้ใช้ใหม่');
+            //$this->set_form($my_form->get_tag());
+            $this->set_login($my_form->get_tag());
         } else {
             //header("Location:portal.php");
             $link_logout = '<a href="welcome.php?val_controls[logout]=logout" >ออกจากระบบ</a>';
