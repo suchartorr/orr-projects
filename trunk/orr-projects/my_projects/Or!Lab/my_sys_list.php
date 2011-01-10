@@ -16,10 +16,10 @@ class my extends my_page {
 	{
 		parent:: __construct();
 		
-		$ajax = new OrAjax();
+		/*$ajax = new OrAjax();
 		$this->set_script_src($ajax->OP_[ajax_src]->get());
 		$this->set_script($ajax->require_tooltip());
-		$this->set_ccs_src($ajax->require_tooltip_css());
+		$this->set_ccs_src($ajax->require_tooltip_css());*/
 		
 		$this->set_skin_ccs("my_list.css");
 		$this->set_skin_ccs("my_sys_list.css");
@@ -31,13 +31,13 @@ class my extends my_page {
 		
 		$my_form = new OrDbFrmList('my_form' , $this->get_my_db() );
                 $my_form->OP_[edit_page_url]->set('my_sys.php');
-                $my_form->OP_[edit_field_link]->set('sys_id');
+                //$my_form->OP_[edit_field_link]->set('sys_id');
                 $my_form->OP_[edit_key_field]->set('sys_id');
 		$my_form->OE_[current_record]->set("include('my_sys_list.OE_current_record.php');");
 		/*
 		 * สร้าง Control ในฟอร์ม ประกอบด้วย Class ในกลุ่ม GUI
 		 */
-		$my_form->set_controls(new OrLabelAjax('sys_id'));
+		//$my_form->set_controls(new OrLabelAjax('sys_id'));
 		$my_form->set_controls(new OrLabel('any_use'));
 		$my_form->set_controls(new OrLabel('aut_user'));
 		$my_form->set_controls(new OrLabel('aut_group'));
