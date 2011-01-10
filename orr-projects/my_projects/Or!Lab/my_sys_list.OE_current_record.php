@@ -8,6 +8,6 @@
  * $event_link = '<a href="my_group.php?val_filter[group]=' . $EV_record[group] . '&val_filter[user]=' . $EV_record[user] .'&val_msg[btn_filter]=Filter" target="_parent" >' . $EV_record[user] . '</a>';
  * $this->controls[user]->OP_[text]->set($event_link);
  */
-$this->controls[sys_id]->set_ajax_tooltip('my_sys_id_link.php?val_filter[sys_id]=' . $EV_record[sys_id]);
+//$this->controls[sys_id]->set_ajax_tooltip('my_sys_id_link.php?val_filter[sys_id]=' . $EV_record[sys_id]);
 
 ?>

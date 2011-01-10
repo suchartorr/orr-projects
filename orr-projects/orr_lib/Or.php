@@ -2,6 +2,14 @@
 /*Class ส่วนการจัดการพื้นฐาน ของระบบ*/
 /*ผู้สร้าง : สุชาติ บุญหชัยรัตน์ : 2/12/2545*/
 /*Version 1.1.1(13 พฤษภาคม 2547) ดูรายละเอียดที่ Change. log.txt*/
+if($_SERVER['REMOTE_ADDR']=="127.0.0.1")
+{
+  ini_set('display_errors','On');
+}
+else
+{
+  ini_set('display_errors','Off');
+}
 error_reporting(E_ALL ^ E_NOTICE); //แก้ไข การแสดง Error เม่ื่อใช้ร่วมกับ phplot เพื่อทำกราฟ
 session_start();
 /*เริ่มการกำหนดตัวแปร สภาวะของระบบ*/
