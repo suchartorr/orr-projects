@@ -9,8 +9,8 @@
 .td_caption {padding-left: 30px; text-align: left}
 .td_data {text-align: left}
 
-.input_normal { color: #000000; background-color : #FFFFFF; }
-.input_need {color: #000000; background-color : #FFCC66; }
-.read_only {border : 1px solid  #FFFFFF;}
+.input_normal { color: #000000; background-color : #FFFFFF; border : 1px solid  #999999; }
+.input_need {color: #000000; background-color : #FFCC66; border : 1px solid  #999999; }
+.read_only {border : 0px solid;}
 .toolbar{height: 36px ; width: 36px; margin: 0px  0px; padding: 0px  0px; background: transparent; border: none; vertical-align: middle;}
 
