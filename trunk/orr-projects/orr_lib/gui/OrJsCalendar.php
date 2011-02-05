@@ -15,11 +15,11 @@ class OrJsCalendar extends OrJs {
   //@return 
   //@access public
   
-  function OrJsCalendar($ccs_path = './skins/default/calendar.css')
+  function OrJsCalendar($ccs_path = './skins/all/calendar.css')
   {
 		$this->OrJs();
 		$this->OP_[js_ccs]->set(array($ccs_path));
-		$this->OP_[js_src]->set(array('./Or!Lib/calendar/calendar.js'));
+		$this->OP_[js_src]->set(array('../../lib/calendar/calendar.js'));
   }
 
 }

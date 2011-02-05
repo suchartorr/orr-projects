@@ -27,7 +27,7 @@
 class OrTextCalendar extends OrControls {
   function OrTextCalendar($id, $name = null , $idx = null)
   {
- 		$this->OrControls($id ,$name ,$idx);
+      parent::__construct($id, $name, $idx);
   }
 
   //
@@ -81,7 +81,7 @@ class OrTextCalendar extends OrControls {
 		 $this_format = 'dd/mm/bbbb';
 		 //$my_value = '<input type="text" name="theDate" readonly="" value="2004/02/02"/>';
 		 $my_value = "<input $id $class  $type $value $title maxlength=\"10\" size=\"10\" >" .$this->get_properties_tag();
-		 $my_value .= '<button title="ปฏิทิน" value="Cal" class="toolbar" type="button" onclick="displayCalendar(document.forms[0].' . $this_id . ',\'' . $this_format . '\',this)" ><img src="./skins/default/image/calendar/calendar.png"/></button>';
+		 $my_value .= '<button title="ปฏิทิน" value="Cal" class="toolbar" type="button" onclick="displayCalendar(document.forms[0].' . $this_id . ',\'' . $this_format . '\',this)" ><img src="../../lib/calendar/image/calendar.png"/></button>';
 		 //$my_value .= '<input type="button" onclick="displayCalendar(document.forms[0].' . $this_id . ',\'' . $this_format . '\',this)" value="Cal">';
 		 return $my_value;
   }
