@@ -38,6 +38,8 @@
             dojo.require("dijit.form.Button");
             dojo.require("dijit.form.ValidationTextBox");
             dojo.require("dijit.form.FilteringSelect");
+            dojo.require("dijit.form.DropDownButton");
+            dojo.require("dijit.TooltipDialog");
             dojo.require("dijit.Editor");
 
             dojo.require("dijit.MenuBar");
@@ -59,6 +61,43 @@
         </script>
     </head>
     <body class="tundra">
+        <div dojoType="dijit.layout.BorderContainer" style="height: 100%; margin-left: auto ; margin-right: auto; background-color: #784e0c">
+            <div  dojoType="dijit.layout.ContentPane" region="top" style="height: 40px; background-color: #CC6633">
+                <div id="my-header" style="width: 999px; margin-left: auto ; margin-right: auto;">
+                    <div id="my_logo" style="float:left; padding:6px; font-size: large; color: #494949 ; font-weight: bold"><!--Or_Skin[my_caption]--></div>
+                    <div id="my_user_info" style="float:right; border-style: none ;  padding:6px">
+                        
+                    </div>
+                </div>
+            </div>
+            <div dojoType="dijit.layout.ContentPane" splitter="true" region="leading" style="width: 250px;">
+                
+                <div id="my_form_status" style="border-style: none; margin-left: auto; margin-right: auto; text-align: left">
+                    <div dojoType="dijit.form.DropDownButton">
+                            <span>
+                                บันทึกเข้าใช้งาน
+                            </span>
+                            <div dojoType="dijit.TooltipDialog">
+                                <!--Or_Skin[my_login]-->
+                            </div>
+                        </div>
+                    <ul>
+                        <li><a href="#home">รูปภาพผู้ใช้ระบบ</a></li>
+                        <li><a href="#news">ข้อมูลผู้ใช้ระบบ</a></li>
+                        <li><a href="#contact">ข้อมูลผู้ที่ติดต่อ</a></li>
+                        <li><a href="#about">เกี่ยวกับระบบ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div dojoType="dijit.layout.ContentPane" region="center" style="background-color: #f9e2b5; border-style: solid">
+                <div id="my_form"><!--Or_Skin[my_form]--></div>
+            </div>
+            <div dojoType="dijit.layout.ContentPane" region="bottom" style="height: 30px; background-color: #996633">
+                <div id="my_footer" style="text-align:center">
+                    <!--Or_Skin[my_message]-->
+                </div>
+            </div>
+        </div>
         <!--Or_Skin[my_form]-->
     </body>
 </html>

@@ -66,7 +66,8 @@ class my_page extends OrHtml
 		 */
 		$this->set_title( $my_cfg[title]);
                 $this->set_caption($caption);
-                $this->set_login(' ผู้ใช้ระบบ '.$my_sec->get_user_text() . '</b> [ <u>' . $my_sec->OP_[user]->get() . '</u> ] ออกจากระบบ ' );
+                $link_logout = '<a href="welcome.php?val_controls[logout]=logout" >ออกจากระบบ</a>';
+                $this->set_login( $my_sec->get_user_text() . '</b> [ <u>' . $my_sec->OP_[user]->get() . '</u> ]' . $link_logout);
 	}
         
         
