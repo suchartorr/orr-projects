@@ -1,7 +1,7 @@
 <?php
 
 /*
- * หน้าจอสำหรับทดสอบการเขียนโปรแกรม
+ * หน้าจอคัดรายการข้อมูลเพื่อให้ผู้ใช้งานเลือกรายการ
  * 1. ทดสอบการสร้างหน้าจอ
  * 2. ทดสอบการรับและส่งค่า ระหว่างโปรแกรม
  */
@@ -20,11 +20,18 @@ class my_page extends OrHtml {
     function __construct($title = '') {
         global $my_cfg;
         parent::__construct($title);
-        $this->set_skin($my_cfg[skins_path] . 'default_testing.html');
+        $this->set_skin($my_cfg[skins_path] . 'default_list.html');
     }
 
 }
 
-$my = new my_page('Orr-projects ทดสอบระบบ');
+$my = new my_page('Orr-projects รายการข้อมูล');
 $my->show();
+?>
+<?php
+/* 
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 ?>
