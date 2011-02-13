@@ -55,8 +55,6 @@
             // create On Load funtion
             //dojo.fx.wipeIn({node: "animDiv",duration: 1000}).play();
             //dojo.fx.slideTo({node: "animDiv",duration: 1000, left: 300, top: 0}).play();
-            var node = dojo.byId("someNode");
-            node.innerHTML = "found me!";
             });
 
             //-->
@@ -75,8 +73,8 @@
             </div>
             <div dojoType="dijit.layout.ContentPane" splitter="true" region="leading" style="width: 250px;">
                 <div id="my_form_status" style="border-style: none; margin-left: auto; margin-right: auto; text-align: left">
-                    <div id="external" dojoType="dijit.Dialog" title="My external dialog"
-                         href="ex_page_list.php" style="width: 800px; height: 400px;">
+                    <div id="external" dojoType="dijit.Dialog" title="My external dialog">
+                        <iframe title="Test IFrame" src="ex_page_list.php" style="width:600px; height: 400px;"></iframe>
                     </div>
                     <p>
                         ไดอะล็อกบ็อกซ์
@@ -87,7 +85,7 @@
                     </button>
                 </div>
             </div>
-            <div dojoType="dijit.layout.ContentPane" region="center" style="background-color: #f9e2b5; border-style: solid">
+            <div dojoType="dijit.layout.ContentPane" region="center"  href="ex_page_list.php" style="background-color: #f9e2b5; border-style: solid">
                 <div id="my_form"><!--Or_Skin[my_form]--></div>
             </div>
             <div dojoType="dijit.layout.ContentPane" region="bottom" style="height: 30px; background-color: #996633">
