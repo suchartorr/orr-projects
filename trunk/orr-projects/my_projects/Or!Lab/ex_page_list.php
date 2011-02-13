@@ -1,25 +1,27 @@
 <?php
-/* 
+
+/*
  * ตัวอย่างการสร้างโปรแกรมรายงานข้อมูล
  */
 require_once('../../orr_lib/Or.php');
 require_once('config.inc.php');
 
-class my_page extends OrHtml {
+class my_page {
 
     function __construct($title = '') {
         global $my_cfg;
-        parent::__construct($title);
-         $sql = "SELECT * ,concat(`prefix`,`fname`, ' ' , `lname`) AS `name` FROM `my_user`"; //<-กำหนดคำสั่ง SQL
+        $sql = "SELECT * ,concat(`prefix`,`fname`, ' ' , `lname`) AS `name` FROM `my_user`"; //<-กำหนดคำสั่ง SQL
         $my_db = new OrMysql($my_cfg[db]);
-        $my_form = new OrDbFrmList('my_form' , $my_db);
-
+        $filter = new OrSql();
+        //$my_form = new OrDbFrmList('my_form' , $my_db);
+        $my_form = new OrDbFormList('my_form', '', 100);
+        $my_form->set_db($my_db);
         /*
          * กำหนดคำสั่งที่ต้องในเหตุการณ์ของ Form เช่น on current record โดยปกติจากสร้างไฟล์เก็บคำสั่งไว้
          * โดยใช้ [ชื่อไฟล์โปรแกรม] .[ชื่อเหตุการณ์] เช่น new_page_list.OE_current_record.php เป็นต้น
          * สามารถดูรายละเอียดได้ในไฟล์ดังกล่าว
          */
-        //$my_form->OE_[current_record]->set("include('new_page_list.OE_current_record.php');");//<-แก้ไขถ้าต้องการใช้คำสั่งตามเหตุการณ์
+        $my_form->OE_[current_record]->set("include('ex_page_list.OE_current_record.php');"); //<-แก้ไขถ้าต้องการใช้คำสั่งตามเหตุการณ์
 
         /*
          * สร้าง Control ในฟอร์ม โดยปกติจะใช้ class OrLabel
@@ -59,7 +61,7 @@ class my_page extends OrHtml {
         /*
          * กระบวนการจัดการข้อมูลจากฐานข้อมูล
          */
-        $my_form->fetch_record($sql);
+        $my_form->fetch_record($sql, $filter);
         /*
          * กำหนดส่วนหัวของฟอร์ม ปกติจะแสดงช่อง Filter สำหรับกรองข้อมูล
          */
@@ -71,11 +73,15 @@ class my_page extends OrHtml {
         /*
          * กำหนดฟอร์มลงในหน้า และแสดงหน้าจอ
          */
-        $this->set_body($my_form->get_tag());
-        $this->set_body($my_form->OP_[cmd_msg]->get());
-        $this->show();
+
+        foreach ($my_form->get_list_tag() as $line) {
+            echo $line;
+        }
+
+        //$this->set_body($my_form->OP_[cmd_msg]->get());
     }
 
 }
+
 $my = new my_page('ตัวอย่างโปรแกรมรายงานข้อมูล');
 ?>

@@ -11,7 +11,6 @@ class my extends my_page {
     public function __construct($title = '') {
         global $my_cfg;
         parent::__construct($title);
-        $this->set_skin($my_cfg[skins_path] .'default_welcome.html');
         $this->set_caption('หน้าหลัก');
         $my_sec = new OrSec(false);
         $val_ = new OrSysvalue();
