@@ -2,7 +2,7 @@
 /*Class ส่วนการจัดการพื้นฐาน ของระบบ*/
 /*ผู้สร้าง : สุชาติ บุญหชัยรัตน์ : 2/12/2545*/
 /*Version 1.1.1(13 พฤษภาคม 2547) ดูรายละเอียดที่ Change. log.txt*/
-if($_SERVER['REMOTE_ADDR']=="127.0.0.1")
+if($_SERVER['REMOTE_ADDR']=="10.1.16.4")
 {
   ini_set('display_errors','On');
 }
