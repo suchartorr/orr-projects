@@ -24,6 +24,7 @@
             html, body { width: 100%; height: 100%; margin: 0;}
             <!--Or_Skin[style]-->
         </style>
+        <script language="JavaScript" src="../../lib/OrScript.js"></script>
         <script language="JavaScript" src="../../lib/calendar/calendar.js"></script>
         <script type="text/javascript" src="../../lib/dojo/dojo/dojo.js" charset="utf-8" djconfig="parseOnLoad: true"></script>
         <!--Or_Skin[script_src]-->
@@ -80,8 +81,11 @@
                         ไดอะล็อกบ็อกซ์
                     </p>
                     <input dojoType="dijit.form.TextBox" type="text" name="txt_name" id="txt_name">
+                    <button dojoType="dijit.form.Button" onClick="popUpWindow('test_gui.php','ทดสอบการใช้งาน',600,400,'yes');" type="button">
+                        popUpWindow...
+                    </button>
                     <button dojoType="dijit.form.Button" onClick="dijit.byId('external').show();" type="button">
-                        Show me!
+                        Dialog...
                     </button>
                 </div>
             </div>
