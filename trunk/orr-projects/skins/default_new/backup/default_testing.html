@@ -83,10 +83,7 @@
                     </p>
                     <input dojoType="dijit.form.TextBox" type="text" name="txt_name" id="txt_name">
                     <button dojoType="dijit.form.Button" onClick="popUpWindow('test_gui.php','ทดสอบการใช้งาน',600,400,'yes');" type="button">
-                        popUpWindow 1 ...
-                    </button>
-                    <button dojoType="dijit.form.Button" onClick="winopen('ex_page_popup.php','ทดสอบการใช้งาน',600,400,'yes');" type="button">
-                        popUpWindow 2 ...
+                        popUpWindow...
                     </button>
                     <button dojoType="dijit.form.Button" onClick="dijit.byId('external').show();" type="button">
                         Dialog...
@@ -96,7 +93,11 @@
             <div dojoType="dijit.layout.ContentPane" region="center"  href="ex_page_list.php" style="background-color: #f9e2b5; border-style: solid">
                 <div id="my_form"><!--Or_Skin[my_form]--></div>
             </div>
+            <div dojoType="dijit.layout.ContentPane" region="bottom" style="height: 30px; background-color: #996633">
+                <div id="my_footer" style="text-align:center">
+                    <!--Or_Skin[my_message]-->
+                </div>
+            </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>

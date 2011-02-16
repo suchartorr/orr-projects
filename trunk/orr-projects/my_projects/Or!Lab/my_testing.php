@@ -23,8 +23,13 @@ class my_page extends OrHtml {
         $this->set_skin($my_cfg[skins_path] . 'default_testing.html');
     }
 
+    function set_dialog(){
+        $this->skin->set_skin_tag('my_dialog' , $tag);
+        return null;
+    }
+
 }
 
-$my = new my_page('Orr-projects ทดสอบระบบ');
+$my = new my_page('Orr-projects ทดสอบโครงการ');
 $my->show();
 ?>
