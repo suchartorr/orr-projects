@@ -21,6 +21,11 @@ class OrDojoTextSearch extends OrDojoTextbox {
          * $this->property('ชื่อ' , 'ประเภทข้อมูล' ,'ค่าเริ่มต้น');
          */
         // $this->property('ajax_src','string','./dojo-0.4.1-ajax/dojo.js');
+         $this->property('popup_url','string'); //URL ที่เปิด
+         $this->property('popup_id','string');//ชื่อหน้าต่าง
+         $this->property('popup_width','integer',800);//ความกว้างของหน้าต่าง
+         $this->property('popup_hight','integer',600);//ความสูงของหน้าต่าง
+
         /*
          * การกำหนดเหตุการณ์ ของคลาส ใช้คำสั่ง
          * $this->event('ชื่อเหตุการณ์');
@@ -36,6 +41,12 @@ class OrDojoTextSearch extends OrDojoTextbox {
    function get_tag($value = null) {
        $my_value = parent::get_tag($value);
        $btn_search = new OrDojoButton('btn_search');
+       $url = $this->OP_[popup_url]->get();
+       $id = $this->OP_[popup_id]->get();
+       $width = $this->OP_[popup_width]->get();
+       $hight = $this->OP_[popup_hight]->get();
+       $js_onclick = 'onClick="'."win_popup('$url','$id',$width,$hight,'yes');" .'"';
+       $btn_search->OP_[js_event]->set($js_onclick);
        $my_value .= ' ' . $btn_search->get_tag('Search');
        return $my_value;
    }

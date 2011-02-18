@@ -11,10 +11,7 @@ class my_page extends OrHtml {
     function __construct($title = '') {
         global $my_cfg;
         parent::__construct($title);
-        $this->set_skin($my_cfg[skins_path] .'default.html');
-        $txt_search = new OrDojoTextSearch('txt_search');
-        $tag = $txt_search->get_tag();
-        $this->skin->set_skin_tag('my_form' , $tag);
+        $this->set_body("หน้าจอ popup");
         $this->show();
     }
 

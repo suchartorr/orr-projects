@@ -1,6 +1,5 @@
 <?php
-
-/*
+/* 
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -12,21 +11,21 @@ class my extends my_page {
     public function __construct($title = '') {
         global $my_cfg;
         parent::__construct($title);
-        $this->set_skin($my_cfg[skins_path] . 'default_welcome.html');
+        $this->set_skin($my_cfg[skins_path] .'default_welcome.html');
         $this->set_caption('หน้าหลัก');
         $my_sec = new OrSec(false);
         $val_ = new OrSysvalue();
         $val_controls = $val_->controls;
-        if ($val_controls[login] == 'login') {
+        if ($val_controls[login] == 'login'){
             $my_sec->login($val_controls[user], $val_controls[pass]);
         }
-        if ($val_controls[logout] == 'logout') {
+        if ($val_controls[logout] == 'logout'){
             $my_sec->logout();
             header("Location:welcome.php");
         }
 
-
-
+        
+        
         if ($my_sec->OP_[user]->get() == '') {
             $my_form = new OrDojoForm('my_form');
             $my_form->set_controls(new OrDojoTextbox('user'));
@@ -45,18 +44,15 @@ class my extends my_page {
         } else {
             //header("Location:portal.php");
             $link_logout = '<a href="welcome.php?val_controls[logout]=logout" >ออกจากระบบ</a>';
-            $this->set_login($my_sec->get_user_text() . '</b> [ <u>' . $my_sec->OP_[user]->get() . '</u> ]' . $link_logout);
+            $this->set_login( $my_sec->get_user_text() . '</b> [ <u>' . $my_sec->OP_[user]->get() . '</u> ]' . $link_logout);
             //$this->set_login(' ผู้ใช้ระบบ '.$my_sec->get_user_text() . '</b> [ <u>' . $my_sec->OP_[user]->get() . '</u> ] ');
         }
-        /* ส่วนแสดงข้อมูลหน้าจอแรก */
-        //$this->set_subpage('ฟอร์มข้อมูลหลัก');
-        /* รายการเมนูหลัก */
-        $this->set_leading('เมนูหลัก');
-        $this->set_subpage('ex_page.php');
+        /* ส่วนแสดงข้อมูลหน้าจอแรก*/
+       $this->set_form('ฟอร์มข้อมูลหลัก');
+        
         $this->show();
     }
 
 }
-
 $my = new my('หน้าทดสอบ Or!Lab');
 ?>
