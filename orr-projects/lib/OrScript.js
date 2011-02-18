@@ -22,3 +22,8 @@ var setfocus;
   setfocus = window.open(theURL,winName,'resizable=no,scrollbars='+ scollbar +',width='+ width +',height='+ height +',top=0,left=0');
   setfocus.focus();
 }
+
+//ฟังก์ชั่นสำหรับ ปิดหน้าต่าง popup
+function win_close() {
+	window.close;
+}
