@@ -17,7 +17,7 @@ Win            =    window.open(URL, N, winProp)
 }
 
 // ฟังชั่นสำหรับ เปิดหน้าต่าง popup
-function winopen(theURL,winName,width,height,scollbar) { 
+function win_popup(theURL,winName,width,height,scollbar) {
 var setfocus;
   setfocus = window.open(theURL,winName,'resizable=no,scrollbars='+ scollbar +',width='+ width +',height='+ height +',top=0,left=0');
   setfocus.focus();

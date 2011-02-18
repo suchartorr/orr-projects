@@ -29,16 +29,16 @@ class OrDojoButton extends OrButton{
             $class = 'class="' . $this->OP_[class_name]->get() . '"';
         }
 
+        $title = 'title="' . $this->OP_[title]->get() . '"';
+        $js_event = $this->OP_[js_event]->get();
         $type = 'type="' . $this->OP_[type]->get() . '"';
         $value = 'value="' . $this->OP_[value]->get() . '"';
         $dojo_property = 'dojoType="dijit.form.Button" ';
         if ($this->OP_[image_source]->get() == '') {
             $title = 'title="' . $this->OP_[title]->get() . '"';
-            return "<button $dojo_property $id $class $type $value $title>";
+            return "<button $dojo_property $id $class $type $value $title $js_event>".$this->OP_[value]->get()."</button>";
         } else {
             $src = 'src="' . $this->OP_[image_source]->get() . '"';
-            $title = 'title="' . $this->OP_[title]->get() . '"';
-            $js_event = $this->OP_[js_event]->get();
             return "<button $dojo_property $id $type $class $value $title $js_event><img $src></button>";
         }
     }

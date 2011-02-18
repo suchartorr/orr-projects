@@ -121,12 +121,21 @@ class my_page extends OrHtml
 		$this->skin->set_skin_tag('my_login' , $tag);
 		return null;
 	}
+        /**
+	 * set_form : กำหนด Form เพื่อ Login
+	 * @param string $tag คำสั่ง HTML ของ Form
+	 * @return null
+	 */
+	function set_leading($tag){
+		$this->skin->set_skin_tag('my_leading' , $tag);
+		return null;
+	}
 	/**
 	 * set_subpage : กำหนด Sub Page
 	 * @param string $url Address ของ Page
 	 * @return null
 	 */
-	function set_subpage($url , $width = '100%'  , $height = '600px')
+	function set_subpage($url , $width = '98%'  , $height = '98%')
 	{
 		$tag = '<iframe name="frm_sub" frameborder="0" height="' . $height . '" width="' . $width . '" scrolling="auto" src="' . $url . '" > Or!Frame</iframe>';
 		$this->skin->set_skin_tag('my_subform' , $tag);
