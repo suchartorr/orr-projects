@@ -7,7 +7,7 @@
  * ค่าใน config.inc.php ให้ถูกต้อง
  * กำหนดข้อมูลของโปรแกรม
  * กำหนดเขตข้อมูล
- * ตัวอย่างการเขียนเพื่อแสดงข้อมูลแบบรายงาน
+ * ตัวอย่างการเขียนเพื่อแสดงหน้าจอข้อมูลแบบรายงาน
  *******************************************************************/
  
 require_once('my_page.cls.php');
@@ -29,7 +29,7 @@ class my extends my_page {
 		 */
 		$sql = "SELECT * ,concat(`prefix`,`fname`, ' ' , `lname`) AS `name` FROM `my_user`";//<-กำหนดคำสั่ง SQL
 		
-		$my_form = new OrDbFrmList('my_form' , $this->get_my_db() );
+		$my_form = new OrDbPopupList('my_form' , $this->get_my_db() );
                 $my_form->OP_[edit_page_url]->set('_.php');//กำหนด URL ของหน้าแก้ไขข้อมูล
                 $my_form->OP_[edit_field_link]->set('id');//กำหนด ชื่อ Field ที่ต้องการให้เป็น Link หนาแก้ไขข้อมูล
                 $my_form->OP_[edit_key_field]->set('id'); //กำหนด ชื่อ Field ที่เป็นคีย์แก้ไข
