@@ -179,6 +179,7 @@ require_once('db/OrDbForm.php');
 require_once('db/OrDbFrmForm.php');
 require_once('db/OrDbFormList.php');
 require_once('db/OrDbFrmList.php');
+require_once('db/OrDbPopupList.php');
 require_once('db/OrDbFrmCrossTab.php');
 require_once('db/OrMysql.php');
 require_once('db/OrSql.php');

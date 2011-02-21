@@ -12,7 +12,9 @@ class my_page extends OrHtml {
         global $my_cfg;
         parent::__construct($title);
         $this->set_body("หน้าจอ popup");
-        $link = '<br>'.'ทำลิงก์ ที่คืนค่ากลับ และปิดป็อบอัพ';
+        $link = '<br>'.'<a href="JavaScript:return_to_opener()">Click เพื่อส่งค่า 123456 กลับไปที่ textbox</a>';
+        //window.opener.document.frmTest.tbTest.value=strContent;
+        //window.close();
         $this->set_body($link);
         $this->show();
     }

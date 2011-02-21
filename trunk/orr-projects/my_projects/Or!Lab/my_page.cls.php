@@ -26,7 +26,7 @@ require_once('config.inc.php');
  * @author     Suchart Bunhachirat <suchart.orr@gmail.com>
  * @copyright  1997-2005 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    2553
+ * @version    2554
  */
 class my_page extends OrHtml
 {
