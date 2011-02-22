@@ -33,6 +33,9 @@ class my extends my_page {
                 $my_form->OP_[edit_page_url]->set('_.php');//กำหนด URL ของหน้าแก้ไขข้อมูล
                 $my_form->OP_[edit_field_link]->set('id');//กำหนด ชื่อ Field ที่ต้องการให้เป็น Link หนาแก้ไขข้อมูล
                 $my_form->OP_[edit_key_field]->set('id'); //กำหนด ชื่อ Field ที่เป็นคีย์แก้ไข
+                $my_form->OP_[form_return]->set('frm_test'); //ชื่อฟอร์มที่คืนค่า
+                $my_form->OP_[field_return]->set('txt_search'); //ชื่อ Contorl
+
                 
 		/*
 		 * กำหนดคำสั่งที่ต้องในเหตุการณ์ของ Form เช่น on current record โดยปกติจากสร้างไฟล์เก็บคำสั่งไว้
