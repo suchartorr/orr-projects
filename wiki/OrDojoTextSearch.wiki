@@ -1,4 +1,5 @@
 #summary อธิบายเกี่ยวกับ กล่องค้นหาข้อความ
+#labels Phase-Implementation
 
 = กล่องค้นหาข้อความ =
 
@@ -18,7 +19,6 @@
 ==วิธีการเฉพาะ==
 
 =ตัวอย่างการเขียนโปรแกรม=
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+การเขียนโปรแกรมประกอบด้วย 2 ส่วน คือ
+  * ===การเขียนโปรแกรม หน้าจอหลัก===
+  * ===การเขียนโปรแกรม หน้าจอค้นหาข้อมูล==
