@@ -15,7 +15,7 @@ class my_page extends OrHtml {
         $frm_test = new OrForm('frm_test');
         $txt_search = new OrDojoTextSearch('txt_search');    
         $txt_search->OP_[popup_url]->set('ex_popup_list.php');
-        $txt_search->OP_[popup_id]->set('win_popup');
+        //$txt_search->OP_[popup_id]->set('win_popup');
         $this->set_body("ทดสอบการใช้ Controls");
         $frm_test->set_body('<br>' . $txt_search->get_tag());
         $this->set_body($frm_test->get_tag());

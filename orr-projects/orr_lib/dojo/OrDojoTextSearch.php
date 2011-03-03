@@ -22,7 +22,7 @@ class OrDojoTextSearch extends OrDojoTextbox {
          */
         // $this->property('ajax_src','string','./dojo-0.4.1-ajax/dojo.js');
          $this->property('popup_url','string'); //URL ที่เปิด
-         $this->property('popup_id','string');//ชื่อหน้าต่าง
+         $this->property('popup_id','string',$id);//ชื่อหน้าต่าง
          $this->property('popup_width','integer',800);//ความกว้างของหน้าต่าง
          $this->property('popup_hight','integer',600);//ความสูงของหน้าต่าง
 
