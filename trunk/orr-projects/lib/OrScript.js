@@ -1,9 +1,9 @@
 /*
- *  Suchart Bunhachirat 15/02/2011
- * สุชาติ บุญหชัยรัตน์ 15 กุมภาพันธ์ 2554
- * ไฟล์ java script ทั่วไปที่ใช้ร่วมกันใน orr-projects
- * ข้อมูลจาก
- * http://sixhead.com/2008/01/26/javascript-popup-and-window-opener/
+*  Suchart Bunhachirat 15/02/2011
+* สุชาติ บุญหชัยรัตน์ 15 กุมภาพันธ์ 2554
+* ไฟล์ java script ทั่วไปที่ใช้ร่วมกันใน orr-projects
+* ข้อมูลจาก
+* http://sixhead.com/2008/01/26/javascript-popup-and-window-opener/
 */
 // function นี้มีไว้เพื่อสร้าง popup ให้อยู่กลางจอเสมอ
 
@@ -22,8 +22,8 @@ Win            =    window.open(URL, N, winProp)
 function win_popup(theURL, searchValue, winName,width,height,scollbar) {
 var setfocus;
 theURL = theURL + '?val_filter[filter_by]=' + searchValue + '&val_msg[btn_filter]=Filter';
-  setfocus = window.open(theURL,winName,'resizable=no,scrollbars='+ scollbar +',width='+ width +',height='+ height +',top=0,left=0');
-  setfocus.focus();
+setfocus = window.open(theURL,winName,'resizable=no,scrollbars='+ scollbar +',width='+ width +',height='+ height +',top=0,left=0');
+setfocus.focus();
 }
 
 //ฟังก์ชั่นสำหรับ ปิดหน้าต่าง popup
@@ -33,9 +33,9 @@ function win_close() {
 
 //ฟังก์ชั่นเพื่อคืนค่ากลับหน้าต่างที่เปิด POPUP
 function return_to_opener(strValue,strFormName,strControlName){
-        //var strContent = document.frmSelect.tbTextArea.value;
-        //var strContent = '123456';
-        //window.opener.document.write(strContent);
-       window.opener.document.my_form.txt_search.value=strValue;
-       window.close();
+//var strContent = document.frmSelect.tbTextArea.value;
+//var strContent = '123456';
+//window.opener.document.write(strContent);
+window.opener.document.my_form.txt_search.value=strValue;
+window.close();
 }

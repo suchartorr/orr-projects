@@ -62,6 +62,34 @@
         </script>
     </head>
     <body class="tundra">
+        <div dojoType="dijit.MenuBar" id="navMenu"  style="width: 100%; margin-left: auto ; margin-right: auto;">
+    <div dojoType="dijit.PopupMenuBarItem">
+        <span>
+            แฟ้ม
+        </span>
+        <div dojoType="dijit.Menu" id="fileMenu">
+            <div dojoType="dijit.MenuItem" onClick="alert('file 1')">
+                File #1
+            </div>
+            <div dojoType="dijit.MenuItem" onClick="alert('file 2')">
+                File #2
+            </div>
+        </div>
+    </div>
+    <div dojoType="dijit.PopupMenuBarItem">
+        <span>
+            แก้ไข
+        </span>
+        <div dojoType="dijit.Menu" id="editMenu">
+            <div dojoType="dijit.MenuItem" onClick="alert('edit 1')">
+                Edit #1
+            </div>
+            <div dojoType="dijit.MenuItem" onClick="alert('edit 2')">
+                Edit #2
+            </div>
+        </div>
+    </div>
+</div>
         <div dojoType="dijit.layout.BorderContainer" style="height: 100%; margin-left: auto ; margin-right: auto; background-color: #784e0c">
             <div  dojoType="dijit.layout.ContentPane" region="top" style="height: 32px; background-color: #CC6633">
                 <div id="my-header" style="width: 100%; margin-left: auto ; margin-right: auto;">

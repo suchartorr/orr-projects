@@ -49,7 +49,7 @@ class my_page extends OrHtml
 		}
 		parent :: __construct($title);
 		//$this->set_ccs_src($my_cfg[skins_path] . 'my_page.css');
-		$this->set_skin($my_cfg[skins_path] .'default.html');
+		$this->set_skin($my_cfg[skins_path] .'default.html');//รูปแบบหน้าจอปกติ
 		//$my_menu = new OrJsMenu('my_menu_utf8.inc.js' , $my_cfg[skins_path] . "xp.css");
 		//$this->set_ccs_src($my_menu->OP_[js_ccs]->get());
 		//$this->set_script_src($my_menu->OP_[js_src]->get());
