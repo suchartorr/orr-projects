@@ -9,10 +9,10 @@
 = Details =
 
 orr-projects
--idea
--lib
--my_projects
--my_setup
--my_templates
--orr_lib
--skins
+ # idea
+ # lib
+ # my_projects
+ # my_setup
+ # my_templates
+ # orr_lib
+ # skins
