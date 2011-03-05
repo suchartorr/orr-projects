@@ -40,6 +40,7 @@ class OrDbPopupList extends OrDbFrmList{
                         //$this->controls[$field_link ]->OP_[text]->set($return_link . $event_link);
                         $return_link = 'window.opener.document.' . $this->OP_[form_return]->get() .'.' . $this->OP_[field_return]->get() . ".value='" . $EV_record[$field_link] . "';";
                         $return_link .= 'window.close();';
+                        //$return_link =  "return_to_opener('" . $EV_record[$field_link] . "','". $this->OP_[form_return]->get() .  "','". $this->OP_[field_return]->get() ."');" ;
                         $return_link ='<a href="JavaScript:' . $return_link . '">'.$EV_record[$field_link].'</a>';
                         $this->controls[$field_link ]->OP_[text]->set($return_link);
                 }

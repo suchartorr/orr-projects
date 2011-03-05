@@ -33,7 +33,7 @@ class my extends my_page {
                 $my_form->OP_[edit_page_url]->set('_.php');//กำหนด URL ของหน้าแก้ไขข้อมูล
                 $my_form->OP_[edit_field_link]->set('id');//กำหนด ชื่อ Field ที่ต้องการให้เป็น Link หนาแก้ไขข้อมูล
                 $my_form->OP_[edit_key_field]->set('id'); //กำหนด ชื่อ Field ที่เป็นคีย์แก้ไข
-                $my_form->OP_[form_return]->set('frm_test'); //ชื่อฟอร์มที่คืนค่า
+                $my_form->OP_[form_return]->set('my_form'); //ชื่อฟอร์มที่คืนค่า
                 $my_form->OP_[field_return]->set('txt_search'); //ชื่อ Contorl
 
                 
@@ -71,7 +71,7 @@ class my extends my_page {
 		 * กำหนดข้อมูลการคัดกรองข้อมูล ใหม่กรณีเกิดข้อผิดพลาด เช่น ฟิลด์ name เกิดจากคำสั่ง concat ดังดัวอย่าง
 		 * $my_form->set_filter_name('name',"concat(`prefix`,`fname`, ' ' , `lname`)");
 		 */
-		 
+		 $my_form->set_filter_name('name',"concat(`prefix`,`fname`, ' ' , `lname`)");
 		
 		/*
 		 * กำหนดเงื่อนไขการเปรียบเทียบเริ่มต้น ฟิลด์ frequency ต้องให้เริ่มเปรียบเทียบด้วย = ให้กำหนดตามตัวอย่างด้านล่าง
