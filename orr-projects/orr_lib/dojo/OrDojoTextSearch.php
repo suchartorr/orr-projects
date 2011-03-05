@@ -45,7 +45,10 @@ class OrDojoTextSearch extends OrDojoTextbox {
        $id = $this->OP_[popup_id]->get();
        $width = $this->OP_[popup_width]->get();
        $hight = $this->OP_[popup_hight]->get();
-       $js_onclick = 'onClick="'."win_popup('$url','$id',$width,$hight,'yes');" .'"';
+       //$js_onclick = 'onClick="'."alert(window.document.frm_test.txt_search.value);" .'"';
+       $search_value = 'window.document.my_form.' .  $this->OP_[id]->get() . '.value';
+       $js_onclick = 'onClick="'."alert( $search_value );" .'"';
+       $js_onclick = 'onClick="'."win_popup('$url', $search_value , '$id',$width,$hight,'yes');" .'"';
        $btn_search->OP_[js_event]->set($js_onclick);
        $my_value .= ' ' . $btn_search->get_tag('Search');
        return $my_value;

@@ -12,7 +12,7 @@ class my_page extends OrHtml {
         global $my_cfg;
         parent::__construct($title);
         //$this->set_skin($my_cfg[skins_path] .'default.html');
-        $frm_test = new OrForm('frm_test');
+        $frm_test = new OrForm('my_form');
         $txt_search = new OrDojoTextSearch('txt_search');    
         $txt_search->OP_[popup_url]->set('ex_popup_list.php');
         //$txt_search->OP_[popup_id]->set('win_popup');

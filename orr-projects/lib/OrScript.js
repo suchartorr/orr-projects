@@ -19,8 +19,9 @@ Win            =    window.open(URL, N, winProp)
 /*ฟังก์ชั่นสำหรับ เปิดหน้าต่าง popup
 * 1. เก็บชื่อของ control ที่ต้องการรับค่ากลับมา
 */
-function win_popup(theURL,winName,width,height,scollbar) {
+function win_popup(theURL, searchValue, winName,width,height,scollbar) {
 var setfocus;
+theURL = theURL + '?val_filter[filter_by]=' + searchValue + '&val_msg[btn_filter]=Filter';
   setfocus = window.open(theURL,winName,'resizable=no,scrollbars='+ scollbar +',width='+ width +',height='+ height +',top=0,left=0');
   setfocus.focus();
 }
@@ -35,6 +36,6 @@ function return_to_opener(strValue,strFormName,strControlName){
         //var strContent = document.frmSelect.tbTextArea.value;
         //var strContent = '123456';
         //window.opener.document.write(strContent);
-       window.opener.document.frm_test.txt_search.value=strValue;
+       window.opener.document.my_form.txt_search.value=strValue;
        window.close();
 }
