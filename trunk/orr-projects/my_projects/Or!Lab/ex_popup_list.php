@@ -34,7 +34,7 @@ class my extends my_page {
                 $my_form->OP_[edit_field_link]->set('id');//กำหนด ชื่อ Field ที่ต้องการให้เป็น Link หนาแก้ไขข้อมูล
                 $my_form->OP_[edit_key_field]->set('id'); //กำหนด ชื่อ Field ที่เป็นคีย์แก้ไข
                 $my_form->OP_[form_return]->set('my_form'); //ชื่อฟอร์มที่คืนค่า
-                $my_form->OP_[field_return]->set('txt_search'); //ชื่อ Contorl
+                //$my_form->OP_[field_return]->set('txt_search'); //ชื่อ Contorl
 
                 
 		/*
