@@ -15,8 +15,10 @@
 class OrDbPopupList extends OrDbFrmList{
     function  __construct($id, $db, $skin = null) {
         parent::__construct($id, $db, $skin);
+        $val_ = new OrSysvalue();
+        $this->filter_value = $val_->filter;
         $this->property('form_return','string','my_form'); //กำหนด ชื่อฟอร์ม ที่คืนค่ากลับในหน้าเดิม
-        $this->property('field_return','string'); //กำหนด ชื่อ Control ที่คืนค่ากลับในหน้าเดิม
+        $this->property('control_return','string',$val_->message[control_id]); //กำหนด ชื่อ Control ที่คืนค่ากลับในหน้าเดิม
         //กำหนดแสดงหน้าจอแสดงข้อมูลเป็นค่าเริ่มต้น
         $this->OP_[default_mode]->set('list');
     }
@@ -38,9 +40,9 @@ class OrDbPopupList extends OrDbFrmList{
                         //$event_link = '<a href="' . $page_link . '?val_filter[' . $key_link .']=' . $EV_record[$key_link] . '&val_compare[' . $key_link . ']==&val_msg[btn_filter]=Filter" target="_parent" >' . $EV_record[$field_link] . '</a>';
                         //$return_link = '<div>-></div>';
                         //$this->controls[$field_link ]->OP_[text]->set($return_link . $event_link);
-                        $return_link = 'window.opener.document.' . $this->OP_[form_return]->get() .'.' . $this->OP_[field_return]->get() . ".value='" . $EV_record[$field_link] . "';";
+                        $return_link = 'window.opener.document.' . $this->OP_[form_return]->get() .'.' . $this->OP_[control_return]->get() . ".value='" . $EV_record[$field_link] . "';";
                         $return_link .= 'window.close();';
-                        //$return_link =  "return_to_opener('" . $EV_record[$field_link] . "','". $this->OP_[form_return]->get() .  "','". $this->OP_[field_return]->get() ."');" ;
+                        //$return_link =  "return_to_opener('" . $EV_record[$field_link] . "','". $this->OP_[form_return]->get() .  "','". $this->OP_[control_return]->get() ."');" ;
                         $return_link ='<a href="JavaScript:' . $return_link . '">'.$EV_record[$field_link].'</a>';
                         $this->controls[$field_link ]->OP_[text]->set($return_link);
                 }
