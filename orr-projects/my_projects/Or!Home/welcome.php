@@ -52,11 +52,11 @@ class my extends my_page {
         //$this->set_subpage('ฟอร์มข้อมูลหลัก');
         /* รายการเมนูหลัก */
         $this->set_leading('เมนูหลัก');
-        $this->set_subpage('ex_page.php');
+        $this->set_subpage('http://10.1.0.12/joomla/');
         $this->show();
     }
 
 }
 
-$my = new my('หน้าทดสอบ Or!Lab');
+$my = new my('ยินดีต้อนรับ');
 ?>
