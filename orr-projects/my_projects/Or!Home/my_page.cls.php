@@ -23,10 +23,10 @@ require_once('config.inc.php');
  /**
  * Class สำหรับสร้างหน้าจอมาตรฐาน
  * @package    Or!Lib
- * @author     Suchart Bunhachirat <suchart_bu@yahoo.com>
+ * @author     Suchart Bunhachirat <suchart.orr@gmail.com>
  * @copyright  1997-2005 The PHP Group
  * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
- * @version    2550
+ * @version    2554
  */
 class my_page extends OrHtml
 {
@@ -49,7 +49,7 @@ class my_page extends OrHtml
 		}
 		parent :: __construct($title);
 		//$this->set_ccs_src($my_cfg[skins_path] . 'my_page.css');
-		$this->set_skin($my_cfg[skins_path] .'my_page.html');
+		$this->set_skin($my_cfg[skins_path] .'default.html');//รูปแบบหน้าจอปกติ
 		//$my_menu = new OrJsMenu('my_menu_utf8.inc.js' , $my_cfg[skins_path] . "xp.css");
 		//$this->set_ccs_src($my_menu->OP_[js_ccs]->get());
 		//$this->set_script_src($my_menu->OP_[js_src]->get());
@@ -64,7 +64,10 @@ class my_page extends OrHtml
 		 * $this->set_script($ajax->require_tooltip());
 		 * $this->set_ccs_src($ajax->require_tooltip_css());
 		 */
-		 $this->set_caption($caption);
+		$this->set_title( $my_cfg[title]);
+                $this->set_caption($caption);
+                $link_logout = '<a href="welcome.php?val_controls[logout]=logout" >ออกจากระบบ</a>';
+                $this->set_login( $my_sec->get_user_text() . '</b> [ <u>' . $my_sec->OP_[user]->get() . '</u> ]' . $link_logout);
 	}
         
         
@@ -89,6 +92,16 @@ class my_page extends OrHtml
 		$this->caption = $tag;
 		return null;
 	}
+        /**
+	 * set_caption : กำหนดชื่อระบบ
+	 * @param string $tag ชื่อระบบ
+	 * @return null
+	 */
+	function set_title($tag){
+		$this->skin->set_skin_tag('my_title' , $tag);
+		$this->caption = $tag;
+		return null;
+	}
 	/**
 	 * set_form : กำหนด Form
 	 * @param string $tag คำสั่ง HTML ของ Form
@@ -98,12 +111,31 @@ class my_page extends OrHtml
 		$this->skin->set_skin_tag('my_form' , $tag);
 		return null;
 	}
+
+        /**
+	 * set_form : กำหนด Form เพื่อ Login
+	 * @param string $tag คำสั่ง HTML ของ Form
+	 * @return null
+	 */
+	function set_login($tag){
+		$this->skin->set_skin_tag('my_login' , $tag);
+		return null;
+	}
+        /**
+	 * set_form : กำหนด Form เพื่อ Login
+	 * @param string $tag คำสั่ง HTML ของ Form
+	 * @return null
+	 */
+	function set_leading($tag){
+		$this->skin->set_skin_tag('my_leading' , $tag);
+		return null;
+	}
 	/**
 	 * set_subpage : กำหนด Sub Page
 	 * @param string $url Address ของ Page
 	 * @return null
 	 */
-	function set_subpage($url , $width = '100%'  , $height = '600px')
+	function set_subpage($url , $width = '98%'  , $height = '98%')
 	{
 		$tag = '<iframe name="frm_sub" frameborder="0" height="' . $height . '" width="' . $width . '" scrolling="auto" src="' . $url . '" > Or!Frame</iframe>';
 		$this->skin->set_skin_tag('my_subform' , $tag);
