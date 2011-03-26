@@ -39,3 +39,7 @@ function return_to_opener(strValue,strFormName,strControlName){
     window.opener.document.my_form.txt_search.value=strValue;
     window.close();
 }
+
+function change_subpage_src(){
+    document.getElementById("frm_sub").src="http://google.com";
+}

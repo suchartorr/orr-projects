@@ -1,3 +1,3 @@
 <?php
-header("Location:./my_projects/Or!Lab/index.php");
+header("Location:./my_projects/Or!Home/index.php");
 ?>
