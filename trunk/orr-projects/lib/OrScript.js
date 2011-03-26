@@ -40,6 +40,6 @@ function return_to_opener(strValue,strFormName,strControlName){
     window.close();
 }
 
-function change_subpage_src(){
-    document.getElementById("frm_sub").src="http://google.com";
+function change_subpage_src(strSrc){
+    document.getElementById("frm_sub").src=strSrc;
 }

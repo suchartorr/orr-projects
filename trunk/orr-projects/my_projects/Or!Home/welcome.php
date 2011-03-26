@@ -51,7 +51,8 @@ class my extends my_page {
         /* ส่วนแสดงข้อมูลหน้าจอแรก */
         //$this->set_subpage('ฟอร์มข้อมูลหลัก');
         /* รายการเมนูหลัก */
-        $this->set_leading('<a href="javascript:change_subpage_src()">ดูแลระบบ</a>');
+        $src = "'http://www.facebook.com/'";
+        $this->set_leading('<a href="javascript:change_subpage_src('. $src . ')">ดูแลระบบ</a>');
         $this->set_subpage('http://code.google.com/p/orr-projects/');
         $this->show();
     }
