@@ -21,6 +21,8 @@ class OrDbPopupList extends OrDbFrmList{
         $this->property('control_return','string',$val_->message[control_id]); //กำหนด ชื่อ Control ที่คืนค่ากลับในหน้าเดิม
         //กำหนดแสดงหน้าจอแสดงข้อมูลเป็นค่าเริ่มต้น
         $this->OP_[default_mode]->set('list');
+        $msg_control_id = new OrFieldHidden('val_msg[control_id]');
+        $this->set_body($msg_control_id->get_tag($val_->message[control_id]));
     }
 
     //เพิ่มปุ่มเพิ่มคืนค่าที่เลือกรายการ
