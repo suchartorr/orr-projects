@@ -40,7 +40,7 @@ class OrDojoTextSearch extends OrDojoTextbox {
      */
    function get_tag($value = null) {
        $my_value = parent::get_tag($value);
-       $btn_search = new OrDojoButton('btn_search');
+       $btn_search = new OrDojoButton('btn_search_'.$this->OP_[id]->get());
        $btn_search->OP_[type]->set('button');
        $url = $this->OP_[popup_url]->get();
        $id = $this->OP_[popup_id]->get();
