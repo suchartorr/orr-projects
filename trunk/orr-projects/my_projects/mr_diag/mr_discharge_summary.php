@@ -10,6 +10,7 @@
  *******************************************************************/
 
 require_once ('my_page.cls.php');
+require_once ('mr_diag.cls.php');
 
 class my extends my_page {
 	function __construct($discharge_date,$hn,$name,$sex,$an)
@@ -42,11 +43,12 @@ class my extends my_page {
 			//$my_form->controls[id]->OP_[default_value]->set($id);
 			$my_form->controls[id]->OP_[check_null]->set(false);
 		
-		$my_form->set_controls(new OrLabel(''),'',false);
-		
 		$my_form->set_controls(new OrLabel('discharge_date'),'วันที่ Disc.');
 			$my_form->controls[discharge_date]->OP_[default_value]->set($discharge_date);
 		 	$my_form->controls[discharge_date]->set_format('th_date' , 'mysql');
+
+                 $my_form->set_controls(new OrLabel('an'),'AN');
+                        $my_form->controls[an]->OP_[default_value]->set($an);
 		
 		//$my_form->set_controls(new OrLabel('iopd'));
 			//$iopd = new iopd_option();
@@ -60,20 +62,19 @@ class my extends my_page {
 			$my_form->controls['iopd']->OP_[text]->set('IPD');
 		  	
 		
-		$my_form->set_controls(new OrLabel('hn'));
+		$my_form->set_controls(new label_hn('hn'));
 		$my_form->controls[hn]->OP_[default_value]->set($hn);
 		
-		$my_form->set_controls(new OrLabel('name'),'',false);
+		/*$my_form->set_controls(new OrLabel('name'),'',false);
 			$my_form->controls[name]->OP_[default_value]->set($name);
 		
 		$my_form->set_controls(new OrLabel('sex'),'',false);
 			$my_form->controls[sex]->OP_[default_value]->set($sex);
 		
 		$my_form->set_controls(new OrTextbox('age_year'),'อายุ');
-			$my_form->controls[age_year]->OP_[check_null]->set(false);
+			$my_form->controls[age_year]->OP_[check_null]->set(false);*/
 			
-		$my_form->set_controls(new OrLabel('an'),'AN');
-		 $my_form->controls[an]->OP_[default_value]->set($an);
+		
 		 
 		 $my_form->set_controls(new OrLabel('              '),'',false);
 			//$my_form->controls[an]->set_size(12,10);
@@ -428,7 +429,7 @@ class my extends my_page {
 		//$my_form->controls[Principal_diagnosis]->OP_[description]->set('1)'.$my_form->controls[principal_diag1]->get_tag());
 		
 		
-		$db = new OrMysql($my_cfg[db]);//(กำหนด Object ฐานข้อมูลที่จะใช้)
+		/*$db = new OrMysql($my_cfg[db]);//(กำหนด Object ฐานข้อมูลที่จะใช้)
 		$sql = "SELECT `hn`, concat(`prefix`,`fname`,'  ',`lname`,' &nbsp;&nbsp;&nbsp; Sex : ', `sex`) AS name FROM `patient` WHERE `hn` = '" . $my_form->db->record[hn] ."'";//(กำหนด SQL ตามเงื่อนไขที่ต้องการ)
 		$db->get_query($sql);
 		if($db->get_record()){
@@ -438,7 +439,7 @@ class my extends my_page {
 		}else{
 			$my_form->controls[name]->OP_[value]->set('ไม่พบชื่อผู้ป่วย');
 			
-		}
+		}*/
 		
 		$db = new OrMysql($my_cfg[db]);//(กำหนด Object ฐานข้อมูลที่จะใช้)
 		$sql = "SELECT `code`, `name_e` FROM `mr_diag` WHERE `code` = '" . $my_form->db->record[principal_diag1] ."'";//(กำหนด SQL ตามเงื่อนไขที่ต้องการ)

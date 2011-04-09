@@ -17,10 +17,15 @@ class my_page extends OrHtml {
         $txt_search->OP_[popup_url]->set('ex_popup_list.php');
         $txt_search2 = new OrDojoTextSearch('txt_search2');
         $txt_search2->OP_[popup_url]->set('ex_popup_list.php');
+        $js_onclick = 'onClick="'."alert( 'กดแล้ว' );" .'"';
+        $lbl_test1 = new OrLabel('lbl_test1');
+        $lbl_test1->OP_[js_event]->set($js_onclick);
+        $lbl_test1->OP_[text]->set('ทดสอบ label');
         //$txt_search->OP_[popup_id]->set('win_popup');
         $this->set_body("ทดสอบการใช้ Controls");
         $frm_test->set_body('<br>' . $txt_search->get_tag());
         $frm_test->set_body('<br>' . $txt_search2->get_tag());
+        $frm_test->set_body('<br>' . $lbl_test1->get_tag());
         $this->set_body($frm_test->get_tag());
        
         $this->show();

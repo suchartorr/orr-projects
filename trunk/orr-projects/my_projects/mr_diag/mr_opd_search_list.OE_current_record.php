@@ -14,7 +14,7 @@ $db = new OrMysql($my_cfg[db]); //(กำหนด Object ฐานข้อม�
 $sql = "SELECT `id`  FROM `mr_discharge_summary` WHERE `vn` = " . $EV_record[vn] ; //(กำหนด SQL ตามเงื่อนไขที่ต้องการ)
 $db->get_query($sql);
 if ($db->get_record()) {
-    $event_link = '<a href="mr_discharge_summary.php?&val_filter[id]=' . $db->record[id] . '&val_compare[id]==&val_msg[btn_filter]=Filter" target="_parent"">' . $EV_record[hn] . '</a>';
+    $event_link = '<a href="mr_opd_diagnosis.php?&val_filter[id]=' . $db->record[id] . '&visit_date=' . $EV_record[visit_date] . '&val_compare[id]==&val_msg[btn_filter]=Filter" target="_parent"">' . $EV_record[vn] . '</a>';
 } else {
     $event_link = '<a href="mr_opd_diagnosis.php?visit_date=' . $EV_record[visit_date] . '&vn=' . $EV_record[vn] . '&hn=' . $EV_record[hn]  . '&name=' . $EV_record[name] . '&sex=' . $EV_record[sex] .'&doctor_id=' . $EV_record[doctor_id] . '&evt_form_db[navigator]=New" target="_parent" >' . $EV_record[vn] . '</a>';
 }
