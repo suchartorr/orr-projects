@@ -45,12 +45,13 @@ class my extends my_page {
 		$my_form->set_controls(new OrLabel('id'));
 		$my_form->controls[id]->OP_[check_null]->set(false);
 		
-		$my_form->set_controls(new OrLabel('  '),'',false);
-		
 		$my_form->set_controls(new OrLabel('visit_date'));
                         //$my_form->controls[visit_date]->OP_[auto_post]->set(TRUE);
                         $my_form->controls[visit_date]->OP_[default_value]->set($visit_date);
 			$my_form->controls[visit_date]->set_format('th_date' , 'mysql');
+
+                $my_form->set_controls(new OrLabel('vn'),'VN');
+                	$my_form->controls[vn]->OP_[default_value]->set($vn);
 		
 		/*$my_form->set_controls(new OrTextCalendar('visit_date'),'วันที่');
 			$my_form->controls[visit_date]->set_format('th_date' , 'mysql');
@@ -69,7 +70,7 @@ class my extends my_page {
 		$my_form->set_controls(new label_hn('hn'));
                 	$my_form->controls[hn]->OP_[default_value]->set($hn);
 			
-		$my_form->set_controls(new OrLabel('name'),'',false);
+		/*$my_form->set_controls(new OrLabel('name'),'',false);
 			$my_form->controls[name]->OP_[default_value]->set($name);
 		//$my_form->set_controls(new OrLabel('age_year'),'อายุ',false);
 		
@@ -78,10 +79,9 @@ class my extends my_page {
 		
 		$my_form->set_controls(new OrTextbox('age_year'),'อายุ');
 			$my_form->controls[age_year]->OP_[check_null]->set(false);
-			//$my_form->controls[age_year]->set_size(3);
+			//$my_form->controls[age_year]->set_size(3);*/
 			
-		$my_form->set_controls(new OrLabel('vn'),'VN');
-                	$my_form->controls[vn]->OP_[default_value]->set($vn);
+		
 		
 		$my_form->set_controls(new OrLabel('              '),'',false);
 		/*$my_form->set_controls(new OrTextbox('vn'),'VN');
