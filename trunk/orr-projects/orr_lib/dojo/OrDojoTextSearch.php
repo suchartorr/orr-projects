@@ -55,5 +55,15 @@ class OrDojoTextSearch extends OrDojoTextbox {
        return $my_value;
    }
 
+   /**
+     * get_text : แสดงข้อมูลที่เพิ่มเติม
+     * @param string
+     * @return string
+     */
+   function get_text(){
+       $my_value='ทดสอบอยู่ครับ';
+       return $my_value;
+   }
+
     }
 ?>
