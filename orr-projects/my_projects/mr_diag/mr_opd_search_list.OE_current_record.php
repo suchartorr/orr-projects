@@ -8,26 +8,16 @@
  * $event_link = '<a href="my_group.php?val_filter[group]=' . $EV_record[group] . '&val_filter[user]=' . $EV_record[user] .'&val_msg[btn_filter]=Filter" target="_parent" >' . $EV_record[user] . '</a>';
  * $this->controls[user]->OP_[text]->set($event_link);
  */
- /*
- function get_search(){
-		global $my_cfg;
-		$my_sec = new OrSec();
-		$my_db=new OrMysql($my_cfg[db]);//(กำหนด Object ฐานข้อมูลที่จะใช้)
-		$sql="SELECT * FROM `mr_discharge_summary` WHERE `visit_date` = '" . $my_sec->OP_['visit_date']->get() . "'";//(กำหนด SQL ตามเงื่อนไขที่ต้องการ)
-		$my_db->get_query($sql);
-		if($my_db->get_record()){
-			$my_value = $my_db->record[id];
-		}else{
-			$my_value = null;
-		}
-		unset($my_db);
-		return $my_value;
-}
-if get_search() <> ''{
-	
-}else{
 
-}*/
-$event_link = '<a href="mr_opd_diagnosis.php?visit_date=' . $EV_record[visit_date] . '&vn=' . $EV_record[vn] . '&hn=' . $EV_record[hn]  . '&name=' . $EV_record[name] . '&sex=' . $EV_record[sex] .'&doctor_id=' . $EV_record[doctor_id] . '&evt_form_db[navigator]=New" target="_parent" >' . $EV_record[vn] . '</a>';
+global $my_cfg;
+$db = new OrMysql($my_cfg[db]); //(กำหนด Object ฐานข้อมูลที่จะใช้)
+$sql = "SELECT `id`  FROM `mr_discharge_summary` WHERE `vn` = " . $EV_record[vn] ; //(กำหนด SQL ตามเงื่อนไขที่ต้องการ)
+$db->get_query($sql);
+if ($db->get_record()) {
+    $event_link = '<a href="mr_discharge_summary.php?&val_filter[id]=' . $db->record[id] . '&val_compare[id]==&val_msg[btn_filter]=Filter" target="_parent"">' . $EV_record[hn] . '</a>';
+} else {
+    $event_link = '<a href="mr_opd_diagnosis.php?visit_date=' . $EV_record[visit_date] . '&vn=' . $EV_record[vn] . '&hn=' . $EV_record[hn]  . '&name=' . $EV_record[name] . '&sex=' . $EV_record[sex] .'&doctor_id=' . $EV_record[doctor_id] . '&evt_form_db[navigator]=New" target="_parent" >' . $EV_record[vn] . '</a>';
+}
+//$event_link = '<a href="mr_opd_diagnosis.php?visit_date=' . $EV_record[visit_date] . '&vn=' . $EV_record[vn] . '&hn=' . $EV_record[hn]  . '&name=' . $EV_record[name] . '&sex=' . $EV_record[sex] .'&doctor_id=' . $EV_record[doctor_id] . '&evt_form_db[navigator]=New" target="_parent" >' . $EV_record[vn] . '</a>';
 $this->controls[vn]->OP_[text]->set($event_link);
 ?>
