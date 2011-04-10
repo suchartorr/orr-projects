@@ -73,7 +73,8 @@ class OrTextCalendar extends OrControls {
 		 }else{
 			  $class = 'class="'.$this->OP_[class_name]->get().'"';
 		 }
-		  
+
+                 $this->clip_value($str_date->get_mysql_str($value));
 		 $type = 'type = "text"';
 		 $value='value="'.$value.'"';
 		 $title = 'title="' . $this->OP_[title]->get() . '"';
