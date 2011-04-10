@@ -16,6 +16,8 @@ class my extends my_page {
 	function __construct()
 	{
 		parent:: __construct();
+                $clip_visit_date = new  OrClip('visit_date');
+                //echo ('visit_date : ' . $clip_visit_date->OP_[value]->get());
 		$this->set_skin_ccs("my_list.css");
 		/*
 		 * กำหนดไฟล์ css ที่ใช้กำหนดความกว้างในแต่ละช่องข้อมูล
@@ -31,7 +33,7 @@ class my extends my_page {
 		$sql = "SELECT `opd_doctor_visit`.`visit_date`, `opd_doctor_visit`.`hn`, `opd_doctor_visit`.`vn`, CONCAT( `patient`.`prefix`, `patient`.`fname`, '  ', `patient`.`lname` ) AS `name`, `patient`.`sex`, `opd_doctor_visit`.`doctor_id`, CONCAT( `doctor`.`prefix`, `doctor`.`fname`, '  ', `doctor`.`lname` ) AS `doc_name` FROM `theptarin_utf8`.`opd_doctor_visit` AS `opd_doctor_visit`, `theptarin_utf8`.`patient` AS `patient`, `theptarin_utf8`.`doctor` AS `doctor` WHERE `opd_doctor_visit`.`hn` = `patient`.`hn` AND `opd_doctor_visit`.`doctor_id` = `doctor`.`doctor_code` ORDER BY `opd_doctor_visit`.`visit_date` ASC";//<-กำหนดคำสั่ง SQL";//<-กำหนดคำสั่ง SQL
 		//$cmd_filter = new sql_cmd_where();
 		//$val_ = new val_();
-		$val_msg = $val_->message;
+		/*$val_msg = $val_->message;
 		$filter_msg='';
 		if($val_msg[btn_filter]=='Filter'){
 			if($val_msg[txt_visitdate] != ''){
@@ -40,7 +42,7 @@ class my extends my_page {
 			}
 		}else if($val_msg[btn_filter]=='No Filter'){
 			$reset=true;
-		}
+		}*/
 			
 		//$val_msg = $val_->message;
 		
@@ -76,9 +78,14 @@ class my extends my_page {
 		* $my_form->set_filter_controls(new OrSelectbox('status'));
 		* $my_form->set_filter_controls(new OrTextCalendar2('service_reg_date'));
 		*/
-		$my_form->set_filter_controls(new OrTextCalendar('visit_date'),true);
-		$my_form->set_filter_controls(new OrTextbox('vn'),true);
-			$my_form->filter_controls[vn]->set_size(5);
+		$my_form->set_filter_controls(new OrTextCalendar('visit_date'));
+                    //$my_form->filter_controls[visit_date]->OP_[default_value]->set('2011-04-10');
+                    $my_form->filter_controls[visit_date]->OP_[default_value]->set($clip_visit_date->OP_[value]->get());
+                    $my_form->filter_controls[visit_date]->set_clip();
+		$my_form->set_filter_controls(new OrTextbox('vn'));
+                        //$my_form->filter_controls[vn]->set_clip('visit_date');
+                        //$my_form->filter_controls[vn]->OP_[default_value]->set($clip_visit_date->OP_[value]->get());
+			//$my_form->filter_controls[vn]->set_size(5);
 		/*
 		 * กำหนด Function คำนวณการคำสั่ง SQL
 		 * $my_form->set_total_function('id' , 'count');
