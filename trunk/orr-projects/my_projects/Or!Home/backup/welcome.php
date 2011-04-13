@@ -8,13 +8,12 @@ require_once ("my_page.cls.php");
 require_once ("config.inc.php");
 
 class my extends my_page {
-    private $main_menu = null;
 
     public function __construct($title = '') {
         global $my_cfg;
         parent::__construct($title);
         $this->set_skin($my_cfg[skins_path] . 'default_welcome.html'); //เรียกใช้รูปแบบหน้าจอ
-        $this->set_caption('<a href="index.php">อินทราเนต เพื่อสนับสนุนการให้บริการผู้ป่วย โรงพยาบาลเทพธารินทร์</a>');
+        $this->set_caption('Orr projects');
         $my_sec = new OrSec(false);
         $val_ = new OrSysvalue();
         $val_controls = $val_->controls;
@@ -42,34 +41,23 @@ class my extends my_page {
             $my_form->skin->set_skin_tag('login', $my_form->controls[login]->get_tag('login'));
             $my_form->set_body($my_form->skin->get_tag());
             //
-             $this->set_user_info('เข้าใช้ระบบ');
             $this->set_login($my_form->get_tag());
-            $this->set_subpage('http://10.1.0.12/');
-            
         } else {
             //header("Location:portal.php");
             $link_logout = '<a href="welcome.php?val_controls[logout]=logout" >ออกจากระบบ</a>';
-            $this->set_user_info('ผู้ใช้ระบบ : ' . $my_sec->get_user_text());
-            $this->set_login($my_sec->get_user_text() . '</b> [ <u>' . $my_sec->OP_[user]->get() . '</u> ] ต้องการ ->' . $link_logout);
-            $this->set_subpage('http://code.google.com/p/orr-projects/');
+            $this->set_login($my_sec->get_user_text() . '</b> [ <u>' . $my_sec->OP_[user]->get() . '</u> ]' . $link_logout);
             //$this->set_login(' ผู้ใช้ระบบ '.$my_sec->get_user_text() . '</b> [ <u>' . $my_sec->OP_[user]->get() . '</u> ] ');
         }
         /* ส่วนแสดงข้อมูลหน้าจอแรก */
         //$this->set_subpage('ฟอร์มข้อมูลหลัก');
         /* รายการเมนูหลัก */
-        /*$src = "'http://www.facebook.com/'";
-        $this->set_leading('<a href="javascript:change_subpage_src('. $src . ')">ดูแลระบบ</a>');*/
-        $this->set_main_menu();
+        $src = "'http://www.facebook.com/'";
+        $this->set_leading('<a href="javascript:change_subpage_src('. $src . ')">ดูแลระบบ</a>');
+        $this->set_subpage('http://code.google.com/p/orr-projects/');
         $this->show();
-    }
-
-    public function set_main_menu(){
-        $this->main_menu = new OrSkin('main_menu.html');
-        $this->skin->set_skin_tag('my_main_menu' , $this->main_menu->get_tag());
-        return NULL;
     }
 
 }
 
-$my = new my('ยินดีต้อนรับเข้าสู่ อ๋อโปรเจค');
+$my = new my('ยินดีต้อนรับ');
 ?>

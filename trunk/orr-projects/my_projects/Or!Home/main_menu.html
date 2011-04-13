@@ -1,0 +1,43 @@
+<!--
+ไฟล์สร้างเมนูรายการหลักของระบบ
+-->
+<div dojoType="dijit.MenuBar" id="navMenu"  style="width: 100%; margin-left: auto ; margin-right: auto;">
+    <div dojoType="dijit.PopupMenuBarItem">
+        <span>
+            เพิ่ม แก้ไข ลบ
+        </span>
+        <div dojoType="dijit.Menu" id="fileMenu">
+            <div dojoType="dijit.MenuItem" onClick="change_subpage_src('my_sys.php')">
+                ข้อมูลที่เกี่ยวกับ  โปรแกรม
+            </div>
+            <div dojoType="dijit.MenuItem" onClick="change_subpage_src('my_user.php')">
+                ข้อมูลที่เกี่ยวกับ ผู้ใช้ระบบ
+            </div>
+            <div dojoType="dijit.MenuItem" onClick="change_subpage_src('my_can.php')">
+                สิทธิ์การใช้โปรแกรม และข้อมูล
+            </div>
+            <div dojoType="dijit.MenuItem" onClick="change_subpage_src('my_datafield.php')">
+                คำจำกัดความข้อมูล
+            </div>
+        </div>
+    </div>
+    <div dojoType="dijit.PopupMenuBarItem">
+        <span>
+            ค้นหา สรุป รายงาน
+        </span>
+        <div dojoType="dijit.Menu" id="editMenu">
+            <div dojoType="dijit.MenuItem" onClick="change_subpage_src('my_sys_list.php')">
+                ข้อมูลที่เกี่ยวกับ  โปรแกรม
+            </div>
+            <div dojoType="dijit.MenuItem" onClick="change_subpage_src('my_user_list.php')">
+                ข้อมูลที่เกี่ยวกับ ผู้ใช้ระบบ
+            </div>
+            <div dojoType="dijit.MenuItem" onClick="change_subpage_src('my_can_list.php')">
+                สิทธิ์การใช้โปรแกรม และข้อมูล
+            </div>
+            <div dojoType="dijit.MenuItem" onClick="change_subpage_src('my_activity_list.php')">
+                เกี่ยวกับกิจกรรมที่เกิดขึ้นในระบบ
+            </div>
+        </div>
+    </div>
+</div>

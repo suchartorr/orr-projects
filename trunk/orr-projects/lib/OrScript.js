@@ -43,3 +43,7 @@ function return_to_opener(strValue,strFormName,strControlName){
 function change_subpage_src(strSrc){
     document.getElementById("frm_sub").src=strSrc;
 }
+
+function go_url(strUrl){
+    window.location.href = strUrl;
+}
