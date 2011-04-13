@@ -63,22 +63,25 @@
         </script></head>
     <body class="tundra">
         <div dojoType="dijit.layout.BorderContainer" style="width: 100%; height: 100%;">
-            <div dojoType="dijit.layout.ContentPane" region="top" >
+            <div dojoType="dijit.layout.ContentPane" region="top">
+                <!--Or_Skin[my_caption]-->
                 <div dojoType="dijit.form.DropDownButton">
-                    <span><!--Or_Skin[my_caption]--></span>
-                    <div dojoType="dijit.TooltipDialog">
-                        ระบบงานอื่นๆที่เกี่ยวข้อง
-                        อีเมล์
+                    <span>
+                        อื่นๆ
+                    </span>
+                    <div dojoType="dijit.layout.AccordionContainer" style="width: 200px; height: 95%; margin: 0 auto;">
+                        <div dojoType="dijit.layout.AccordionPane" title="pane #1">
+                            accordion pane #1
+                        </div>
+                        <div dojoType="dijit.layout.AccordionPane" title="pane #2">
+                            accordion pane #2
+                        </div>
+                        <div dojoType="dijit.layout.AccordionPane" title="pane #3">
+                            accordion pane #3
+                        </div>
                     </div>
-                </div>
-                <div dojoType="dijit.form.DropDownButton"">
-                     <span>เมนูระบบงาน</span>
-                    <!--Or_Skin[my_main_menu]-->
-                </div>
-                <div dojoType="dijit.form.DropDownButton">
-                    <span><!--Or_Skin[my_user_info]--></span>
-                    <div dojoType="dijit.TooltipDialog">
-                        <!--Or_Skin[my_login]-->
+                    <div dojoType="dijit.layout.ContentPane" >
+                        Trailing pane
                     </div>
                 </div>
             </div>
