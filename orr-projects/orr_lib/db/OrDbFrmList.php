@@ -57,6 +57,7 @@ class OrDbFrmList extends OrDbFormList {
         $this->property('edit_page_url', 'string'); //กำหนด URL ของหน้าแก้ไขข้อมูล
         $this->property('edit_field_link', 'string'); //กำหนด ชื่อ Field ที่ต้องการให้เป็น Link หนาแก้ไขข้อมูล
         $this->property('edit_key_field', 'string'); //กำหนด ชื่อ Field ที่เป็นคีย์แก้ไข
+        $this->property('edit_link_target', 'string','_blank'); //ลักษณะการเปิดหน้าจอแก้ไขเป็น _blank _parent _self _top
         //$this->OrDbFormList($id);
         $this->set_db($db);
         if ($skin == '') {
@@ -445,7 +446,8 @@ class OrDbFrmList extends OrDbFormList {
         if ($field_link != '') {
             $page_link = $this->OP_[edit_page_url]->get();
             $key_link = $this->OP_[edit_key_field]->get();
-            $event_link = '<a href="' . $page_link . '?val_filter[' . $key_link . ']=' . $EV_record[$key_link] . '&val_compare[' . $key_link . ']==&val_msg[btn_filter]=Filter" target="_parent" >' . $EV_record[$field_link] . '</a>';
+            $link_target = $this->OP_[edit_link_target]->get();
+            $event_link = '<a href="' . $page_link . '?val_filter[' . $key_link . ']=' . $EV_record[$key_link] . '&val_compare[' . $key_link . ']==&val_msg[btn_filter]=Filter" target="' . $link_target . '" >' . $EV_record[$field_link] . '</a>';
             $this->controls[$field_link]->OP_[text]->set($event_link);
         }
         eval($this->OE_[current_record]->get());
