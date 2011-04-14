@@ -21,7 +21,14 @@
             {
                 color:#FF0000;
             }
-            body, html { font-family:helvetica,arial,sans-serif; font-size:90%; }
+            div.tooltip{
+                font-family:Verdana, Geneva, sans-serif;
+                font-size:1.125em; /* 18px/16=1.125 em */
+                padding: 0.125em 0.3125em;
+                margin: 0px;
+            }
+
+            body, html { font-family:helvetica,arial,sans-serif; font-size:100%; }
             html, body { width: 100%; height: 100%; margin: 0;}
             <!--Or_Skin[style]-->
         </style>
@@ -49,6 +56,7 @@
             dojo.require("dijit.Menu");
             dojo.require("dijit.MenuItem");
             dojo.require("dijit.PopupMenuItem");
+            dojo.require("dijit.Dialog");
 
 
             dojo.require("dojo.fx");
@@ -66,9 +74,16 @@
             <div dojoType="dijit.layout.ContentPane" region="top" >
                 <div dojoType="dijit.form.DropDownButton">
                     <span><!--Or_Skin[my_caption]--></span>
-                    <div dojoType="dijit.TooltipDialog">
-                        ระบบงานอื่นๆที่เกี่ยวข้อง
-                        อีเมล์
+                    <div dojoType="dijit.layout.AccordionContainer" style="width: 400px; height: 600px; margin: 0 auto;">
+                        <div dojoType="dijit.layout.AccordionPane" title="ระบบงานเพื่อสนับสนุนข้อมูล">
+                            อยู่ระหว่างการทดสอบระบบครับ
+                        </div>
+                        <div dojoType="dijit.layout.AccordionPane" title="ระบบงานเพื่อสนับสนุนการสือสาร">
+                            อยู่ระหว่างการทดสอบระบบครับ
+                        </div>
+                        <div dojoType="dijit.layout.AccordionPane" title="ระบบงานอื่นๆ">
+                            อยู่ระหว่างการทดสอบระบบครับ
+                        </div>
                     </div>
                 </div>
                 <div dojoType="dijit.form.DropDownButton"">
@@ -78,9 +93,23 @@
                 <div dojoType="dijit.form.DropDownButton">
                     <span><!--Or_Skin[my_user_info]--></span>
                     <div dojoType="dijit.TooltipDialog">
-                        <!--Or_Skin[my_login]-->
+                        <div class="tooltip"><!--Or_Skin[my_login]--></div>
                     </div>
                 </div>
+                <div id="sized" dojoType="dijit.Dialog" title="My scrolling dialog">
+                    <div style="width: 200px; height: 100px; overflow: auto;">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean semper
+                            sagittis velit. Cras in mi. Duis porta mauris ut ligula. Proin porta rutrum
+                            lacus. Etiam consequat scelerisque quam. Nulla facilisi. Maecenas luctus
+                            venenatis nulla. In sit amet dui non mi semper iaculis. Sed molestie tortor
+                            at ipsum. Morbi dictum rutrum magna. Sed vitae risus.
+                        </p>
+                    </div>
+                </div>
+                <button dojoType="dijit.form.Button" onClick="dijit.byId('sized').show();" type="button">
+                    ประกาศ
+                </button>
             </div>
             <div dojoType="dijit.layout.BorderContainer" region="center">
                 <!--Or_Skin[my_subform]-->

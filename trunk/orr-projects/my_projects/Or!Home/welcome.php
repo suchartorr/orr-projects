@@ -14,16 +14,17 @@ class my extends my_page {
         global $my_cfg;
         parent::__construct($title);
         $this->set_skin($my_cfg[skins_path] . 'default_welcome.html'); //เรียกใช้รูปแบบหน้าจอ
-        $this->set_caption('<a href="index.php">อินทราเนต เพื่อสนับสนุนการให้บริการผู้ป่วย โรงพยาบาลเทพธารินทร์</a>');
+        $this->set_caption('อินทราเนต โรงพยาบาลเทพธารินทร์');
         $my_sec = new OrSec(false);
         $val_ = new OrSysvalue();
         $val_controls = $val_->controls;
         if ($val_controls[login] == 'login') {
             $my_sec->login($val_controls[user], $val_controls[pass]);
+             if ($my_sec->OP_[user]->get() == '') header("Location:index.php"); //แก้ไขในอนาคตให้ไปที่หน้าสมัครสมาชิกใหม่
         }
         if ($val_controls[logout] == 'logout') {
             $my_sec->logout();
-            header("Location:welcome.php");
+            header("Location:index.php");
         }
 
 
@@ -44,14 +45,14 @@ class my extends my_page {
             //
              $this->set_user_info('เข้าใช้ระบบ');
             $this->set_login($my_form->get_tag());
-            $this->set_subpage('http://10.1.0.12/');
+            $this->set_subpage('http://10.1.0.12/joomla/');
             
         } else {
             //header("Location:portal.php");
             $link_logout = '<a href="welcome.php?val_controls[logout]=logout" >ออกจากระบบ</a>';
             $this->set_user_info('ผู้ใช้ระบบ : ' . $my_sec->get_user_text());
             $this->set_login($my_sec->get_user_text() . '</b> [ <u>' . $my_sec->OP_[user]->get() . '</u> ] ต้องการ ->' . $link_logout);
-            $this->set_subpage('http://code.google.com/p/orr-projects/');
+            $this->set_subpage('http://10.1.0.12/joomla/');
             //$this->set_login(' ผู้ใช้ระบบ '.$my_sec->get_user_text() . '</b> [ <u>' . $my_sec->OP_[user]->get() . '</u> ] ');
         }
         /* ส่วนแสดงข้อมูลหน้าจอแรก */
