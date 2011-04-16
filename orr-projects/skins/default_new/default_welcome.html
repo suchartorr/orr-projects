@@ -34,7 +34,9 @@
         </style>
         <script language="JavaScript" src="../../lib/OrScript.js"></script>
         <script language="JavaScript" src="../../lib/calendar/calendar.js"></script>
-        <script type="text/javascript" src="../../lib/dojo/dojo/dojo.js" charset="utf-8" djconfig="parseOnLoad: true"></script><!--Or_Skin[script_src]-->
+        <script type="text/javascript" src="../../lib/dojo/dojo/dojo.js" charset="utf-8" djconfig="parseOnLoad: true"></script>
+
+        <!--Or_Skin[script_src]-->
 
         <script language="JavaScript">
             <!--
@@ -74,7 +76,7 @@
             <div dojoType="dijit.layout.ContentPane" region="top" >
                 <div dojoType="dijit.form.DropDownButton">
                     <span><!--Or_Skin[my_caption]--></span>
-                    <div dojoType="dijit.layout.AccordionContainer" style="width: 400px; height: 600px; margin: 0 auto;">
+                    <div dojoType="dijit.layout.AccordionContainer" style="width: 400px; height: 500px; margin: 0 auto;">
                         <div dojoType="dijit.layout.AccordionPane" title="ระบบงานเพื่อสนับสนุนข้อมูล">
                             อยู่ระหว่างการทดสอบระบบครับ
                         </div>
@@ -82,7 +84,9 @@
                             อยู่ระหว่างการทดสอบระบบครับ
                         </div>
                         <div dojoType="dijit.layout.AccordionPane" title="ระบบงานอื่นๆ">
-                            อยู่ระหว่างการทดสอบระบบครับ
+                            <a href="http://www.w3schools.com/" target="_blank">Visit W3Schools!</a>
+                            <a href="http://www.dojotoolkit.org/" target="_blank">Dojo Toolkit</a>
+                            <a href="../../my_projects/Or!Home/ajax_button.html" target="_blank">ตัวอย่างปุ่ม Ajax</a>
                         </div>
                     </div>
                 </div>
@@ -96,19 +100,15 @@
                         <div class="tooltip"><!--Or_Skin[my_login]--></div>
                     </div>
                 </div>
-                <div id="sized" dojoType="dijit.Dialog" title="My scrolling dialog">
-                    <div style="width: 200px; height: 100px; overflow: auto;">
+                <div id="sized" dojoType="dijit.Dialog" title="ประกาศภายใน">
+                    <div style="width: 400px; height: 300px; overflow: auto;">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean semper
-                            sagittis velit. Cras in mi. Duis porta mauris ut ligula. Proin porta rutrum
-                            lacus. Etiam consequat scelerisque quam. Nulla facilisi. Maecenas luctus
-                            venenatis nulla. In sit amet dui non mi semper iaculis. Sed molestie tortor
-                            at ipsum. Morbi dictum rutrum magna. Sed vitae risus.
+                            ทดสอบระบบแจ้งข่าวสารภายใน โรงพยาบาล
                         </p>
                     </div>
                 </div>
                 <button dojoType="dijit.form.Button" onClick="dijit.byId('sized').show();" type="button">
-                    ประกาศ
+                    ประกาศ แจ้งข้อมูล
                 </button>
             </div>
             <div dojoType="dijit.layout.BorderContainer" region="center">
