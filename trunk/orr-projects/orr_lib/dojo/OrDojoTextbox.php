@@ -83,9 +83,10 @@ class OrDojoTextbox extends OrTextbox {
         $this->clip_value($value);
         $value = 'value="' . $value . '"';
         $title = 'title="' . $this->OP_[title]->get() . '"';
+        $js_event = $this->OP_[js_event]->get();
        // $dojo_property = 'dojoType="dijit.form.ValidationTextBox" regExp="[^\s]+" required="true" invalidMessage="Invalid Non-Space Text."';
         $dojo_property = 'dojoType="dijit.form.ValidationTextBox" ' . $dojo_reg_exp . $dojo_required .  $dojo_invalid_message ;
-        $my_value = "<input $id $class  $type $dojo_property $maxlength $size $value $title>" . $this->get_properties_tag();
+        $my_value = "<input $id $class  $type $dojo_property $maxlength $size $value $title $js_event>" . $this->get_properties_tag();
         return $my_value;
     }
 

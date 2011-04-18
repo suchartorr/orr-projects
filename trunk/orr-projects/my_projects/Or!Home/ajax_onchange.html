@@ -23,11 +23,14 @@ and open the template in the editor.
             }
             function refreshContent(){
                 dojo.xhrGet({
-                url: 'ajax_content.php',
-                load: helloCallback,
-                error: helloError,
-                content: {name: dojo.byId('name').value }
-                });
+                    url: 'ajax_content.php',
+                    timeout: 9000,
+                    content: {name: dojo.byId('name').value },
+                    load: helloCallback,
+                    error: helloError
+                }
+            );
+                
             }
             
             dojo.require("dijit.form.Button");
@@ -40,9 +43,6 @@ and open the template in the editor.
     </head>
     <body class="tundra">
         Please enter your name: <input type="text" id="name" onchange="refreshContent()">
-        <button dojoType="dijit.form.Button" id="helloButton" onclick="refreshContent()">
-            Hello World!
-        </button>
         <span id="helloNode"></span>
     </body>
 </html>

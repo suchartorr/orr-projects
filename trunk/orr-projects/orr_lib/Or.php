@@ -161,6 +161,7 @@ require_once('gui/OrJsCalendar.php');
 require_once('gui/OrTable.php');
 require_once('gui/OrLabelAjax.php');
 require_once('gui/OrSelectboxAjax.php');
+require_once('gui/OrContent.php');
 
 //ajax
 require_once('ajax/OrPage.php');
