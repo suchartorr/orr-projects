@@ -47,3 +47,24 @@ function change_subpage_src(strSrc){
 function go_url(strUrl){
     window.location.href = strUrl;
 }
+
+
+function content_refresh(urlPage, idValue, idContent){
+    if(dojo.byId(idValue).value != ''){
+        dojo.xhrGet({
+            url: urlPage + '?val_msg[content_key_value]=' + dojo.byId(idValue).value,
+            timeout: 9000,
+            load: function(newContent) {
+                dojo.byId(idContent).innerHTML = newContent;
+            },
+            error: function() {
+                alert('Error when retrieving data from the ' + urlPage + '!!!');
+            }
+        }
+        );
+    }else{
+        dojo.byId(idContent).innerHTML = 'ไม่ได้ใส่ข้อมูลที่ค้นหา';
+    }
+    
+
+}

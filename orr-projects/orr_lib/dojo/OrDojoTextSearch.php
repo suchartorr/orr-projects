@@ -25,6 +25,7 @@ class OrDojoTextSearch extends OrDojoTextbox {
         $this->property('popup_id', 'string', $id); //ชื่อหน้าต่าง
         $this->property('popup_width', 'integer', 800); //ความกว้างของหน้าต่าง
         $this->property('popup_hight', 'integer', 600); //ความสูงของหน้าต่าง
+        $this->property('content_key_id','string',$id); //ชื่อคีย์สำหรับเรียกขอ้มูล
 
         /*
          * การกำหนดเหตุการณ์ ของคลาส ใช้คำสั่ง
@@ -39,19 +40,27 @@ class OrDojoTextSearch extends OrDojoTextbox {
      * @return null
      */
     function get_tag($value = null) {
+        $url = $this->OP_[popup_url]->get();
+        $id = $this->OP_[popup_id]->get();
+        $id_content = $id . '_content';
+        //$js_onchange = 'onchange="'. "content_refresh(' . $id .','. $url .',' . $id_content .' ); .'"';
+        $js_onchange = "content_refresh('$url','$id','$id_content')";
+        //$js_onchange = "content_refresh('ajax_content.php','txt_search','txt_search_content')";
+        $js_onchange = 'onChange="'. $js_onchange . '"';
+        $this->OP_[js_event]->set($js_onchange);
         $my_value = parent::get_tag($value);
         $btn_search = new OrDojoButton('btn_search_' . $this->OP_[id]->get());
         $btn_search->OP_[type]->set('button');
-        $url = $this->OP_[popup_url]->get();
-        $id = $this->OP_[popup_id]->get();
+        
         $width = $this->OP_[popup_width]->get();
         $hight = $this->OP_[popup_hight]->get();
         //$js_onclick = 'onClick="'."alert(window.document.frm_test.txt_search.value);" .'"';
         $search_value = 'window.document.my_form.' . $this->OP_[id]->get() . '.value';
-        $js_onclick = 'onClick="' . "alert( $search_value );" . '"';
+        //$js_onclick = 'onClick="' . "alert( $search_value );" . '"';
         $js_onclick = 'onClick="' . "win_popup('$url', $search_value , '$id',$width,$hight,'yes');" . '"';
         $btn_search->OP_[js_event]->set($js_onclick);
         $my_value .= ' ' . $btn_search->get_tag('Search');
+        $my_value .= '<span id="' . $id_content . '"> ไม่มีข้อมูล </span>';
         return $my_value;
     }
 
