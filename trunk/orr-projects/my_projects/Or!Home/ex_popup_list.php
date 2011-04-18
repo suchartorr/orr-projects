@@ -18,7 +18,7 @@ class my extends my_page {
     function __construct() {
         parent:: __construct();
         $val_ = new OrSysvalue();
-        if ($val_->message[content_key_value] == '') {
+        if (is_null($val_->message[content_key_value])) {
             $this->popup();
         } else {
             $this->content($val_->message[content_key_value]);
@@ -118,11 +118,12 @@ class my extends my_page {
         if ($my_db->get_record()) {
             $my_value = $my_db->record[name];
         } else {
-            $my_value = $content_key_value . ' [????]';
+            //$my_value = $content_key_value;
+            $my_value = 'not found!';
         }
         unset($my_db);
 
-        $my_content = new OrContent($my_value ."\n");
+        $my_content = new OrContent($my_value);
         $my_content->show();
     }
 
