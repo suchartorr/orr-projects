@@ -54,8 +54,15 @@ function content_refresh(urlPage, idValue, idContent){
         dojo.xhrGet({
             url: urlPage + '?val_msg[content_key_value]=' + dojo.byId(idValue).value,
             timeout: 9000,
-            load: function(newContent) {
-                dojo.byId(idContent).innerHTML = newContent;
+            load: function(result) {
+                if(result == "not found!"){
+                    alert('ข้อความ "' + dojo.byId(idValue).value + '" ในช่องข้อมูลไม่ถูกต้อง กรุณาใส่ข้อความใหม่!!');
+                    dojo.byId(idValue).value='';
+                    dojo.byId(idValue).focus();
+                }else{
+                    dojo.byId(idContent).innerHTML = result;
+                }
+
             },
             error: function() {
                 alert('Error when retrieving data from the ' + urlPage + '!!!');
