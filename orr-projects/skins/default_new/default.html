@@ -65,15 +65,24 @@
                 margin-right: auto;
                 text-align: center
             }
+            span.my_content{
+                border-style: none;
+                padding: 3px 3px;
+                margin: 0px;
+                text-align: left
+            }
             input{
                 font-size:1em; /* 18px/16=1.125 em */
-                padding: 0.125em 0.3125em;
+                padding: 3px 3px;
                 margin: 0px;
                 border:1px solid gray;
             }
+            input.my_content{
+
+            }
             select{
                 font-size:1em; /* 18px/16=1.125 em */
-                padding: 0 em 0.3125em;
+                padding: 0px 3px;
                 padding-right: 0px;
                 margin: 0px;
                 border:1px solid gray;
@@ -114,11 +123,18 @@
 
             dojo.require("dojo.fx");
             dojo.addOnLoad(function(){
+                //dijit.byId("sys_id").onChange();
                 // create On Load funtion
                 //dojo.fx.wipeIn({node: "animDiv",duration: 1000}).play();
                 //dojo.fx.slideTo({node: "animDiv",duration: 1000, left: 300, top: 0}).play();
             });
-
+            dojo.ready(function(){
+                dijit.byId("sys_id").onChange();
+                dojo.query("#sys_id_content").connect("onclick",function(){
+                    //dijit.byId("btn_search_sys_id").onClick();
+                    dijit.byId("sys_id").onChange();
+                });
+            });
             //-->
             <!--Or_Skin[script]-->
         </script>
