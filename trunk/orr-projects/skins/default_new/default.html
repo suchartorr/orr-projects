@@ -129,10 +129,23 @@
                 //dojo.fx.slideTo({node: "animDiv",duration: 1000, left: 300, top: 0}).play();
             });
             dojo.ready(function(){
-                dijit.byId("sys_id").onChange();
+                //dijit.byId("sys_id").onChange();
                 dojo.query("#sys_id_content").connect("onclick",function(){
                     //dijit.byId("btn_search_sys_id").onClick();
                     dijit.byId("sys_id").onChange();
+                });
+                dojo.query("input[type=text]","my_form").forEach(function(selectTag){
+                    /*if(selectTag.id == "sys_id"){
+                        dijit.byId(selectTag.id).onChange();
+                        //selectTag.disabled = true;
+                    }*/
+                    try{
+                        dijit.byId(selectTag.id).onChange();
+                    }
+                    catch(err)
+                    {
+
+                    }
                 });
             });
             //-->

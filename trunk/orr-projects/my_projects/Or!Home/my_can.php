@@ -44,8 +44,9 @@ class my extends my_page {
         //$my_form->controls[sys_id]->OP_[option]->set($sys_list);
         $my_form->controls[sys_id]->OP_[popup_url]->set('my_sys_popup_list.php');
 
-        $my_form->set_controls(new OrSelectbox('user'));
-        $my_form->controls['user']->OP_[option]->set($user_list);
+        $my_form->set_controls(new OrDojoTextSearch('user'));
+        //$my_form->controls['user']->OP_[option]->set($user_list);
+        $my_form->controls[user]->OP_[popup_url]->set('my_user_popup_list.php');
 
         $my_form->set_controls(new OrSelectbox('aut_to_group'));
         $my_form->controls['aut_to_group']->OP_[option]->set(array('ไม่มีสิทธิ์' => '0', 'ให้สิทธ์' => '1'));
