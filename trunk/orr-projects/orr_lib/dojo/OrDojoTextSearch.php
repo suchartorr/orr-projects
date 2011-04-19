@@ -48,6 +48,7 @@ class OrDojoTextSearch extends OrDojoTextbox {
         //$js_onchange = "content_refresh('ajax_content.php','txt_search','txt_search_content')";
         $js_onchange = 'onChange="'. $js_onchange . '"';
         $this->OP_[js_event]->set($js_onchange);
+        $this->OP_[class_name]->set('my_content');
         $my_value = parent::get_tag($value);
         $btn_search = new OrDojoButton('btn_search_' . $this->OP_[id]->get());
         $btn_search->OP_[type]->set('button');
@@ -59,8 +60,8 @@ class OrDojoTextSearch extends OrDojoTextbox {
         //$js_onclick = 'onClick="' . "alert( $search_value );" . '"';
         $js_onclick = 'onClick="' . "win_popup('$url', $search_value , '$id',$width,$hight,'yes');" . '"';
         $btn_search->OP_[js_event]->set($js_onclick);
-        $my_value .= ' ' . $btn_search->get_tag('Search');
-        $my_value .= '<span id="' . $id_content . '"> ไม่มีข้อมูล </span>';
+        $my_value .= ' ' . $btn_search->get_tag('...');
+        $my_value .= '<span id="' . $id_content . '" class="my_content"> ไม่มีข้อมูล </span>';
         return $my_value;
     }
 
