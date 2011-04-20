@@ -11,7 +11,7 @@ $my_cfg_sec[ki] = 'linux';
 
 //ค่าตัวเลือกอื่นๆ
 $my_cfg_opt[global_register] = 'off'; //on  off
-$my_cfg_opt[login_page] = 'welcome.php';//page เริ่มต้นกรณีไม่ได้ login
+$my_cfg_opt[login_page] = '';//page เริ่มต้นกรณีไม่ได้ login
 $my_cfg_opt[error_page] = ''; //page ที่ต้องการข้อผิดพลาด
 $my_cfg_opt[after_login_page] = 'welcome.php'; //page ที่ต้องการแสดงหลังการ Login
 //$my_cfg_opt[error_page] = 'error.php';//page ที่ต้องการแสดงกรณีเกิดข้อผิดพลาด
