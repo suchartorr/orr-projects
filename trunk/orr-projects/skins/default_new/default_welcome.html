@@ -41,7 +41,7 @@
         <script language="JavaScript">
             <!--
             dojo.require("dijit.layout.BorderContainer");
-            dojo.require("dijit.layout.TabContainer");
+            //dojo.require("dijit.layout.TabContainer");
             dojo.require("dijit.layout.AccordionContainer");
             dojo.require("dijit.layout.ContentPane");
             dojo.require("dijit.TitlePane");
@@ -51,7 +51,7 @@
             dojo.require("dijit.form.FilteringSelect");
             dojo.require("dijit.form.DropDownButton");
             dojo.require("dijit.TooltipDialog");
-            dojo.require("dijit.Editor");
+            //dojo.require("dijit.Editor");
 
             dojo.require("dijit.MenuBar");
             dojo.require("dijit.PopupMenuBarItem");
@@ -60,12 +60,25 @@
             dojo.require("dijit.PopupMenuItem");
             dojo.require("dijit.Dialog");
 
+            dojo.require('dojox.timing');
+            t = new dojox.timing.Timer(1000);
+            t.onTick = function() {
+                //dijit.byId('my_dialog').show();
+                console.info("One second elapsed");
+            }
+            t.onStart = function() {
+                console.info("Starting timer");
+            }
+            t.start();
 
-            dojo.require("dojo.fx");
+            //dojo.require("dojo.fx");
             dojo.addOnLoad(function(){
                 // create On Load funtion
                 //dojo.fx.wipeIn({node: "animDiv",duration: 1000}).play();
                 //dojo.fx.slideTo({node: "animDiv",duration: 1000, left: 300, top: 0}).play();
+            });
+            dojo.ready(function(){
+                //dijit.byId('my_info').open = false;
             });
 
             //-->
@@ -88,6 +101,7 @@
                             <a href="http://www.dojotoolkit.org/" target="_blank">Dojo Toolkit</a>
                             <a href="../../my_projects/Or!Home/ajax_button.html" target="_blank">ตัวอย่างปุ่ม Ajax</a>
                             <a href="../../my_projects/Or!Home/ex_page.php" target="_blank">ตัวอย่างการหน้าจอในระบบ</a>
+                            <a href="../../my_projects/Or!Home/ex_chart.php" target="_blank">ตัวอย่างการสร้างกราฟ</a>
                         </div>
                     </div>
                 </div>
@@ -101,18 +115,21 @@
                         <div class="tooltip"><!--Or_Skin[my_login]--></div>
                     </div>
                 </div>
-                <div id="sized" dojoType="dijit.Dialog" title="ประกาศภายใน">
+                <div id="my_dialog" dojoType="dijit.Dialog" title="ประกาศภายใน">
                     <div style="width: 400px; height: 300px; overflow: auto;">
                         <p>
                             ทดสอบระบบแจ้งข่าวสารภายใน โรงพยาบาล
                         </p>
                     </div>
                 </div>
-                <button dojoType="dijit.form.Button" onClick="dijit.byId('sized').show();" type="button">
+                <button dojoType="dijit.form.Button" onClick="dijit.byId('my_dialog').show();" type="button">
                     ประกาศ แจ้งข้อมูล
                 </button>
             </div>
             <div dojoType="dijit.layout.BorderContainer" region="center">
+                <div id="my_info" dojoType="dijit.TitlePane" title="ติดต่อสื่อสาร พูดคุย" open="false">
+                    ส่วนแสดงข่าวสาร สื่อสาร แสดงความเห็น แบบต่อเนื่อง
+                </div>
                 <!--Or_Skin[my_subform]-->
             </div>
         </div>
