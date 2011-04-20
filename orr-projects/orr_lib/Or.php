@@ -174,6 +174,7 @@ require_once('dojo/OrDojoTextarea.php');
 require_once('dojo/OrDojoSelectbox.php');
 require_once('dojo/OrDojoButton.php');
 require_once('dojo/OrDojoTextSearch.php');
+require_once('dojo/OrDojoChart.php');
 
 //db
 require_once('db/OrDb.php');
