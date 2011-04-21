@@ -10,20 +10,23 @@
         <script type="text/javascript" src="../../lib/dojo/dojo/dojo.js" charset="utf-8" data-dojo-config="isDebug: true,parseOnLoad: true"></script>
         <script language="JavaScript">
             // Require the basic 2d chart resource: Chart2D
-            dojo.require("dojox.charting.Chart2D");
+            //dojo.require("dojox.charting.Chart2D");
             // Retrieve the Legend, Tooltip, and Magnify classes
-            dojo.require("dojox.charting.widget.Legend");
-            dojo.require("dojox.charting.action2d.Tooltip");
-            dojo.require("dojox.charting.action2d.Magnify");
+            //dojo.require("dojox.charting.widget.Legend");
+            //dojo.require("dojox.charting.action2d.Tooltip");
+            //dojo.require("dojox.charting.action2d.Magnify");
 
             // Require the theme of our choosing
             //"Claro", new in Dojo 1.6, will be used
-            dojo.require("dojox.charting.themes.Claro");
+            //dojo.require("dojox.charting.themes.Claro");
+
+            <!--Or_Skin[dojo_require]-->
 
             // Define the data
-            var chartData1 = [10000,9200,11811,12000,7662,13887,14200,12222,12000,10009,11288,12099];
-            var chartData2 = [8000,10000,11900,10009,12300,9999,8700,11200,12569,13509,13989,13001];
-            var chartData3 = [3000,12000,17733,9876,12783,12899,13888,13277,14299,12345,12345,15763].reverse();
+            //var chartData1 = [10000,9200,11811,12000,7662,13887,14200,12222,12000,10009,11288,12099];
+            //var chartData2 = [8000,10000,11900,10009,12300,9999,8700,11200,12569,13509,13989,13001];
+            //var chartData3 = [3000,12000,17733,9876,12783,12899,13888,13277,14299,12345,12345,15763].reverse();
+            <!--Or_Skin[dojo_chart_data]-->
 
             // When the DOM is ready and resources are loaded...
             dojo.ready(function() {
@@ -41,12 +44,13 @@
 
                 // Add axes
                 chart.addAxis("x");
-                chart.addAxis("y", { min: 5000, max: 15000, vertical: true, fixLower: "major", fixUpper: "major" });
+                chart.addAxis("y", { min: 5000, max: 15000, vertical: true, fixLower: "major", fixUpper: "major" });//รอปรับเพิ่มเติม
 
                 // Add the series of data
-                chart.addSeries(" ยอดประจำเดือน - 2552",chartData1);
-                chart.addSeries(" ยอดประจำเดือน - 2553",chartData2);
-                chart.addSeries(" ยอดประจำเดือน - 2554",chartData3);
+                <!--Or_Skin[chart_series]-->
+                //chart.addSeries(" ยอดประจำเดือน - 2552",chartData1);
+                //chart.addSeries(" ยอดประจำเดือน - 2553",chartData2);
+                //chart.addSeries(" ยอดประจำเดือน - 2554",chartData3);
 
                 // Create the tooltip
                 var tip = new dojox.charting.action2d.Tooltip(chart,"default");
@@ -64,7 +68,7 @@
         </script>
     </head>
     <body class="claro">
-        <h1>ตัวอย่างการสร้างกราฟ</h1>
+        <h1><!--Or_Skin[title]--></h1>
 
         <!-- create the chart -->
         <div id="chartNode" style="width:800px;height:400px;"></div>
