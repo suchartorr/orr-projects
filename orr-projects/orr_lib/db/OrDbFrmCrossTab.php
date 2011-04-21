@@ -17,6 +17,7 @@ class OrDbFrmCrossTab extends OrDbFrmList {
   {
 	 	parent :: __construct($id,$db, $skin);
 	 	$this->cross_tab = new OrSqlCrossTab();
+                $this->property('chart_page_url', 'string'); //หน้าจอแสดงกราฟของข้อมูล
   }
 
   //
@@ -91,6 +92,23 @@ class OrDbFrmCrossTab extends OrDbFrmList {
 	 	$my_table->set_row('tr_body_total');
 	 	return $my_table->get_tag();
   }
+
+  function OE_current_record($EV_) {
+        /* $EV_record : array ค่าเหตุการณ์ที่เกิดขึ้น */
+        extract($EV_, EXTR_OVERWRITE);
+
+        $field_link = $this->OP_[chart_page_url]->get();
+        /* รอหาวิธีเชื่อมข้อมูลกับกับกราฟ
+        if ($field_link != '') {
+            $page_link = $this->OP_[edit_page_url]->get();
+            $key_link = $this->OP_[edit_key_field]->get();
+            $link_target = $this->OP_[edit_link_target]->get();
+            $event_link = '<a href="' . $page_link . '?val_filter[' . $key_link . ']=' . $EV_record[$key_link] . '&val_compare[' . $key_link . ']==&val_msg[btn_filter]=Filter" target="' . $link_target . '" >' . $EV_record[$field_link] . '</a>';
+            $this->controls[$field_link]->OP_[text]->set($event_link);
+        }*/
+        eval($this->OE_[current_record]->get());
+        return null;
+    }
 
 }
 
