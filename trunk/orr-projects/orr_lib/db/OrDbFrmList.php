@@ -125,8 +125,8 @@ class OrDbFrmList extends OrDbFormList {
 
     function is_group_filter($field_name) {
         $field_name = ltrim($field_name);
-        $str_function = "^sum|^count|^max|^min|^avg";
-        if (eregi($str_function, $field_name)) {
+        $str_function = "/^sum|^count|^max|^min|^avg/";
+        if (preg_match($str_function, $field_name)) {
             $my_value = true;
         } else {
             $my_value = false;
