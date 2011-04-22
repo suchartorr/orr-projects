@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.1.3.1
+-- version 3.3.7deb5build0.10.10.1
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Oct 29, 2009 at 11:14 AM
--- Server version: 5.1.33
--- PHP Version: 5.2.9
+-- โฮสต์: localhost
+-- เวลาในการสร้าง: 22 เม.ย. 2011  19:38น.
+-- รุ่นของเซิร์ฟเวอร์: 5.1.49
+-- รุ่นของ PHP: 5.3.3-1ubuntu9.3
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -16,13 +16,13 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `or!config`
+-- ฐานข้อมูล: `or!config`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `my_activity`
+-- โครงสร้างตาราง `my_activity`
 --
 
 CREATE TABLE IF NOT EXISTS `my_activity` (
@@ -34,17 +34,12 @@ CREATE TABLE IF NOT EXISTS `my_activity` (
   `sec_script` varchar(50) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `sec_script` (`sec_script`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `my_activity`
---
-
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `my_can`
+-- โครงสร้างตาราง `my_can`
 --
 
 CREATE TABLE IF NOT EXISTS `my_can` (
@@ -59,15 +54,26 @@ CREATE TABLE IF NOT EXISTS `my_can` (
   PRIMARY KEY (`sys_id`,`user`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='สิทธิการใช้งาน';
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `my_can`
+-- โครงสร้างตาราง `my_communication`
 --
 
+CREATE TABLE IF NOT EXISTS `my_communication` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description` text NOT NULL,
+  `sec_user` varchar(20) NOT NULL DEFAULT '',
+  `sec_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `sec_ip` varchar(20) NOT NULL DEFAULT '',
+  `sec_script` varchar(50) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `my_datafield`
+-- โครงสร้างตาราง `my_datafield`
 --
 
 CREATE TABLE IF NOT EXISTS `my_datafield` (
@@ -81,15 +87,10 @@ CREATE TABLE IF NOT EXISTS `my_datafield` (
   PRIMARY KEY (`field_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `my_datafield`
---
-
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `my_group`
+-- โครงสร้างตาราง `my_group`
 --
 
 CREATE TABLE IF NOT EXISTS `my_group` (
@@ -103,15 +104,39 @@ CREATE TABLE IF NOT EXISTS `my_group` (
   PRIMARY KEY (`group`,`user`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `my_group`
+-- โครงสร้างตาราง `my_statistics`
 --
 
+CREATE TABLE IF NOT EXISTS `my_statistics` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `description` text NOT NULL,
+  `month_01` int(11) NOT NULL,
+  `month_02` int(11) NOT NULL,
+  `month_03` int(11) NOT NULL,
+  `month_04` int(11) NOT NULL,
+  `month_05` int(11) NOT NULL,
+  `month_06` int(11) NOT NULL,
+  `month_07` int(11) NOT NULL,
+  `month_08` int(11) NOT NULL,
+  `month_09` int(11) NOT NULL,
+  `month_10` int(11) NOT NULL,
+  `month_11` int(11) NOT NULL,
+  `month_12` int(11) NOT NULL,
+  `sec_user` varchar(20) NOT NULL DEFAULT '',
+  `sec_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `sec_ip` varchar(20) NOT NULL DEFAULT '',
+  `sec_script` varchar(50) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='ตัวอย่างการบันทึกสถิติเพื่อจัดทำกราฟ';
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `my_sys`
+-- โครงสร้างตาราง `my_sys`
 --
 
 CREATE TABLE IF NOT EXISTS `my_sys` (
@@ -131,15 +156,10 @@ CREATE TABLE IF NOT EXISTS `my_sys` (
   PRIMARY KEY (`sys_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='สิทธิการใช้งาน';
 
---
--- Dumping data for table `my_sys`
---
-
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `my_user`
+-- โครงสร้างตาราง `my_user`
 --
 
 CREATE TABLE IF NOT EXISTS `my_user` (
@@ -156,10 +176,20 @@ CREATE TABLE IF NOT EXISTS `my_user` (
   `sec_script` varchar(50) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   UNIQUE KEY `user` (`user`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
 
 --
--- Dumping data for table `my_user`
+-- โครงสร้างตาราง `new_table`
 --
-INSERT INTO `my_user` ( `id` , `user` , `val_pass` , `prefix` , `fname` , `lname` , `status` , `sec_user` , `sec_time` , `sec_ip` , `sec_script` )
-VALUES ( 1, 'root', 0x3161316463393163393037333235633639323731646466306339343462633732, 'คุณ', 'ผู้ดูแลระบบ', 'ทดสอบ', 0, 'root', '2006-06-03 20:03:06', '', '' );
+
+CREATE TABLE IF NOT EXISTS `new_table` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description` text NOT NULL,
+  `sec_user` varchar(20) NOT NULL DEFAULT '',
+  `sec_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `sec_ip` varchar(20) NOT NULL DEFAULT '',
+  `sec_script` varchar(50) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
