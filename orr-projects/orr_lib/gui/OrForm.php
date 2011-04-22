@@ -66,7 +66,7 @@ class OrForm extends OrGui {
   
   function set_skin($skin_src)
   {
-   	$this->skin = new OrSkin($skin_src);
+   	$this->skin = new OrSkin($skin_src);//ยังไม่พบการใช้งาน รอตรวจสอบ
    	return null;
    	
   }
