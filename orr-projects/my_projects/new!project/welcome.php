@@ -14,7 +14,7 @@ class my extends my_page {
         global $my_cfg;
         parent::__construct();
         $this->set_skin($my_cfg[skins_path] . 'default_welcome.html'); //เรียกใช้รูปแบบหน้าจอ
-        $this->set_caption('สารสนเทศ สมาชิก');
+        $this->set_caption('ไม่กำหนด');
         $my_sec = new OrSec(false);
         $val_ = new OrSysvalue();
         $val_controls = $val_->controls;
