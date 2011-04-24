@@ -130,6 +130,20 @@
                 </button>
             </div>
             <div dojoType="dijit.layout.BorderContainer" region="center">
+                <div id="my_info" dojoType="dijit.TitlePane" title="ติดต่อสื่อสาร พูดคุย" open="false">
+                    <form id="formNode">
+
+                        <label class="qhead">Your Name</label>
+                        <input type="text" name="name" /><br />
+
+                        <label class="qhead">Your Bio</label>
+                        <textarea name="bio" rows="5" cols="20"></textarea><br />
+                    </form>
+                    <div style="margin:2em 0">
+                        <button id="sendForm" onClick="sendForm();">Send Form</button>
+                    </div>
+                    <pre id="formResultNode"></pre>
+                </div>
                 <!--Or_Skin[my_subform]-->
             </div>
         </div>

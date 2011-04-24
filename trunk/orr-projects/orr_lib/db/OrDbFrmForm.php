@@ -179,7 +179,7 @@ class OrDbFrmForm extends OrDbForm {
 
                             if ($value != '') {
                                 if ($val_compare[$id] == '') {
-                                    $val_compare[$id] = 'LIKE';
+                                    $val_compare[$id] = '=';
                                 }
                                 $filter->set_cmd_filter($id, $val_compare[$id], $value);
                                 $filter_msg .= ' ' . $this->controls[$id]->OP_[caption]->get() . ' ' . $val_compare[$id] . ' ' . $value;

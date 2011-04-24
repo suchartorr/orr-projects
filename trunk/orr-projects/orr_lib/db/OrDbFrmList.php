@@ -229,7 +229,7 @@ class OrDbFrmList extends OrDbFormList {
                                         break;
 
                                     case '':
-                                        $val_compare[$id] = 'LIKE';
+                                        $val_compare[$id] = '=';
 
                                     default :
                                 }
