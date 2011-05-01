@@ -30,6 +30,7 @@ class OrDojoChart extends OrHtml {
 
     private $dojo_require_script = array();
     private $chart_series = array();
+    private $axis_labels = array();
 
     /**
      * กำหนดค่าที่ต้องการ
@@ -39,7 +40,7 @@ class OrDojoChart extends OrHtml {
     function __construct($title = '') {
         parent::__construct($title);
         $this->set_skin('../../orr_lib/dojo/default_chart.html'); //รูปแบบหน้าแสดงกราฟ
-        $this->dojo_require();//กำหนดคำสั่ง require
+        $this->dojo_require(); //กำหนดคำสั่ง require
     }
 
     /**
@@ -83,7 +84,7 @@ class OrDojoChart extends OrHtml {
      * @param $data ข้อมูลของกราฟ ตัวอย่างเช่น [1000,2000,3000,4000]
      * @return null
      */
-    function set_chart_series($name,$data) {
+    function set_chart_series($name, $data) {
         $my_tag = 'chart.addSeries("' . $name . '",' . $data . ');';
         $my_tag = array($my_tag);
         $this->chart_series = array_merge($this->chart_series, $my_tag);
@@ -98,6 +99,55 @@ class OrDojoChart extends OrHtml {
     }
 
     /**
+     * set_axis_lable : กำหนดข้อมูลในกราฟ
+     * @param $value ค่าของข้อมูล
+     * @param $text ตัวอักษรที่ให้แสดงแทน
+     * @return null
+     */
+    function set_axis_lable($value, $text) {
+        $my_tag = '{value: ' . $value . ', text: "' . $text . '"}';
+        $my_tag = array($my_tag);
+        $this->axis_labels = array_merge($this->axis_labels, $my_tag);
+        return null;
+    }
+
+    /**
+     * set_axis_lable : ด้วยชื่อเดือนภาษาไทย
+     * @param $format รูปแบบ 0 = แบบเต็ม , 1 = แบบย่อ
+     * @return null
+     */
+    function set_axis_thmonth($format = 1){
+        $th_month = new OrThdate();
+        for ($i = 1; $i <= 12; $i++) {
+            $this->set_axis_lable($i, $th_month->get_month($i,$format));
+        }
+        return null;
+    }
+
+    /**
+     * set_axis_lable : ด้วยชื่อวันภาษาไทย
+     * @param $format รูปแบบ 0 = แบบเต็ม , 1 = แบบย่อ
+     * @return null
+     */
+    function set_axis_thday($format = 1){
+        $th_month = new OrThdate();
+        for ($i = 0; $i <= 6; $i++) {
+            $this->set_axis_lable($i, $th_month->get_day($i,$format));
+        }
+        return null;
+    }
+
+    function get_axis_lable() {
+        foreach ($this->axis_labels as $line) {
+            $my_value .= $line . ', ';
+        }
+        if($my_value != ''){
+            $my_value = 'labels: [' . $my_value .']';
+        }
+        return $my_value;
+    }
+
+    /**
      * show : แสดงหน้ากราฟ
      * @param null
      * @return null
@@ -105,6 +155,7 @@ class OrDojoChart extends OrHtml {
     function show() {
         $this->skin->set_skin_tag('dojo_require', $this->get_dojo_require());
         $this->skin->set_skin_tag('chart_series', $this->get_chart_series());
+        $this->skin->set_skin_tag('chart_axis_x', 'chart.addAxis("x",{' . $this->get_axis_lable() . '});');
         parent::show();
     }
 

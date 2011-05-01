@@ -43,8 +43,16 @@
                 });
 
                 // Add axes
-                chart.addAxis("x");
-                chart.addAxis("y", { min: 0, max: 1000, vertical: true, fixLower: "major", fixUpper: "major" });//รอปรับเพิ่มเติม
+                /*chart.addAxis("x",{
+                    labels: [{value: 1, text: "Jan"}, {value: 2, text: "Feb"},
+                        {value: 3, text: "Mar"}, {value: 4, text: "Apr"},
+                        {value: 5, text: "May"}, {value: 6, text: "Jun"},
+                        {value: 7, text: "Jul"}, {value: 8, text: "Aug"},
+                        {value: 9, text: "Sep"}, {value: 10, text: "Oct"},
+                        {value: 11, text: "Nov"}, {value: 12, text: "Dec"},]});*/
+                //chart.addAxis("x",{});
+                <!--Or_Skin[chart_axis_x]-->
+                chart.addAxis("y", { vertical: true, fixLower: "major", fixUpper: "major"});//รอปรับเพิ่มเติม
 
                 // Add the series of data
                 <!--Or_Skin[chart_series]-->
@@ -71,7 +79,7 @@
         <h1><!--Or_Skin[title]--></h1>
 
         <!-- create the chart -->
-        <div id="chartNode" style="width:800px;height:400px;"></div>
+        <div id="chartNode" style="width:1024px;height:400px;"></div>
         <!-- create the DOM node for the legend -->
         <div id="legend"></div>
     </body>
