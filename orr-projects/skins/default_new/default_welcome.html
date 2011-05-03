@@ -59,10 +59,14 @@
             dojo.require("dijit.Dialog");
 
             dojo.require('dojox.timing');
-            t = new dojox.timing.Timer(1000);
+            t = new dojox.timing.Timer(10000);
             t.onTick = function() {
+                var urlPage = "../../my_projects/Or!Home/my_note_content.php";
+                var idValue = "my_note_id";
+                var idContent = "my_note_content";
+                content_refresh(urlPage, idValue, idContent);
                 //dijit.byId('my_dialog').show();
-                console.info("One second elapsed");
+                //console.info("One second elapsed");
             }
             t.onStart = function() {
                 console.info("Starting timer");
@@ -127,7 +131,8 @@
                 <div id="my_dialog" dojoType="dijit.Dialog" title="ประกาศภายใน">
                     <div style="width: 400px; height: 300px; overflow: auto;">
                         <p>
-                            ทดสอบระบบแจ้งข่าวสารภายใน โรงพยาบาล
+                            <input id="my_note_id" type="hidden" value="1">
+                            <span id="my_note_content"></span>
                         </p>
                     </div>
                 </div>
