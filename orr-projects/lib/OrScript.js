@@ -75,3 +75,25 @@ function content_refresh(urlPage, idValue, idContent){
     
 
 }
+
+
+function send_form(urlPage) {
+    // Get the result node
+    var resultNode = dojo.byId("my_form_result");
+    // Using dojo.xhrGet, as very little information is being sent
+    dojo.xhrPost({
+        // The URL of the request
+        url: urlPage,
+        // Form to send
+        form: dojo.byId("my_ajax_form"),
+        // The success callback with result from server
+        load: function(newContent) {
+            //dojo.style(resultNode,"display","block");
+            resultNode.innerHTML = newContent;
+        },
+        // The error handler
+        error: function() {
+            resultNode.innerHTML = "Your form could not be sent.";
+        }
+    });
+}
