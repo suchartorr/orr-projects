@@ -21,6 +21,7 @@ $my_db = new OrMysql($my_cfg[db]); //(กำหนด Object ฐานข้อ�
  */
 //$sql = "SELECT concat(`prefix`,`fname`, ' ' , `lname`) AS `name` FROM `my_user` WHERE `user` = '" . $content_key_value . "'"; //(กำหนด SQL ตามเงื่อนไขที่ต้องการ)
 $val_ = new OrSysvalue();
+$my_form = new OrForm('my_ajax_form');
 $sql = "SELECT `detail` FROM `my_note` WHERE `id` = '" . $val_->message[content_key_value] . "'"; //(กำหนด SQL ตามเงื่อนไขที่ต้องการ)
 $my_db->get_query($sql);
 if ($my_db->get_record()) {
