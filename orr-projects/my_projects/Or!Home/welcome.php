@@ -80,12 +80,12 @@ class my extends my_page {
         return NULL;
     }
 
-    //
-    //ตรวจสอบบันทึกการเริ่มเข้าใช้งาน
-    //
-    //@param null
-    //@return null
-    //@access public
+    /*
+     * ลงทะเบียน IP เมื่อเริ่มเข้าใช้ระบบครั้งแรก
+     * @param null
+     * @return null
+     * @access public
+     */
     public function set_ip_reg() {
         global $SCRIPT_FILENAME, $REMOTE_ADDR, $my_cfg;
         $my_db = new OrMysql($my_cfg[db]);
@@ -93,11 +93,9 @@ class my extends my_page {
         $sql = "SELECT * FROM `my_registration`WHERE sec_ip='" . $REMOTE_ADDR . "';";
         $my_db->get_query($sql);
         if ($my_db->get_record()) {
-            //ปรับปรุงข้อมูล
-            $sql = "UPDATE `my_registration` SET  `open_access` = NOW() WHERE `sec_ip` = '" . $REMOTE_ADDR . "';";
-            $my_db->get_query($sql);
+            //มีข้อมูลการเข้าใช้งาน พร้อมใช้งานระบบแล้ว
         } else {
-            //ลงทะเบียนใหม่
+            //ไม่พบการใช้งาน IP นี้มาก่อนบันทึกลงทะเบียนไว้ในฐานข้อมูล เพื่อใช้งานต่อไป
             $sql = "INSERT INTO `my_registration` (`open_access`, `sec_ip`,`sec_script`) VALUE(NOW(),'$REMOTE_ADDR','$my_script')";
             $my_db->get_query($sql);
         }
