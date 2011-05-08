@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- โฮสต์: localhost
--- เวลาในการสร้าง: 02 พ.ค. 2011  15:06น.
+-- เวลาในการสร้าง: 08 พ.ค. 2011  11:37น.
 -- รุ่นของเซิร์ฟเวอร์: 5.1.49
--- รุ่นของ PHP: 5.3.3-1ubuntu9.4
+-- รุ่นของ PHP: 5.3.3-1ubuntu9.5
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -32,5 +32,6 @@ CREATE TABLE IF NOT EXISTS `my_note` (
   `sec_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `sec_ip` varchar(20) NOT NULL DEFAULT '',
   `sec_script` varchar(50) NOT NULL DEFAULT '',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `sec_time` (`sec_time`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='รับส่งข้อความ';

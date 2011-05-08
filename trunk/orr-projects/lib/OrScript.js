@@ -5,8 +5,10 @@
 * ข้อมูลจาก
 * http://sixhead.com/2008/01/26/javascript-popup-and-window-opener/
 */
+var my_title = document.title; //เก็บชื่อไตเติลบาร์เริ่มแรก เพื่อใช้เรียกคืน
+var scrl = my_title;
+var timer;
 // function นี้มีไว้เพื่อสร้าง popup ให้อยู่กลางจอเสมอ
-
 function popUpWindow(URL, N, W, H, S) { // name, width, height, scrollbars
     //var winleft    =    (screen.width - W) / 2;
     //var winup    =    (screen.height - H) / 2;
@@ -49,6 +51,29 @@ function go_url(strUrl){
 }
 
 
+function send_form(urlPage) {
+    // Get the result node
+    var resultNode = dojo.byId("my_result_info");
+    // Using dojo.xhrGet, as very little information is being sent
+    dojo.xhrPost({
+        // The URL of the request
+        url: urlPage,
+        // Form to send
+        form: dojo.byId("my_ajax_form"),
+        // The success callback with result from server
+        load: function(newContent) {
+            //dojo.style(resultNode,"display","block");
+            resultNode.innerHTML = newContent;
+            dojo.byId("my_note_id").value = 0;
+        },
+        // The error handler
+        error: function() {
+            resultNode.innerHTML = "Your form could not be sent.";
+        }
+    });
+}
+
+
 function content_refresh(urlPage, idValue, idContent){
     if(dojo.byId(idValue).value != ''){
         dojo.xhrGet({
@@ -72,28 +97,14 @@ function content_refresh(urlPage, idValue, idContent){
     }else{
         dojo.byId(idContent).innerHTML = 'ไม่ได้ใส่ข้อมูลที่ค้นหา';
     }
-    
-
 }
 
+function scrlsts() {
+    scrl = scrl.substring(1, scrl.length) + scrl.substring(0, 1);
+    document.title = scrl;
+    timer = setTimeout("scrlsts()", 600);
+}
 
-function send_form(urlPage) {
-    // Get the result node
-    var resultNode = dojo.byId("my_form_result");
-    // Using dojo.xhrGet, as very little information is being sent
-    dojo.xhrPost({
-        // The URL of the request
-        url: urlPage,
-        // Form to send
-        form: dojo.byId("my_ajax_form"),
-        // The success callback with result from server
-        load: function(newContent) {
-            //dojo.style(resultNode,"display","block");
-            resultNode.innerHTML = newContent;
-        },
-        // The error handler
-        error: function() {
-            resultNode.innerHTML = "Your form could not be sent.";
-        }
-    });
+function stoper()	{
+    clearTimeout(timer);
 }
