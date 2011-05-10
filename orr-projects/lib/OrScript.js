@@ -78,7 +78,7 @@ function content_refresh(urlPage, idValue, idContent){
     if(dojo.byId(idValue).value != ''){
         dojo.xhrGet({
             url: urlPage + '?val_msg[content_key_value]=' + dojo.byId(idValue).value,
-            timeout: 9000,
+            timeout: 10000,
             load: function(result) {
                 if(result == "not found!"){
                     alert('ข้อความ "' + dojo.byId(idValue).value + '" ในช่องข้อมูลไม่ถูกต้อง กรุณาใส่ข้อความใหม่!!');
@@ -90,7 +90,7 @@ function content_refresh(urlPage, idValue, idContent){
 
             },
             error: function() {
-                alert('Error when retrieving data from the ' + urlPage + '!!!');
+                //alert('Error when retrieving data from the ' + urlPage + '!!!');
             }
         }
         );
