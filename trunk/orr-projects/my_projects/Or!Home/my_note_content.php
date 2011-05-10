@@ -89,8 +89,9 @@ class my extends OrContent {
         $my_skin->set_skin_tag('id', '');
         $my_skin->set_skin_tag('detail', 'ประกาศใหม่ๆ ยังไม่มีนะคะ');
         while ($my_db->get_record()) {
-            $my_detail = 'วันเวลาที่บันทึก : ' . $my_db->record[sec_time].'<br>';
-            $my_detail .= $my_db->record[detail];
+            
+            $my_detail = $my_db->record[detail];
+            $my_detail .= 'วันเวลาที่บันทึก : ' . $my_db->record[sec_time].'<br>';
             
             if ($i == 0) {
                 $my_skin->set_skin_tag('id', $my_db->record[id]);

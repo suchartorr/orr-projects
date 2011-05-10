@@ -1,5 +1,0 @@
-<?php
-$my_cfg[db]="tanay";
-$my_cfg[skins_path]="./skins/default/";
-$my_cfg[title]="Or!Tanay ระบบงานการฟ้องคดี";
-?>
