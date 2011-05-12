@@ -96,7 +96,7 @@ class my extends my_page {
             //มีข้อมูลการเข้าใช้งาน พร้อมใช้งานระบบแล้ว
         } else {
             //ไม่พบการใช้งาน IP นี้มาก่อนบันทึกลงทะเบียนไว้ในฐานข้อมูล เพื่อใช้งานต่อไป
-            $sql = "INSERT INTO `my_registration` (`open_access`, `sec_ip`,`sec_script`) VALUE(NOW(),'$REMOTE_ADDR','$my_script')";
+            $sql = "INSERT INTO `my_registration` (`open_access`,`sec_user`, `sec_ip`,`sec_script`) VALUE(NOW(),'root','$REMOTE_ADDR','$my_script')";
             $my_db->get_query($sql);
         }
         if ($my_db->is_error()
