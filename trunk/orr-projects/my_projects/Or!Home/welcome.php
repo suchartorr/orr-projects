@@ -56,13 +56,13 @@ class my extends my_page {
             //
             $this->set_user_info('เข้าใช้ระบบ');
             $this->set_login($my_form->get_tag());
-            $this->set_subpage('http://10.1.0.12/joomla/');
+            $this->set_subpage('http://10.1.0.12/intranet/');
         } else {
             //header("Location:portal.php");
             $link_logout = '<a href="welcome.php?val_controls[logout]=logout" >ออกจากระบบ</a>';
             $this->set_user_info('ผู้ใช้ระบบ : ' . $my_sec->get_user_text());
             $this->set_login($my_sec->get_user_text() . '</b> [ <u>' . $my_sec->OP_[user]->get() . '</u> ] ต้องการ ->' . $link_logout);
-            $this->set_subpage('http://10.1.0.12/joomla/');
+            $this->set_subpage('http://10.1.0.12/intranet/');
             //$this->set_login(' ผู้ใช้ระบบ '.$my_sec->get_user_text() . '</b> [ <u>' . $my_sec->OP_[user]->get() . '</u> ] ');
         }
         /* ส่วนแสดงข้อมูลหน้าจอแรก */
