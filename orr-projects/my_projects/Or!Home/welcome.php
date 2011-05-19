@@ -16,7 +16,7 @@ class my extends my_page {
         parent::__construct();
         $this->set_ip_reg();
         $this->set_skin($my_cfg[skins_path] . 'default_welcome.html'); //เรียกใช้รูปแบบหน้าจอ
-        $this->set_caption('สารสนเทศ สมาชิก');
+        $this->set_caption($my_cfg[title]);
         $my_sec = new OrSec(false);
         $val_ = new OrSysvalue();
         $val_controls = $val_->controls;
@@ -87,8 +87,8 @@ class my extends my_page {
      * @access public
      */
     public function set_ip_reg() {
-        global $SCRIPT_FILENAME, $REMOTE_ADDR, $my_cfg;
-        $my_db = new OrMysql($my_cfg[db]);
+        global $SCRIPT_FILENAME, $REMOTE_ADDR, $my_cfg, $my_cfg_sec;
+        $my_db = new OrMysql($my_cfg_sec[db]);
         $my_script = basename($SCRIPT_FILENAME);
         $sql = "SELECT * FROM `my_registration`WHERE sec_ip='" . $REMOTE_ADDR . "';";
         $my_db->get_query($sql);
