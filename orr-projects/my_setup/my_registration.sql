@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.3.7deb5build0.10.10.1
+-- version 3.0.1.1
 -- http://www.phpmyadmin.net
 --
--- โฮสต์: localhost
--- เวลาในการสร้าง: 08 พ.ค. 2011  11:38น.
--- รุ่นของเซิร์ฟเวอร์: 5.1.49
--- รุ่นของ PHP: 5.3.3-1ubuntu9.5
+-- Host: localhost
+-- Generation Time: Jun 04, 2011 at 03:27 PM
+-- Server version: 5.0.67
+-- PHP Version: 5.2.6-2ubuntu4.2
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -16,24 +16,25 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- ฐานข้อมูล: `or!config`
+-- Database: `or!config`
 --
 
 -- --------------------------------------------------------
 
 --
--- โครงสร้างตาราง `my_registration`
+-- Table structure for table `my_registration`
 --
 
 CREATE TABLE IF NOT EXISTS `my_registration` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL auto_increment,
   `open_access` datetime NOT NULL COMMENT 'ครั้งแรกที่เริ่มใช้งาน',
   `last_note_id` int(11) NOT NULL COMMENT 'โน๊ตที่อ่านล่าสุด',
   `accept_note` datetime NOT NULL COMMENT 'วันที่เวลาที่อ่านประกาศครั้งล่าสุด',
-  `sec_user` varchar(20) NOT NULL DEFAULT '',
-  `sec_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `sec_ip` varchar(20) NOT NULL DEFAULT '',
-  `sec_script` varchar(50) NOT NULL DEFAULT '',
-  PRIMARY KEY (`id`),
+  `computer_name` varchar(50) NOT NULL COMMENT 'ชื่อเครื่องคอมพิวเตอร์',
+  `sec_user` varchar(20) NOT NULL default '',
+  `sec_time` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  `sec_ip` varchar(20) NOT NULL default '',
+  `sec_script` varchar(50) NOT NULL default '',
+  PRIMARY KEY  (`id`),
   UNIQUE KEY `sec_ip` (`sec_ip`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='บันทึกการเข้าใช้งานระบบ';
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='บันทึกการเข้าใช้งานระบบ' AUTO_INCREMENT=247 ;
