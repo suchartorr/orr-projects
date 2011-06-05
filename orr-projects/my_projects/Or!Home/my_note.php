@@ -27,7 +27,7 @@ class my extends my_page {
 		$key = 'id';
 		
 		$my_form = new OrDbFrmForm('my_form' , $this->get_my_db() , $table ,$key);
-                $my_form->OP_[list_page_url]->set('_list.php');
+                $my_form->OP_[list_page_url]->set('my_note_list.php');
                 //$my_form->OP_[column]->set(2);
 		
                 /*

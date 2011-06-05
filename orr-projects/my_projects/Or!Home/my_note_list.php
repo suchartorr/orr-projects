@@ -27,10 +27,10 @@ class my extends my_page {
 		 * กำหนดคำสั่ง SQL ที่ใช้ในการแสดงข้อมูลในฐานข้อมูล ในดัวแปร $sql
 		 * ตัวอย่างเป็นแสดงข้อมูลจากตาราง my_user
 		 */
-		$sql = "SELECT * ,concat(`prefix`,`fname`, ' ' , `lname`) AS `name` FROM `my_user`";//<-กำหนดคำสั่ง SQL
+		$sql = "SELECT *  FROM `my_note`";//<-กำหนดคำสั่ง SQL
 		
 		$my_form = new OrDbFrmList('my_form' , $this->get_my_db() );
-                $my_form->OP_[edit_page_url]->set('_.php');//กำหนด URL ของหน้าแก้ไขข้อมูล
+                $my_form->OP_[edit_page_url]->set('my_note.php');//กำหนด URL ของหน้าแก้ไขข้อมูล
                 $my_form->OP_[edit_field_link]->set('id');//กำหนด ชื่อ Field ที่ต้องการให้เป็น Link หนาแก้ไขข้อมูล
                 $my_form->OP_[edit_key_field]->set('id'); //กำหนด ชื่อ Field ที่เป็นคีย์แก้ไข
                 
@@ -47,10 +47,8 @@ class my extends my_page {
 		 */
 		
 		$my_form->set_controls(new OrLabel('id'));
-		$my_form->set_controls(new OrLabel('user'));
-		$my_form->set_controls(new OrLabel('name'));
-		$my_form->set_controls(new OrLabel('status'));
-		
+		$my_form->set_controls(new OrLabel('detail'));
+                
 		/*
 		* กำหนดชนิด filter controls ตามตัวอย่างคำสั่ง
 		* $my_form->set_filter_controls(new OrSelectbox('status'));
