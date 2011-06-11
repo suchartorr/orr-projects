@@ -23,6 +23,7 @@ function popUpWindow(URL, N, W, H, S) { // name, width, height, scrollbars
 */
 function win_popup(theURL, searchValue, ControlName,width,height,scollbar) {
     var setfocus;
+    searchValue = encodeURIComponent(searchValue);
     theURL = theURL + '?val_filter[filter_by]=' + searchValue + '&val_msg[btn_filter]=Filter&val_msg[control_id]=' + ControlName;
     setfocus = window.open(theURL,ControlName,'resizable=no,scrollbars='+ scollbar +',width='+ width +',height='+ height +',top=0,left=0');
     setfocus.focus();
@@ -76,8 +77,9 @@ function send_form(urlPage) {
 
 function content_refresh(urlPage, idValue, idContent){
     if(dojo.byId(idValue).value != ''){
+
         dojo.xhrGet({
-            url: urlPage + '?val_msg[content_key_value]=' + dojo.byId(idValue).value,
+            url: urlPage + '?val_msg[content_key_value]=' + encodeURIComponent(dojo.byId(idValue).value),
             timeout: 10000,
             load: function(result) {
                 if(result == "not found!"){
