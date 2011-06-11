@@ -69,6 +69,8 @@
             t.onTick = function() {
                 var idNote = dojo.byId("my_note_id");
                 var noteDialog = dijit.byId('note_dialog');
+                var btnInformation = dijit.byId('btn_information');
+                btnInformation.openDropDown();
                 content_refresh(urlPage, idValue, idContent);
                 if(idNote.value > 0 ){
                     if(noteDialog.open == false){
@@ -84,6 +86,7 @@
                     clearTimeout(timer);
                     document.title = my_title;
                 }
+                
                 //dijit.byId('note_dialog').show();
                 //console.info("One second elapsed");
             }
@@ -144,9 +147,14 @@
                         <span id="my_note_content"></span>
                     </div>
                 </div>
-                <button dojoType="dijit.form.Button" onClick="dijit.byId('note_dialog').show();" type="button">
-                    ข่าวสารข้อมูล
-                </button>
+                <div id="btn_information" dojoType="dijit.form.DropDownButton" >
+                    <span>แบ่งปัน พูดคุย</span>
+                    <div dojoType="dijit.TooltipDialog">
+                        <div class="tooltip">
+                            <span id="my_info">กล่องข้อความ/span>
+                        </div>
+                    </div>
+                </div>
                 <div dojoType="dijit.form.DropDownButton">
                     <span><!--Or_Skin[my_user_info]--></span>
                     <div dojoType="dijit.TooltipDialog">
@@ -157,7 +165,7 @@
                                 <li><a href="javascript:change_subpage_src('../../my_projects/Or!Home/user_about.php')">ข้อมูลเกี่ยวกับตัวคุณ</a></li>
                             </ul>
                             <hr>
-                            <span id="my_result_info">ยังไม่มีเรืองแจ้งถึงคุณในขณะนี้</span>
+                            <span id="my_result_info">ดีใจด้วย :-) คุณได้อ่านประกาศครบแล้ว</span>
                         </div>
                     </div>
                 </div>
