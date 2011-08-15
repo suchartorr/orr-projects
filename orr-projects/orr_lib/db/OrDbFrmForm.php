@@ -313,6 +313,7 @@ class OrDbFrmForm extends OrDbForm {
             //$this->set_footer(null);
             $this->skin->set_skin_tag('body', $this->get_form_query());
         } else {
+            $this->skin->set_skin_tag('message', $this->OP_[message]->get());
             $this->skin->set_skin_tag('body', $this->get_body_tag());
             $this->skin->set_skin_tag('navigator', $this->get_navigator_tag($navigator_skin_file));
         }

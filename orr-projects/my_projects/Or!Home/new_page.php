@@ -60,6 +60,7 @@ class my extends my_page {
          */
         $this->set_form($my_form->get_tag());
         $this->set_filter_msg($my_form->OP_[cmd_msg]->get());
+        $this->set_my_message($my_form->OP[message]->get());
         $this->show();
     }
 
