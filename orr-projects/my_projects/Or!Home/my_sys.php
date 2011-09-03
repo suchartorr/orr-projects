@@ -85,7 +85,7 @@ class my extends my_page
                         $this->set_subpage('my_can_list.php?val_filter[sys_id]=' . $my_form->controls[sys_id]->OP_[value]->get() . '&val_compare[sys_id]==&val_msg[btn_filter]=Filter');
 		}
 		
-		$my_form->set_header( 'ค้นหา ' . $my_form->get_control_filter() . ' เรียง ' . $my_form->get_control_order() . ' ' . $my_form->get_button_filter());
+		$my_form->set_header( $my_form->get_control_filter() . ' ' . $my_form->get_button_filter());
 		//$my_message = 'ข้อมูลต่างๆ ที่ต้องการแจ้ง ผู้ใช้ระบบ';
 		$this->set_form( $my_form->get_tag($this->get_skins_path('form_button.html')));
 		$this->set_status( $my_form->OP_[message]->get() );
