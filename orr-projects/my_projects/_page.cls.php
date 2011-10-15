@@ -1,22 +1,13 @@
 <?php
- /*
- * คลาสสร้างหน้าจอระบบ
- * @package   my_projects
- * @author     Suchart Bunhachirat <suchart.orr@gmail.com>
- * @copyright  
- * @license    
- * @version    2554
- */
- 
 require_once('../../orr_lib/Or.php');
 require_once('_config.inc.php');
 
  /**
- * Class สำหรับสร้างหน้าจอมาตรฐาน
- * @package    Or!Lib
+ * คลาสหน้าจอโปรแกรม สามารถออกแบบหน้าจอที่ default.html
+ * @package   my_projects
  * @author     Suchart Bunhachirat <suchart.orr@gmail.com>
- * @copyright  1997-2005 The PHP Group
- * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
+ * @copyright  
+ * @license    
  * @version    2554
  */
 class my_page extends OrHtml
