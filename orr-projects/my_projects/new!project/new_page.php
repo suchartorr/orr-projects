@@ -1,14 +1,13 @@
 <?php
 
-/* * ****************************************************************
+/**
  * @version php5
  * @author Suchart Bunhachirat
  * @copyright Copyright &copy; 2007, orr
  * ค่าใน config.inc.php ให้ถูกต้อง
  * กำหนดข้อมูลของโปรแกรม
  * กำหนดเขตข้อมูล
- * ***************************************************************** */
-
+ * */
 require_once ('my_page.cls.php');
 
 class my extends my_page {
@@ -22,13 +21,13 @@ class my extends my_page {
          * $sql : คำสั่ง SQL
          * $key : ชื่อ Field ที่เป็น PRIMARY
          */
-        $table = 'my_sys';
+        $table = 'my_shoutbox';
         $sql = 'SELECT * FROM `' . $table . '` ';
         $key = 'id';
 
         $my_form = new OrDbFrmForm('my_form', $this->get_my_db(), $table, $key);
         $my_form->OP_[list_page_url]->set('_list.php');
-        //$my_form->OP_[column]->set(2);
+        $my_form->OP_[column]->set(1);
 
         /*
          * สร้าง Control ในฟอร์ม ประกอบด้วย Class ในกลุ่ม GUI
@@ -41,7 +40,12 @@ class my extends my_page {
          * $my_form->controls[name]->set_size(10);
          * เพิ่ม control ต่อไว้ด้านล่างนี้
          */
+        $my_form->set_controls(new OrLabel('blank'),'สำหรับเพิ่มช่องว่าง'); //TODO : ทดสอบ controls สำหรับจัดแต่งหน้าจอ
+        
+        $my_form->set_controls(new OrTextbox('nick_name'));
+        $my_form->controls[nick_name]->set_size(25);
 
+        $my_form->set_controls(new OrDojoTextarea('detail'));
         /*
          * กำหนดข้อมูลการคัดกรองข้อมูล ใหม่กรณีเกิดข้อผิดพลาด เช่น ฟิลด์ name เกิดจากคำสั่ง concat ดังดัวอย่าง
          * $my_form->set_filter_name('name',"concat(`prefix`,`fname`, ' ' , `lname`)");

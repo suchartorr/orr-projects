@@ -1,0 +1,643 @@
+format 74
+"new!project" // my_projects::new!project
+  revision 1
+  modified_by 98 "orr"
+  // class settings
+  //class diagram settings
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  //use case diagram settings
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default class_drawing_mode default shadow default show_stereotype_properties default
+  //sequence diagram settings
+  show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+  //collaboration diagram settings
+  show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default show_msg_context default draw_all_relations default shadow default show_stereotype_properties default
+  //object diagram settings
+   write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
+  //component diagram settings
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
+  draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+  //deployment diagram settings
+  package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
+  draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+  //state diagram settings
+  package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+  show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+  //activity diagram settings
+  package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+  show_infonote default drawing_language default show_stereotype_properties default
+  
+  deploymentview 129250 "new!project"
+    //deployment diagram settings
+    package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
+    draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+    artifact 136802 "config.inc"
+      stereotype "source"
+      php_src "<?php
+$my_cfg[db]=\"\";
+$my_cfg[skins_path]=\"../../skins/default_new/\";
+$my_cfg[title]=\"ไม่ได้กำหนด\";
+?>
+"
+      associated_classes
+      end
+    end
+
+    artifact 136930 "index"
+      stereotype "source"
+      php_src "<?php
+header(\"Location:welcome.php\");
+?>
+"
+      associated_classes
+      end
+    end
+
+    artifact 137058 "my_page.cls"
+      stereotype "source"
+      php_src "<?php
+ /**
+ * my_page.cls.php
+ *
+ * PHP versions 4 and 5
+ *
+ * LICENSE: This source file is subject to version 3.0 of the PHP license
+ * that is available through the world-wide-web at the following URI:
+ * http://www.php.net/license/3_0.txt.  If you did not receive a copy of
+ * the PHP License and are unable to obtain it through the web, please
+ * send a note to license@php.net so we can mail you a copy immediately.
+ *
+ * @package    Or!Lib
+ * @author     Suchart Bunhachirat <suchart_bu@yahoo.com>
+ * @copyright  1997-2005 The PHP Group
+ * @license    http://www.php.net/license/3_0.txt  PHP License 3.0
+ * @version    2550
+ */
+ 
+require_once('../../orr_lib/Or.php');
+require_once('config.inc.php');
+
+${definition}
+
+
+?>
+"
+      associated_classes
+	class_ref 136162 // my_page
+      end
+    end
+
+    artifact 137186 "new_page"
+      stereotype "source"
+      php_src "<?php
+
+/******************************************************************
+ * @version php5
+ * @author Suchart Bunhachirat
+ * @copyright Copyright &copy; 2007, orr
+ * ค่าใน config.inc.php ให้ถูกต้อง
+ * กำหนดข้อมูลของโปรแกรม
+ * กำหนดเขตข้อมูล
+ *******************************************************************/
+
+require_once ('my_page.cls.php');
+
+${definition}
+
+
+$my = new my();
+?>
+"
+      associated_classes
+	class_ref 136290 // my
+      end
+    end
+
+    artifact 137314 "new_page_list"
+      stereotype "source"
+      php_src "<?php
+/******************************************************************
+ * @version php5
+ * @author Suchart Bunhachirat
+ * @copyright Copyright &copy; 2007, orr
+ * กรุณาตรวจสอบ
+ * ค่าใน config.inc.php ให้ถูกต้อง
+ * กำหนดข้อมูลของโปรแกรม
+ * กำหนดเขตข้อมูล
+ * ตัวอย่างการเขียนเพื่อแสดงข้อมูลแบบรายงาน
+ *******************************************************************/
+ 
+require_once('my_page.cls.php');
+"
+      associated_classes
+      end
+    end
+
+    artifact 137442 "new_popup_list"
+      stereotype "source"
+      php_src "<?php
+
+/* * ****************************************************************
+ * @version php5
+ * @author Suchart Bunhachirat
+ * @copyright Copyright &copy; 2007, orr
+ * กรุณาตรวจสอบ
+ * ค่าใน config.inc.php ให้ถูกต้อง
+ * กำหนดข้อมูลของโปรแกรม
+ * กำหนดเขตข้อมูล
+ * ตัวอย่างการเขียนเพื่อแสดงหน้าจอข้อมูลแบบรายงาน
+ * ***************************************************************** */
+
+require_once('my_page.cls.php');
+"
+      associated_classes
+      end
+    end
+
+    artifact 137570 "welcome"
+      stereotype "source"
+      php_src "<?php
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+require_once (\"my_page.cls.php\");
+require_once (\"config.inc.php\");
+"
+      associated_classes
+      end
+    end
+  end
+
+  classview 129378 "new!project"
+    //class diagram settings
+    draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+    //collaboration diagram settings
+    show_full_operations_definition default show_hierarchical_rank default write_horizontally default drawing_language default package_name_in_tab default show_context default show_msg_context default draw_all_relations default shadow default show_stereotype_properties default
+    //object diagram settings
+     write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
+    //sequence diagram settings
+    show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+    //state diagram settings
+    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+    show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+    //class settings
+    //activity diagram settings
+    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+    show_infonote default drawing_language default show_stereotype_properties default
+    class 136162 "my_page"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl "${comment}${final}${visibility}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "
+Class สำหรับสร้างหน้าจอมาตรฐาน
+@package    Or!Lib
+@author     Suchart Bunhachirat <suchart.orr@gmail.com>
+@copyright  1997-2005 The PHP Group
+@license    http://www.php.net/license/3_0.txt  PHP License 3.0
+@version    2554
+"
+      classrelation 135266 // <generalisation>
+	relation 135266 ---|>
+	  a public
+	    php "${type}"
+	    classrelation_ref 135266 // <generalisation>
+	  b parent class_ref 136034 // OrHtml
+      end
+
+      attribute 139874 "caption"
+	public explicit_type ""
+	init_value " null"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      operation 173794 "__construct"
+	package explicit_return_type ""
+	nparams 1
+	  param inout name "title" explicit_type ""
+	    defaultvalue "''"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${visibility}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "public $skin = null;
+
+การใช้ Class my_page
+
+
+"
+      end
+
+      operation 173922 "set_skin_ccs"
+	package explicit_return_type "null"
+	nparams 1
+	  param inout name "file_name" explicit_type "string"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+set_skin_ccs : กำหนดไฟล์ Styles Sheet
+@param ${t0} ${p0} ชื่อไฟล์ที่อยู่ใน skin path
+@return ${type}
+"
+      end
+
+      operation 174050 "set_caption"
+	package explicit_return_type "null"
+	nparams 1
+	  param inout name "tag" explicit_type "string"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+set_caption : กำหนดหัวเรื่องโปรแกรม
+@param ${t0} ${p0} ชื่อโปรแกรม
+@return ${type}
+"
+      end
+
+      operation 174178 "set_title"
+	package explicit_return_type "null"
+	nparams 1
+	  param inout name "tag" explicit_type "string"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+set_caption : กำหนดชื่อระบบ
+@param ${t0} ${p0} ชื่อระบบ
+@return ${type}
+"
+      end
+
+      operation 174306 "set_form"
+	package explicit_return_type "null"
+	nparams 1
+	  param inout name "tag" explicit_type "string"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+set_form : กำหนด Form
+@param ${t0} ${p0} คำสั่ง HTML ของ Form
+@return ${type}
+"
+      end
+
+      operation 174434 "set_login"
+	package explicit_return_type "null"
+	nparams 1
+	  param inout name "tag" explicit_type "string"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+set_form : กำหนด Form เพื่อ Login
+@param ${t0} ${p0} คำสั่ง HTML ของ Form
+@return ${type}
+"
+      end
+
+      operation 174562 "set_leading"
+	package explicit_return_type "null"
+	nparams 1
+	  param inout name "tag" explicit_type "string"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+set_form : กำหนด Form เพื่อ Login
+@param ${t0} ${p0} คำสั่ง HTML ของ Form
+@return ${type}
+"
+      end
+
+      operation 174690 "set_subpage"
+	package explicit_return_type "null"
+	nparams 3
+	  param inout name "url" explicit_type "string"
+	  param inout name "width" explicit_type ""
+	    defaultvalue "'100%'  "
+	  param inout name "height" explicit_type ""
+	    defaultvalue "'99%'"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}, ${p1}${v1}, ${p2}${v2}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+set_subpage : กำหนด Sub Page
+@param ${t0} ${p0} Address ของ Page
+@return ${type}
+"
+      end
+
+      operation 174818 "set_status"
+	package explicit_return_type "null"
+	nparams 1
+	  param inout name "tag" explicit_type "string"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+set_status : กำหนด สถานะการทำงาน
+@param ${t0} ${p0} ข้อความแจ้งสถานะ
+@return ${type}
+"
+      end
+
+      operation 174946 "set_user_info"
+	package explicit_return_type "null"
+	nparams 1
+	  param inout name "tag" explicit_type "string"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+set_status : กำหนด สถานะการทำงาน
+@param ${t0} ${p0} ข้อความแจ้งสถานะ
+@return ${type}
+"
+      end
+
+      operation 175074 "set_filter_msg"
+	package explicit_return_type "null"
+	nparams 1
+	  param inout name "tag" explicit_type "string"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+set_filter : กำหนด สถานะการ Filter
+@param ${t0} ${p0} ข้อความแจ้ง เงื่อนไขการคัดกรองข้อมูล
+@return ${type}
+"
+      end
+
+      operation 175202 "set_my_message"
+	package explicit_return_type "null"
+	nparams 1
+	  param inout name "tag" explicit_type "string"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+set_my_message : กำหนด ข้อความแจ้งผู้ใช้ระบบ
+@param ${t0} ${p0} ข้อความแจ้ง ข้อมูล
+@return ${type}
+"
+      end
+
+      operation 175330 "set_footer"
+	package explicit_return_type "null"
+	nparams 1
+	  param inout name "tag" explicit_type "string"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+set_footer : กำหนด Footer
+@param ${t0} ${p0} ข้อความส่วน Footer
+@return ${type}
+"
+      end
+
+      operation 175458 "get_frame"
+	package explicit_return_type "string"
+	nparams 1
+	  param inout name "page_url" explicit_type "string"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+get_frame : html tag iframe
+@param ${t0} Url of page in frame
+@return ${type} html tag
+"
+      end
+
+      operation 175586 "get_skins_path"
+	package explicit_return_type "string"
+	nparams 1
+	  param inout name "file_name" explicit_type "string"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+get_skins_path : ค่า path และ file_name ตาม $my_cfg[skins_path]
+@param ${t0} ${p0} ชื่อไฟล์
+@return ${type} ค่า path + ชื่อไฟล์
+"
+      end
+
+      operation 175714 "get_my_db"
+	package explicit_return_type "object"
+	nparams 0
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+get_my_db : ค่า DB Object ฐานข้อมูลที่กำหนดจาก $my_cfg[db]
+@return ${type} DB Object จาก Class OrMysql
+"
+      end
+
+      operation 175842 "get_text"
+	package explicit_return_type "string"
+	nparams 1
+	  param inout name "file_name" explicit_type "string"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+get_text : ค่า ข้อความจากไฟล์
+@param ${t0} ชื่อไฟล์
+@return ${type} ข้อความในไฟล์	
+"
+      end
+
+      operation 175970 "get_button_filter"
+	package explicit_return_type "string"
+	nparams 1
+	  param inout name "cmd_filter" explicit_type "string"
+	    defaultvalue "''"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+get_button_filter : html tag ของปุ่ม filtter
+@param ${t0} ${p0} คำสั่ง filter ข้อมูล
+@return ${type} html tag ของปุ่ม filter
+"
+      end
+
+      operation 176098 "get_filter"
+	package explicit_return_type "string"
+	nparams 1
+	  param inout name "str_filter" explicit_type "string"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+get_fitter : sql filter สร้างคำสั่งค้นหาข้อมูล
+@param ${t0} ${p0}	ข้อความที่ต้องการ filter
+@return ${type} sql filter
+"
+      end
+
+      operation 176226 "show"
+	package explicit_return_type "null"
+	nparams 0
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+show : คำสั่งแสดงหน้าจอ Html
+@return ${type}
+"
+      end
+    end
+
+    class 136290 "my"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl "${comment}${final}${visibility}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 135394 // <generalisation>
+	relation 135394 ---|>
+	  a public
+	    php "${type}"
+	    classrelation_ref 135394 // <generalisation>
+	  b parent class_ref 136162 // my_page
+      end
+
+      operation 176354 "__construct"
+	package explicit_return_type ""
+	nparams 0
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${visibility}function ${name}${(}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+    end
+  end
+end

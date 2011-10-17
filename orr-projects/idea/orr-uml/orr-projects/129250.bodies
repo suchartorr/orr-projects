@@ -1,33 +1,5 @@
-<?php
-
-//
-//OrDbForm.php - Copyright 
-//@author Suchart Bunhachirat
-//@version php4 - 5
-//************************************************************************
-//
-//class OrDbForm
-//
-
-class OrDbForm extends OrDojoForm {
-
-    //
-    //Object ฐานข้อมูล
-    //@access public
-
-    public $db = null;
-    //
-    //ชื่อ Table ที่ต้องการเพิ่ม แก้ไข ลบ ข้อมูล
-    //@access public
-
-    public $db_table = "";
-    //
-    //ชื่อ kay field ของ Table ที่ต้องการเพิ่ม แก้ไข ลบ ข้อมูล
-    //@access public
-
-    public $db_key = array();
-
-    function __construct($id, $name = "") {
+class OrDbForm
+!!!132066.php!!!	__construct(inout id : , inout name :  = "")
         /* Constructors */
         parent :: __construct($id, $name);
         $this->OP_[db_form]->set(true);
@@ -60,31 +32,14 @@ class OrDbForm extends OrDojoForm {
         $this->event('after_delete');
         $this->event('after_error');
         /* จบ กำหนดเหตุการณ์ของ Calss */
-    }
-
-    //ตรวจสอบ กำหนด Object ฐานข้อมูล 
-    //@param object obj Object ฐานข้อมูล
-    //@return null
-    //@access public
-
-    function set_db($obj) {
+!!!132194.php!!!	set_db(inout obj : object) : null
         if (is_object($obj)) {
             $this->db = $obj;
         } else {
             die("form->set_db : [$obj] This isn't object");
         }
         return null;
-    }
-
-    //ดึงข้อมูลจากฐานข้อมูล 
-    //@param string sql คำสั่ง SQL
-    //@param string cmd_filter คำสั่ง Filter Record ที่ต้องการ
-    //@param string cmd_msg ข้อความ message ที่แสดง
-    //@param boolean reset สั่งเป็น true ถ้าต้องยกเลิกคำสั่งเดิมทั้งหมด
-    //@return null
-    //@access public
-
-    function fetch_record($sql, $obj_filter = '', $cmd_msg = '', $reset = false) {
+!!!132322.php!!!	fetch_record(inout sql : string, inout obj_filter : string = '', inout cmd_msg : string = '', inout reset : boolean = false) : null
         if (get_class($obj_filter) == 'OrSql') {
             $cmd_filter = $obj_filter->OP_[cmd_filter]->get();
             $cmd_order = $obj_filter->OP_[cmd_order]->get();
@@ -259,14 +214,7 @@ class OrDbForm extends OrDojoForm {
         }
 
         return null;
-    }
-
-    //เตรียมฟอร์มเพิ่มรายการใหม่
-    //@param string sql คำสั่ง SQL
-    //@return null
-    //@access private
-
-    function new_record($auto_post = false) {
+!!!132450.php!!!	new_record(inout auto_post : string = false) : null
         $g_my_sec = new OrSec();
         $g_my_sec->OP_[sec_user]->set("");
         $EV_[EV_controls] = $this->val_controls[db_field];
@@ -283,10 +231,7 @@ class OrDbForm extends OrDojoForm {
         $this->controls[sec_user]->OP_[value]->set($g_my_sec->OP_[user]->get());
         $this->set_body($this->controls[sec_user]->get_tag());
         return null;
-    }
-
-    //Reload ข้อมูลตามหมายเลข record
-    function reload($sql) {
+!!!132578.php!!!	reload(inout sql : )
         /* ตรวจสอบค่าของ cur_rec และ total_rec */
         if ($this->OP_[cur_rec]->get() < 1)
             $this->OP_[cur_rec]->set(1);
@@ -296,14 +241,7 @@ class OrDbForm extends OrDojoForm {
         $limit = " LIMIT " . ($this->OP_[cur_rec]->get() - 1) . "," . ($this->OP_[cur_rec]->get());
         $this->update_controls($sql, $limit);
         return null;
-    }
-
-    //Next เลื่อนไปรายการถัดไป
-    //@param string sql คำสั่ง SQL
-    //@return null
-    //@access private
-
-    function next_rec($sql) {
+!!!132706.php!!!	next_rec(inout sql : string) : null
         /** ตรวจสอบจำนวนรายการทั้งหมดต้องมากกว่า เลขรายการปัจจุบัน* */
         $go_record = $this->OP_[cur_rec]->get() - 1;
         $total_record = $this->OP_[total_rec]->get();
@@ -324,14 +262,7 @@ class OrDbForm extends OrDojoForm {
         }
 
         return null;
-    }
-
-    //Prev เลื่อนไปรายการก่อนหน้า
-    //@param string sql คำสั่ง SQL
-    //@return null
-    //@access private
-
-    function prev_rec($sql) {
+!!!132834.php!!!	prev_rec(inout sql : string) : null
         /*         * ตรวจสอบเลขรายการปัจจุบัน ต้องมากกว่า 1* */
         $go_record = $this->OP_[cur_rec]->get() - 1;
         if ($this->OP_[cur_rec]->get() > 1) {
@@ -345,36 +276,19 @@ class OrDbForm extends OrDojoForm {
             $this->reload($sql);
         }
         return null;
-    }
-
-    //Last เลื่อนไปรายการสุดท้าย
-    //@param string sql คำสั่ง SQL
-    //@return null
-    //@access private
-
-    function last_rec($sql) {
+!!!132962.php!!!	last_rec(inout sql : string) : null
         $go_record = $this->OP_[total_rec]->get();
         $go_record = $go_record - 1;
         $limit = " LIMIT " . $go_record . ",1";
         $this->OP_[cur_rec]->set($go_record + 1);
         $this->update_controls($sql, $limit);
         return null;
-    }
-
-    //First เลื่อนไปรายการแรก
-    //@param string sql คำสั่ง SQL
-    //@return null
-    //@access private
-
-    function first_rec($sql) {
+!!!133090.php!!!	first_rec(inout sql : string) : null
         $limit = " LIMIT 0,1";
         $this->OP_[cur_rec]->set(1);
         $this->update_controls($sql, $limit);
         return null;
-    }
-
-    //ดึงข้อมูลจากฐานข้อมูล แสดงที่ Control value
-    function update_controls($sql, $limit) {
+!!!133218.php!!!	update_controls(inout sql : , inout limit : )
         $g_my_sec = new OrSec(); /* ตรวจสอบค่าเกี่ยวกับสิทธิ์การใช้งาน */
         //if($this->OP_[cmd_filter]->get()!="")$sql.="WHERE ((".$this->OP_[cmd_filter]->get()."))";
         /* ตรวจสอบจำนวนหน้าทั้งหมด */
@@ -405,19 +319,14 @@ class OrDbForm extends OrDojoForm {
         }
         $this->db->close_conn();
         return null;
-    }
-
-    //กำหนด Kay field ที่ใช้ Update หรือ Delete
-    function set_db_key($key_name) {
+!!!133346.php!!!	set_db_key(inout key_name : )
         if (is_array($key_name)) {
             $this->db_key = $key_name;
         } else {
             $this->db_key[] = $key_name;
         }
         return null;
-    }
-
-    function get_sec_user() {
+!!!133474.php!!!	get_sec_user()
         $sql = "SELECT sec_user FROM " . $this->db_table;
         $sql.=$this->get_where_key() . ";";
         $this->db->get_query($sql);
@@ -425,10 +334,7 @@ class OrDbForm extends OrDojoForm {
             die('ไม่สามารถตรวจสอบเจ้าของข้อมูลได้ กรุณาตรวจสอบกับผู้ดูแลระบบ' . $this->db->show_error());
         $this->db->get_record();
         return $this->db->record[sec_user];
-    }
-
-    //จัดการบันทึกข้อมูลเพิ่มใน ฐานข้อมูล ต้องกำหนด table ที่ต้องการ
-    function add_record() {
+!!!133602.php!!!	add_record()
         $g_my_sec = new OrSec(); /* ตรวจสอบค่าเกี่ยวกับสิทธิ์การใช้งาน */
         $EV_[EV_controls] = $this->val_controls[db_field];
         $this->OE_before_add($EV_);
@@ -458,10 +364,7 @@ class OrDbForm extends OrDojoForm {
         //$this->OP_[total_rec]->set($this->OP_[total_rec]->get()+1);
         //$this->OP_[cur_rec]->set($this->OP_[total_rec]->get());
         return null;
-    }
-
-    //จัดการลบข้อมูลในฐานข้อมูล
-    function del_record() {
+!!!133730.php!!!	del_record()
         $g_my_sec = new OrSec(); /* ตรวจสอบค่าเกี่ยวกับสิทธิ์การใช้งาน */
         $EV_[EV_controls] = $this->val_controls[db_field];
         $this->OE_before_delete($EV_);
@@ -478,9 +381,7 @@ class OrDbForm extends OrDojoForm {
         $g_my_sec->activity(__LINE__ . ",ลบข้อมูลตาม " . $sql . ",OK");
         $this->OE_after_delete();
         return null;
-    }
-
-    function is_data_field() {
+!!!133858.php!!!	is_data_field()
         /* ตรวจสอบความถูกต้องค่าใน controls ที่ส่งมาให้ */
         $ok = true;
         foreach ($this->val_controls[db_field] as $id => $val) {
@@ -499,9 +400,7 @@ class OrDbForm extends OrDojoForm {
                 break;
         }
         return $ok;
-    }
-
-    function save_record() {
+!!!133986.php!!!	save_record()
         /* จัดการบันทึกแก้ไขในฐานข้อมูล */
         $g_my_sec = new OrSec();
         $EV_[EV_controls] = $this->val_controls[db_field];
@@ -536,9 +435,7 @@ class OrDbForm extends OrDojoForm {
         $EV_[EV_controls] = $this->val_controls[db_field];
         $this->OE_after_save($EV_);
         return null;
-    }
-
-    function get_where_key() {
+!!!134114.php!!!	get_where_key()
         $i = 0;
         $sql_where = " WHERE ";
         foreach ($this->db_key as $id => $key) {
@@ -549,20 +446,10 @@ class OrDbForm extends OrDojoForm {
             $i+=1;
         }
         return $sql_where;
-    }
-
-    //กำหนด table ที่ใช้ในการ add update หรือ Deleteข้อมูล
-    function set_db_table($value) {
+!!!134242.php!!!	set_db_table(inout value : )
         $this->db_table = $value;
         return null;
-    }
-
-    //กำหนด Class Name ให้ Control ตามเงื่อนไขข้อมูล
-    //@param string id Control
-    //@return null
-    //@access public
-
-    function set_class_name($id) {
+!!!134370.php!!!	set_class_name(inout id : string) : null
         if ($this->controls[$id]->OP_[read_only]->get()) {
             $this->controls[$id]->OP_[class_name]->set('read_only');
         } else {
@@ -574,13 +461,7 @@ class OrDbForm extends OrDojoForm {
             }
         }
         return null;
-    }
-
-    //function get_nav_tag(){
-    //return $this->OP_[nav]->get_tag()." จำนวน ".$this->OP_[total_rec]->get()." รายการ";
-    //}
-    //ตรวจสอบค่าของ Control ตาม type เพื่อแปลงเป็นข้อมูลให้ Mysql
-    function get_sql_value($id) {
+!!!134498.php!!!	get_sql_value(inout id : )
         /* เช็คประเภทของข้อมูล */
         if (!is_numeric($this->val_controls[db_field][$id])) {
             /* ตรวจสอบการเป็นข้อมูลวันที่เวลาไทยหรือไม่ */
@@ -599,13 +480,7 @@ class OrDbForm extends OrDojoForm {
             return "'" . AddSlashes($this->val_controls[db_field][$id]) . "'"; // แก้ไขกรณีบันทึกเลข ทศนิยม สุชาติ บุญหชัยรัตน์  14/10/2547
         }
         //return null;
-    }
-
-    //สร้าง Tag ส่วนแสดงข้อมูล
-    //@return string
-    //@access public
-
-    function get_body_tag() {
+!!!134626.php!!!	get_body_tag() : string
         $my_table = new OrTable('db_' . $this->OP_[id]->get());
         $my_table->OP_[align_table]->set('left');
         $my_table->OP_[class_name]->set('tbl_body');
@@ -652,14 +527,7 @@ class OrDbForm extends OrDojoForm {
             $my_col = 0;
         }
         return $my_table->get_tag();
-    }
-
-    //คืนค่า tag แสดง navigator button
-    //@param string skin_file ที่อยู่ของ Skin file
-    //@return string
-    //@access public
-
-    function get_navigator_tag($skin_file = 'Or!Lib/db/form_navigator.html') {
+!!!134754.php!!!	get_navigator_tag(inout skin_file : string = 'Or!Lib/db/form_navigator.html') : string
         /* รับค่า Skin ของชุดปุ่่ม */
         $my_value = new OrSkin($skin_file);
         $cur_rec = new OrFieldHidden('evt_form_db[cur_rec]');
@@ -677,21 +545,9 @@ class OrDbForm extends OrDojoForm {
         $my_value->set_skin_tag('total_rec', $total_rec->get_tag());
         $my_value->set_skin_tag('description', $this->OP_[cur_rec]->get() . ' of ' . $this->OP_[total_rec]->get());
         return $my_value->get_tag();
-    }
-
-    //คืนค่า tag แสดง status ของรายการ
-    //@return string
-    //@access public
-
-    function get_status_tag() {
+!!!134882.php!!!	get_status_tag() : string
         return $this->OP_['sec_status_tag']->get();
-    }
-
-    //คืนค่า จำนวนรายการทั้งหมด
-    //@return string
-    //@access public
-
-    function get_total_row($sql_count_row) {
+!!!135010.php!!!	get_total_row(inout sql_count_row : ) : string
         $db_page = $this->db;
         $sql_cmd = new OrSql();
         $sql_cmd->set_cmd_sql($sql_count_row);
@@ -706,68 +562,49 @@ class OrDbForm extends OrDojoForm {
         }
 
         return $this->OP_[total_rec]->get();
-    }
-
-    //Event on class 
-    function OE_on_load($EV_) {
+!!!135138.php!!!	OE_on_load(inout EV_ : )
         /* $EV_db_event : array ค่าเหตุการณ์ที่เกิดขึ้น */
         extract($EV_, EXTR_OVERWRITE);
         eval($this->OE_[on_load]->get());
         return null;
-    }
-
-    function OE_new_record($EV_) {
+!!!135266.php!!!	OE_new_record(inout EV_ : )
         /* $EV_controls : array ค่า controls */
         extract($EV_, EXTR_OVERWRITE);
         eval($this->OE_[new_record]->get());
         return null;
-    }
-
-    function OE_before_add($EV_) {
+!!!135394.php!!!	OE_before_add(inout EV_ : )
         /* $EV_controls : array ค่า controls */
         extract($EV_, EXTR_OVERWRITE);
         eval($this->OE_[before_add]->get());
         return null;
-    }
-
-    function OE_after_add($EV_) {
+!!!135522.php!!!	OE_after_add(inout EV_ : )
         /* $EV_controls : array ค่า controls
          * *$EV_insert_id : mix ค่า Auto key */
         extract($EV_, EXTR_OVERWRITE);
         $this->OP_[message]->set('เพิ่มรายการใหม่ สำเร็จ');
         eval($this->OE_[after_add]->get());
         return null;
-    }
-
-    function OE_before_save($EV_) {
+!!!135650.php!!!	OE_before_save(inout EV_ : )
         /* $EV_controls : array ค่า controls */
         extract($EV_, EXTR_OVERWRITE);
         eval($this->OE_[before_save]->get());
         return null;
-    }
-
-    function OE_after_save($EV_) {
+!!!135778.php!!!	OE_after_save(inout EV_ : )
         /* $EV_controls : array ค่า controls */
         extract($EV_, EXTR_OVERWRITE);
         $this->OP_[message]->set('บันทึกรายการ สำเร็จ');
         eval($this->OE_[after_save]->get());
         return null;
-    }
-
-    function OE_before_delete($EV_) {
+!!!135906.php!!!	OE_before_delete(inout EV_ : )
         /* $EV_controls = ค่า controls */
         extract($EV_, EXTR_OVERWRITE);
         eval($this->OE_[before_delete]->get());
         return null;
-    }
-
-    function OE_after_delete() {
+!!!136034.php!!!	OE_after_delete()
         $this->OP_[message]->set('ลบรายการ สำเร็จ');
         eval($this->OE_[after_delete]->get());
         return null;
-    }
-
-    function OE_after_error($EV_) {
+!!!136162.php!!!	OE_after_error(inout EV_ : )
         /* เหตุการณ์หลังจากเกิดความผิดพลาด สุชาติ บุญหชัยรัตน์ 27 ธันวาคม 2546 */
         /* $EV_control_id = ชื่อ control */
         /* $EV_control_val = ค่า control */
@@ -777,8 +614,3 @@ class OrDbForm extends OrDojoForm {
         $this->OP_[message]->set('เกิดความผิดพลาด');
         eval($this->OE_[after_error]->get());
         return null;
-    }
-
-}
-
-?>

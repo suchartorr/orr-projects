@@ -1,6 +1,6 @@
 .tbl_my { background: #ffffff; border: 1pt; border-spacing: 0pt; vertical-align: top;  width: 100%;}
 .tbl_header {text-align: left; border-bottom: 1pt solid #EEEEEE; vertical-align: middle; width: 100%; }
-.tbl_body { padding-bottom: 5px; padding-top: 5px; width: 90%; }
+.tbl_body { padding-bottom: 5px; padding-top: 5px; width: 100%; }
 .tbl_footer { background: #FFFFFF; text-align: center; border: 0pt; vertical-align: middle; width: 100%;}
 
 .tr_topic {vertical-align: middle}

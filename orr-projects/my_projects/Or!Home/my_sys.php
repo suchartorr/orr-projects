@@ -88,8 +88,8 @@ class my extends my_page
 		$my_form->set_header( $my_form->get_control_filter() . ' ' . $my_form->get_button_filter());
 		//$my_message = 'ข้อมูลต่างๆ ที่ต้องการแจ้ง ผู้ใช้ระบบ';
 		$this->set_form( $my_form->get_tag($this->get_skins_path('form_button.html')));
-		$this->set_status( $my_form->OP_[message]->get() );
-		$this->set_filter_msg( $my_form->OP_[cmd_msg]->get());
+		$this->set_status( $my_form->OP_[message]->get() ); //TODO :  version 2554 แจ้งใน my_form แทน
+		$this->set_filter_msg( $my_form->OP_[cmd_msg]->get()); //TODO : version 2554 แจ้งใน my_form แทน
 		//$this->set_my_message( $my_message);
 		//$this->set_footer($this->get_text('footer.inc'));
 		
