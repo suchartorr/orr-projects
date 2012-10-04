@@ -113,20 +113,23 @@
         </script></head>
     <body class="tundra">
         <div dojoType="dijit.layout.BorderContainer" style="width: 100%; height: 100%;">
-            <div dojoType="dijit.layout.ContentPane" region="top" style=" background-color: coral" >
+            <div dojoType="dijit.layout.ContentPane" region="top" >
                 <div dojoType="dijit.form.DropDownButton">
                     <span>ระบบของเรา</span>
                     <div dojoType="dijit.layout.AccordionContainer" style="width: 400px; height: 500px; margin: 0 auto;">
                         <div dojoType="dijit.layout.AccordionPane" title="การดูแลรักษาผู้ป่วย">
                             <ul>
-                                <li><a href="../../my_projects/mr_diag/" target="_blank">งานเวชสถิติผู้ป่วย</a></li>
-                                <li><a href="../../my_projects/Qm!Reports/" target="_blank">รายงานสถิติโรงพยาบาล</a></li>
+                                <li><a href="../../my_projects/mr_diag/" target="_top">งานเวชสถิติผู้ป่วย</a></li>
+                                <li><a href="../../my_projects/Qm!Reports/" target="_top">รายงานสถิติโรงพยาบาล</a></li>
                             </ul>
                         </div>
-                        <div dojoType="dijit.layout.AccordionPane" title="การจัดการและสื่อสาร">
-                            อยู่ระหว่างการทดสอบระบบครับ
+                        <div dojoType="dijit.layout.AccordionPane" title="การติดต่อสื่อสาร">
+                            <ul>
+                                <li><a href="javascript:change_subpage_src('https://sites.google.com/a/theptarin.com/events/')">ปฏิทินกิจกรรม</a></li>
+                                <li><a href="http://www.gmail.com/" target="_blank">อีเมล Gmail</a></li>
+                            </ul>
                         </div>
-                        <div dojoType="dijit.layout.AccordionPane" title="การสื่อสาร และกิจกรรม">
+                        <div dojoType="dijit.layout.AccordionPane" title="ตัวอย่างงานอื่นๆ">
                             <a href="http://www.w3schools.com/" target="_blank">Visit W3Schools!</a>
                             <a href="http://www.dojotoolkit.org/" target="_blank">Dojo Toolkit</a>
                             <a href="../../my_projects/Or!Home/ajax_button.html" target="_blank">ตัวอย่างปุ่ม Ajax</a>
@@ -155,7 +158,7 @@
                         </div>
                     </div>
                 </div>
-                <div style="position:absolute; top:5px; right:5px;" dojoType="dijit.form.DropDownButton">
+                <div dojoType="dijit.form.DropDownButton">
                     <span><!--Or_Skin[my_user_info]--></span>
                     <div dojoType="dijit.TooltipDialog">
                         <div class="tooltip">
