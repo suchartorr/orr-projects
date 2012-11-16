@@ -1,13 +1,13 @@
 <?php
-/**
- * ฟอร์มการบันทึกข้อมูล สามารถออกแบบหน้าจอที่ my_form.html
- * 
- * @package   my_projects
- * @author     Suchart Bunhachirat <suchart.orr@gmail.com>
- * @copyright  
- * @license    
- * @version    2554
- */
+
+//
+//OrDbFrmForm.php - Copyright 
+//@author Suchart Bunhachirat
+//@version php4 - 5
+//************************************************************************
+//
+//Class OrDbFrmForm
+//สร้างหน้าจอมาตรฐานสำหรับบันทึกแก้ไขข้อมูล
 
 class OrDbFrmForm extends OrDbForm {
 
