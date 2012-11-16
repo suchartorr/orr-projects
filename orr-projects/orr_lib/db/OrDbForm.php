@@ -607,7 +607,7 @@ class OrDbForm extends OrDojoForm {
 
     function get_body_tag() {
         $my_table = new OrTable('db_' . $this->OP_[id]->get());
-        $my_table->OP_[align_table]->set('left');
+        $my_table->OP_[align_table]->set('center');
         $my_table->OP_[class_name]->set('tbl_body');
         $my_col = 0;
         $control_count = 0;
