@@ -10,7 +10,7 @@
 
 require_once('my_subpage.cls.php');
 
-class my extends my_subpage {
+class my extends my_page {
 	function __construct() {
 		parent :: __construct();
 		$this->set_skin_ccs("my_form.css");
