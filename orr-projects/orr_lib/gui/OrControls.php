@@ -29,6 +29,7 @@ class OrControls extends OrGui {
 	  $this->property('title','string');
 	  $this->property('read_only','boolean',false);
 	  $this->property('db_field','boolean',false);
+          $this->property('db_type', 'string'); // กำหนดประเภทข้อมูลตามฟิลด์ข้อมูล
 	  $this->property('auto_visible','boolean',true);
 	  $this->property('value','string');
 	  $this->property('default_value','string');

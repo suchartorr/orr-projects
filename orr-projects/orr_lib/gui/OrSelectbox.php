@@ -19,6 +19,7 @@ class OrSelectbox extends OrControls {
         parent::__construct($id, $name, $idx);
         //$this->OrControls($id, $name, $idx);
         $this->property('option', 'array');
+        $this->OP_[db_type]->set('text');
     }
 
   //

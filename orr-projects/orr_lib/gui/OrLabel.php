@@ -21,6 +21,8 @@ class OrLabel extends OrControls {
         $this->property('text', 'string');
 
         $this->OP_[read_only]->set(true);
+        $this->OP_[db_type]->set('text');
+        
         /* เริ่ม กำหนดเหตุการณ์ของ Class */
         $this->event('before_text');
         /* จบ กำหนดเหตุการณ์ของ Class */

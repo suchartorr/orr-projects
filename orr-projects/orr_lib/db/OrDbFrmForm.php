@@ -163,9 +163,13 @@ class OrDbFrmForm extends OrDbForm {
             if ($val_msg[btn_filter] == 'Filter') {
                 if ($this->filter_value[filter_by] != '') {
                     $filter_msg .= 'ค้นหา ' . $this->filter_value[filter_by] . ' ใน ';
-                    foreach ($this->caption_fields AS $caption => $id) {
-                        $filter->set_cmd_filter($id, 'LIKE', $this->filter_value[filter_by], 'OR');
-                        $filter_msg .= ' ' . $caption . ' ';
+                    //foreach ($this->caption_fields AS $caption => $id) {
+                    foreach ($this->controls AS $control_id => $control) {
+                        //$filter->set_cmd_filter($id, 'LIKE', $this->filter_value[filter_by], 'OR');
+                        if ($control->OP_[db_field]->get() AND $control->OP_[db_type]->get() == 'text') {
+                            $filter->set_cmd_filter($control_id, 'LIKE', $this->filter_value[filter_by], 'OR');
+                            $filter_msg .= ' ' . $control->OP_[caption]->get() . ' ';
+                        }
                     }
                 } else {
                     /*                     * ค้นจาก Query* */

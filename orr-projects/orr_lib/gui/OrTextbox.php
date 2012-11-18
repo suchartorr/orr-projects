@@ -29,6 +29,7 @@ class OrTextbox extends OrControls {
         $this->property('password', 'boolean', false);
 
         $this->OP_[type]->set('text');
+        $this->OP_[db_type]->set('text');
     }
 
     // end of member function OrTextbox
