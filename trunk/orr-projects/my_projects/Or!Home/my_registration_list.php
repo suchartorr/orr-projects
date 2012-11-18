@@ -49,8 +49,10 @@ class my extends my_page {
 		$my_form->set_controls(new OrLabel('id'));
                 $my_form->set_controls(new OrLabel('sec_ip'));
 		$my_form->set_controls(new OrLabel('open_access'));
+                $my_form->controls[open_access]->OP_[db_type]->set('time');//กำหนดข้อมูลที่ไม่ใช่ text เพื่อป้องกัน filter ข้อมูลผิด
 		$my_form->set_controls(new OrLabel('last_note_id'));
 		$my_form->set_controls(new OrLabel('accept_note'));
+                $my_form->controls[accept_note]->OP_[db_type]->set('time');
                 $my_form->set_controls(new OrLabel('computer_name'));
 
 		

@@ -46,6 +46,8 @@ class OrTextarea extends OrControls {
         //$this->OrControls($id, $name, $idx);
         $this->property('rows', 'integer', 5);
         $this->property('cols', 'integer', 50);
+        
+        $this->OP_[db_type]->set('text');
     }
 
   // end of member function OrTextarea

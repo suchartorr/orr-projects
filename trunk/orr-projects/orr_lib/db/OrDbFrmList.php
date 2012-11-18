@@ -57,7 +57,7 @@ class OrDbFrmList extends OrDbFormList {
         $this->property('edit_page_url', 'string'); //กำหนด URL ของหน้าแก้ไขข้อมูล
         $this->property('edit_field_link', 'string'); //กำหนด ชื่อ Field ที่ต้องการให้เป็น Link หนาแก้ไขข้อมูล
         $this->property('edit_key_field', 'string'); //กำหนด ชื่อ Field ที่เป็นคีย์แก้ไข
-        $this->property('edit_link_target', 'string','_blank'); //ลักษณะการเปิดหน้าจอแก้ไขเป็น _blank _parent _self _top
+        $this->property('edit_link_target', 'string', '_blank'); //ลักษณะการเปิดหน้าจอแก้ไขเป็น _blank _parent _self _top
         //$this->OrDbFormList($id);
         $this->set_db($db);
         if ($skin == '') {
@@ -157,10 +157,10 @@ class OrDbFrmList extends OrDbFormList {
 
 
         foreach ($this->controls AS $control_id => $control) {
-            //if ($control->OP_[db_field]->get()) {
-            $this->caption_fields[$control->OP_[caption]->get()] = $control_id;
-            debug_mode(__FILE__, __LINE__, $control->OP_[caption]->get(), 'caption');
-            //}แก้ไขเกี่ยวกับการ Filter ข้อมูล
+            if ($control->OP_[db_field]->get()) {
+                $this->caption_fields[$control->OP_[caption]->get()] = $control_id;
+                debug_mode(__FILE__, __LINE__, $control->OP_[caption]->get(), 'caption');
+            }
         }
 
         /**
@@ -188,24 +188,28 @@ class OrDbFrmList extends OrDbFormList {
                 if ($this->filter_value[filter_by] != '') {
                     $filter_msg .= 'ค้นหา ' . $this->filter_value[filter_by] . ' <i>ทุกข้อมูล</i> ';
                     $new_filter = true;
-                    foreach ($this->caption_fields AS $caption => $id) {
-                        if ($is_group_by) {
-                            if ($this->is_group_filter($this->get_filter_name($id))) {
-                                debug_mode(__FILE__, __LINE__, $this->get_filter_name($id), 'filter_name');
-                                $filter->set_cmd_group_filter($this->get_filter_name($id), 'LIKE', $this->filter_value[filter_by], 'OR');
-                                //$filter_msg .= ' ' . $caption . ' ';
+                    //foreach ($this->caption_fields AS $caption => $id) {
+                    foreach ($this->controls AS $control_id => $control) {
+                        if ($control->OP_[db_field]->get() AND $control->OP_[db_type]->get() == 'text') {
+                            $id = $control_id;
+                            if ($is_group_by) {
+                                if ($this->is_group_filter($this->get_filter_name($id))) {
+                                    debug_mode(__FILE__, __LINE__, $this->get_filter_name($id), 'filter_name');
+                                    $filter->set_cmd_group_filter($this->get_filter_name($id), 'LIKE', $this->filter_value[filter_by], 'OR');
+                                    //$filter_msg .= ' ' . $caption . ' ';
+                                } else {
+                                    debug_mode(__FILE__, __LINE__, $this->get_filter_name($id), 'filter_name');
+                                    /**
+                                     * ยกเว้นการค้นหาในกรณี Group By
+                                     */
+                                    //$filter->set_cmd_filter($this->get_filter_name($id), 'LIKE', $this->filter_value[filter_by], 'OR');
+                                }
                             } else {
-                                debug_mode(__FILE__, __LINE__, $this->get_filter_name($id), 'filter_name');
-                                /**
-                                 * ยกเว้นการค้นหาในกรณี Group By
-                                 */
-                                //$filter->set_cmd_filter($this->get_filter_name($id), 'LIKE', $this->filter_value[filter_by], 'OR');
+                                $filter->set_cmd_filter($this->get_filter_name($id), 'LIKE', $this->filter_value[filter_by], 'OR', $new_filter);
+                                //$filter_msg .= ' ' . $caption . ' ';
                             }
-                        } else {
-                            $filter->set_cmd_filter($this->get_filter_name($id), 'LIKE', $this->filter_value[filter_by], 'OR', $new_filter);
-                            //$filter_msg .= ' ' . $caption . ' ';
+                            $new_filter = false;
                         }
-                        $new_filter = false;
                     }
                 }
                 /*                 * ค้นจาก Query* */
@@ -455,4 +459,5 @@ class OrDbFrmList extends OrDbFormList {
     }
 
 }
+
 ?>
