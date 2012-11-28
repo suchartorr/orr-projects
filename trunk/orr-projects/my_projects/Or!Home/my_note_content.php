@@ -73,7 +73,7 @@ class my extends OrContent {
         global $SCRIPT_FILENAME, $REMOTE_ADDR, $my_cfg;
         $my_db = new OrMysql($my_cfg[db]); //(กำหนด Object ฐานข้อมูลที่จะใช้)
         //$sql = "SELECT `detail` FROM `my_note` WHERE `sec_time` = '" . $val_->message[content_key_value] . "'"; //(กำหนด SQL ตามเงื่อนไขที่ต้องการ)
-        $my_skin = new OrSkin($my_cfg[skins_path] . 'my_note.html');
+        $my_skin = new OrSkin('my_note.html');
         //ตรวจสอบเวลาที่ได้อ่านประกาศล่าสุดจาก my_registration
         $sql = "SELECT * FROM `my_registration` WHERE `sec_ip` = '" . $REMOTE_ADDR . "'";
         $my_db->get_query($sql);
