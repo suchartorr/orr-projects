@@ -290,7 +290,7 @@ class OrSql extends OrObj {
   
   function get_between_filter($str_filter)
   {
-		$str = split(' ' , $str_filter);
+		$str = explode(' ' , $str_filter);
 		if($str[1] == '-' OR $str[1] == '')
 		{
 			$str[1] = 'AND' ;
@@ -310,7 +310,7 @@ class OrSql extends OrObj {
   
   function get_in_filter($str_filter)
   {
-		$str = split(' ' , $str_filter);
+		$str = explode(' ' , $str_filter);
 		$str_filter = "'" ;
 		foreach($str AS $id => $value)
 		{
