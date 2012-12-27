@@ -6,12 +6,9 @@
 
 == ขั้นตอนการเตรียม ubuntu สำหรับ orr-projects ==
 
- # ติดตั้ง LAMP (Linux, Apache, MySQL and PHP) สามารถอ่านขั้นตอนการติดตั้งที่ http://openorr.blogspot.com/2010/12/lamp-linux-apache-mysql-and-php.html หลังลงเสร็จ ubuntu
- # ติดตั้ง phpMyAdmin อ่านการติดตั้งได้ที่ http://www.distrogeeks.com/install-phpmyadmin-ubuntu/
-
-*โปรแกรมช่วยการเขียนระบบ*
- # phpMyAdmin
- # NetBeans + Plugin PHP 
+ # ติดตั้ง LAMP (Linux, Apache, MySQL and PHP) สามารถอ่านวิธีการติดตั้งที่ http://openorr.blogspot.com/2010/12/lamp-linux-apache-mysql-and-php.html หลังลงเสร็จ ubuntu
+ # ติดตั้ง phpMyAdmin อ่านวิธีการติดตั้งที่ http://www.distrogeeks.com/install-phpmyadmin-ubuntu/
+ # ติดตั้ง NetBeans อ่านวิธีการติดตั้งที่ http://install-climber.blogspot.com/2012/09/netbeans7idephpforubuntu1210install.html
 
 *สิ่งที่ควรเรียนรู้มาก่อน*
  # ความรู้เกี่ยวกับ Web Server และโครงสร้างระบบ INTERNET เบื้องต้น
