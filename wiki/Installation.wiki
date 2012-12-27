@@ -10,15 +10,12 @@
  # ติดตั้ง phpMyAdmin อ่านวิธีการติดตั้งที่ http://www.distrogeeks.com/install-phpmyadmin-ubuntu/
  # ติดตั้ง NetBeans อ่านวิธีการติดตั้งที่ http://install-climber.blogspot.com/2012/09/netbeans7idephpforubuntu1210install.html
 
-*สิ่งที่ควรเรียนรู้มาก่อน*
+== สิ่งที่ควรเรียนรู้มาก่อน ==
  # ความรู้เกี่ยวกับ Web Server และโครงสร้างระบบ INTERNET เบื้องต้น
  # ความรู้เกี่ยวกับ Database เบื้องต้น
  # ความรู้เกี่ยวกับภาษา PHP เบื้องต้น
 
-==ขั้นตอนการติดตั้ง==
-*ทดสอบความพร้อมของระบบ*
- # ทดสอบ Apache และ PHP
- # ทดสอบ MySQL และ PHP
+==วิธีการติดตั้ง orr-projects==
 
 *การติดตั้งไฟล์ของ orr-projects*
  # คัดลอกไฟล์ทั้งหมดไว้ที่ root ที่เก็บไฟล์เอกสารของ Apache
