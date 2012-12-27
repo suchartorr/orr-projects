@@ -6,8 +6,8 @@
 
 == ขั้นตอนการเตรียม ubuntu สำหรับ orr-projects ==
 
-สำหรับผู้ใช้ ubuntu สามารถติดตั้ง ติดตั้ง LAMP (Linux, Apache, MySQL and PHP) สามารถอ่านขั้นตอนการติดตั้งที่ http://openorr.blogspot.com/2010/12/lamp-linux-apache-mysql-and-php.html หลังลงเสร็จ ubuntu จะพร้อมใช้งาน orr-projects
-
+ # ติดตั้ง LAMP (Linux, Apache, MySQL and PHP) สามารถอ่านขั้นตอนการติดตั้งที่ http://openorr.blogspot.com/2010/12/lamp-linux-apache-mysql-and-php.html หลังลงเสร็จ ubuntu
+ # ติดตั้ง phpMyAdmin อ่านการติดตั้งได้ที่ http://www.distrogeeks.com/install-phpmyadmin-ubuntu/
 
 *โปรแกรมช่วยการเขียนระบบ*
  # phpMyAdmin
