@@ -1,11 +1,11 @@
-#summary เกี่ยวกับ โครงการ orr-projects
+#summary แนะนำความเป็นมา แนวคิดของโครงการ ภาพรวมการนำไปใช้งาน และพัฒนาต่อยอด
 
-= Introduction =
+= เรื่องราวความเป็นมาของ orr-projects =
 
 แนะนำเรื่องราวความเป็นมาของโครงการ
 
 
-= Details =
+= =
 
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
