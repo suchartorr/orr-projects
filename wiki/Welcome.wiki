@@ -1,4 +1,5 @@
 #summary แนะนำความเป็นมา แนวคิดของโครงการ ภาพรวมการนำไปใช้งาน และพัฒนาต่อยอด
+#labels Featured
 
 = orr-projects คืออะไร? =
 
@@ -26,7 +27,7 @@ orr-projects คือ framework ภาษา PHP ที่เน้นการ
 
 = orr-projests อยากใช้แล้วต้องทำอะไรบ้าง? =
 
- # [ติดตั้ง orr-projects] [Installation]
+ # ติดตั้ง orr-projects ดูที่ [Installation]
  # ทดลองใช้งาน
  # ทดลองเขียนโปรแกรม
  # ร่วมพัฒนา orr-projects
