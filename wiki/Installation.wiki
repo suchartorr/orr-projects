@@ -1,14 +1,13 @@
-#summary Installation of orr-projects
+#summary การติดตั้ง orr-projects เพื่อใช้พัฒนาระบบ และใช้งาน
 #labels Phase-Deploy
-= การติดตั้ง orr-projects =
+= ความต้องการเพื่อใช้ orr-projects =
 
-เครื่องที่ติดตั้ง orr-projects ต้องติดตั้งโปรแกรม Apache MySQL และ PHP ที่พร้อมใช้งาน และผู้ใช้ควรมีความรู้เกี่ยวกับโปรแกรมที่กล่าวมาบ้างแล้ว เพื่อจะได้สะดวกในการทำความเข้าใจเกี่ยวกับ การใช้ orr-projects เพื่อการพัฒนาระบบได้เร็วยิ่งขึ้น
+การติดตั้ง orr-projects เครื่องที่พัฒนาระบบจะต้องมี Apache MySQL และ PHP ที่พร้อมใช้งาน และผู้ใช้ควรมีความรู้เกี่ยวกับโปรแกรมที่กล่าวมาบ้างแล้ว เพื่อจะได้สะดวกในการทำความเข้าใจเกี่ยวกับ การใช้ orr-projects เพื่อการพัฒนาระบบได้เร็วยิ่งขึ้น
 
-== สิ่งต้องการ ==
-*โปรแกรมที่ต้องติดตั้ง*
- # Apache
- # MySQL
- # PHP
+== ขั้นตอนการเตรียม ubuntu สำหรับ orr-projects ==
+
+สำหรับผู้ใช้ ubuntu สามารถติดตั้ง ติดตั้ง LAMP (Linux, Apache, MySQL and PHP) สามารถอ่านขั้นตอนการติดตั้งที่ http://openorr.blogspot.com/2010/12/lamp-linux-apache-mysql-and-php.html หลังลงเสร็จ ubuntu จะพร้อมใช้งาน orr-projects
+
 
 *โปรแกรมช่วยการเขียนระบบ*
  # phpMyAdmin
