@@ -1,7 +1,7 @@
 <?php
 //ค่าเชื่อมต่อฐานข้อมูลเริ่มต้น
 $my_cfg_db[host] = 'localhost';
-$my_cfg_db[user] = 'root';
+$my_cfg_db[user] = 'orr-projects';
 $my_cfg_db[password] = '';
 $my_cfg_db[charset] = 'utf8'; //utf8 tis620for mysql5
 
