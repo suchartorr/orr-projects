@@ -1,0 +1,13 @@
+window_sizes 1680 1026 390 1284 698 242
+diagrams
+  active  usecasediagram_ref 128099 // HowToUse
+    1284 698 100 4 0 0
+end
+show_stereotypes
+selected usecaseview_ref 128099 // Overview
+open
+  
+  package_ref 128099 // orr_lib
+  usecaseview_ref 128099 // Overview
+end
+end
