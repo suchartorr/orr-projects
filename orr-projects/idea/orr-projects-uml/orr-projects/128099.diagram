@@ -1,0 +1,48 @@
+format 74
+
+usecasecanvas 128099 usecase_ref 128099 // Useing
+  xyzwh 333 169 3005 64 32 label_xy 345 201
+end
+classcanvas 128227 class_ref 135779 // User
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 344 69 2000
+end
+usecasecanvas 128483 usecase_ref 128227 // Programming
+  xyzwh 448 310 3005 64 32 label_xy 439 342
+end
+classcanvas 128611 class_ref 135907 // Programmer
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 592 292 2000
+end
+usecasecanvas 128739 usecase_ref 128355 // Administer
+  xyzwh 217 310 3005 64 32 label_xy 217 342
+end
+usecasecanvas 129123 usecase_ref 128483 // Upgrading
+  xyzwh 334 312 3005 64 32 label_xy 334 344
+end
+classcanvas 130019 class_ref 136035 // Administrator
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 46 290 2000
+end
+classcanvas 130403 class_ref 136163 // Developer
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 332 439 2000
+end
+line 128355 ----
+  from ref 128227 z 3006 to ref 128099
+simplerelationcanvas 128867 simplerelation_ref 128099
+  from ref 128099 z 3006 to ref 128739
+end
+simplerelationcanvas 128995 simplerelation_ref 128227
+  from ref 128099 z 3006 to ref 128483
+end
+simplerelationcanvas 129507 simplerelation_ref 128355
+  from ref 128099 z 3006 to ref 129123
+end
+line 129891 ----
+  from ref 128611 z 3006 to ref 128483
+line 130275 ----
+  from ref 130019 z 3006 to ref 128739
+line 130531 ----
+  from ref 129123 z 3006 to ref 130403
+end
