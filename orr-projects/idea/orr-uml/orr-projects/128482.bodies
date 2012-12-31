@@ -1,9 +1,0 @@
-class OrAjax
-!!!130658.php!!!	__construct()
-		parent :: __construct();
-!!!130786.php!!!	get_js_script() : string
-
-		return $fun_return;
-!!!130914.php!!!	get_js_script() : string
-
-		return $fun_return;

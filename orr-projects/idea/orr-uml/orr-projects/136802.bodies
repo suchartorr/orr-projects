@@ -1,7 +1,0 @@
-class select_ok_cancel
-!!!176738.php!!!	__construct(inout id : string, inout name : string = null, inout idx : int = null)
-		parent:: __construct($id,$name,$idx);
-		$this->OP_[option]->set(array (
-			'0 Ok' => 0,
-			'1 Cancel' => 1
-		));
