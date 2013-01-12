@@ -1,0 +1,14 @@
+#summary วิธีเริ่มต้นใช้ orr-projects หลังติดตั้งแล้ว
+#labels Featured
+
+= orr-projects พร้อมใช้งานหรือยัง? =
+
+หลังติดตั้งแล้วเปิด browser ไปที่ http://localhost/orr-projects/ หรือแทน localhost ด้วย IP ของ Server ที่ติดตั้ง orr-prpjects 
+
+
+= เร่ิ่มต้นทำงานใน orr-projects อย่างไร? =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
