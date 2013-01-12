@@ -29,7 +29,7 @@ orr-projects คือ framework ภาษา PHP ที่เน้นการ
 
  # ติดตั้ง orr-projects ดูที่ [Installation]
  # เริ่มต้นใช้งาน orr-projetcs [HowToStart]
- # ทดลองเขียนโปรแกรม
+ # การพัฒนาระบบงานบน orr-projects [HowToDeveloping]
  # ร่วมพัฒนา orr-projects
 
 =ข้อตกลงที่เราต้องเข้าใจกัน =
