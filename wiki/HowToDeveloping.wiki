@@ -8,9 +8,7 @@
 =Or!Home คืออะไร?=
 Or!Home เป็นโปรเจคหรือระบบงานหนึ่งของ orr-projects ที่มีมาพร้อมตั้งแต่การติดตั้งระบบ เพื่อทำหน้าที่เกี่ยวกับ การดูแลระบบทั้งหมด เช่นการตั้งผู้ใช้งานใหม่ การลงทะเบียนโปรแกรมใหม่เป็นต้น
 
-= Details =
+= page ที่สำคัญของโครงการ =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+  * welcome.php [WelcomePage]
+  
