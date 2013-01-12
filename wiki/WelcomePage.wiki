@@ -1,13 +1,16 @@
 #summary อธิบายเกี่ยวกับหน้าจอ welcome.php
+#labels Featured
 
 = วัตถุประสงค์ =
 
 หน้าจอแรกเมื่อเข้าสู่โครงการ แต่ละระบบ
 
 
-= Details =
+= การใช้งาน =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+# กำหนดเมนูในระบบงาน
+# 
+
+= บันทึกอื่นๆ=
+
+* function set_ip_reg() ควรยุบเป็น function หลัก ไม่ควรแยกเฉพาะ welcome เฉพาะระบบ
