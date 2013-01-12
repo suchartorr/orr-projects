@@ -7,7 +7,7 @@ show_stereotypes
 selected usecaseview_ref 128099 // Overview
 open
   
-  package_ref 128099 // orr_lib
+package_ref 128099 // orr_lib
   usecaseview_ref 128099 // Overview
 end
 end
