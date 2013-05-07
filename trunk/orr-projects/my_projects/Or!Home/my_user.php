@@ -84,6 +84,11 @@ class my extends my_page {
          * กระบวนการจัดการข้อมูลจากฐานข้อมูล
          */
         $my_form->fetch_record($sql);
+
+        if ($my_form->controls[user]->OP_[value]->get() != '') {
+            $this->set_subpage('my_group_list.php');
+        }
+
         /*
          * กำหนดส่วนหัวของฟอร์ม ปกติจะแสดงช่อง Filter สำหรับกรองข้อมูล
          */

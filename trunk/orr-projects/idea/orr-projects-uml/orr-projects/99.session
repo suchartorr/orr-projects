@@ -4,10 +4,8 @@ diagrams
     1284 698 100 4 0 0
 end
 show_stereotypes
-selected usecaseview_ref 128099 // Overview
+selected 
+  package_ref 129 // orr-projects
 open
-  
-package_ref 128099 // orr_lib
-  usecaseview_ref 128099 // Overview
 end
 end

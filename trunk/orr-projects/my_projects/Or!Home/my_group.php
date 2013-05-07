@@ -8,7 +8,7 @@
  * กรุณาตรวจสอบค่าใน config.inc.php ให้ถูกต้อง
  *******************************************************************/
 
-require_once('my_subpage.cls.php');
+require_once('my_page.cls.php');
 
 class my extends my_page {
 	function __construct() {
