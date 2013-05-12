@@ -35,6 +35,7 @@ class my extends my_page {
 		
 		$my_form->set_controls(new OrLabel('description'));
 		$my_form->set_controls(new OrLabel('sec_time'));
+                $my_form->controls[sec_time]->OP_[db_type]->set('time');//กำหนดข้อมูลที่ไม่ใช่ text เพื่อป้องกัน filter แล้ว Error
 		$my_form->set_controls(new OrLabel('sec_user'));
 		$my_form->set_controls(new OrLabel('sec_ip'));
 		$my_form->set_controls(new OrLabel('sec_script'));
@@ -50,7 +51,7 @@ class my extends my_page {
 		 * กำหนดข้อมูลการคัดกรองข้อมูล ใหม่กรณีเกิดข้อผิดพลาด เช่น ฟิลด์ name เกิดจากคำสั่ง concat ดังดัวอย่าง
 		 * $my_form->set_filter_name('name',"concat(`prefix`,`fname`, ' ' , `lname`)");
 		 */
-		 $my_form->set_filter_name('name',"concat(`prefix`,`fname`, ' ' , `lname`)");
+		 //$my_form->set_filter_name('name',"concat(`prefix`,`fname`, ' ' , `lname`)");
 		/*
 		 * กระบวนการจัดการข้อมูลจากฐานข้อมูล
 		 */

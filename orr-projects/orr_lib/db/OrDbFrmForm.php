@@ -166,6 +166,9 @@ class OrDbFrmForm extends OrDbForm {
                     //foreach ($this->caption_fields AS $caption => $id) {
                     foreach ($this->controls AS $control_id => $control) {
                         //$filter->set_cmd_filter($id, 'LIKE', $this->filter_value[filter_by], 'OR');
+                        /**
+                         * ตรวจสอบค่าประเภทฟิลด์ข้อมูลต้องเป็นข้อความเท่านั้น จึงจะนำมาคัดข้อมูล
+                         */
                         if ($control->OP_[db_field]->get() AND $control->OP_[db_type]->get() == 'text') {
                             $filter->set_cmd_filter($control_id, 'LIKE', $this->filter_value[filter_by], 'OR');
                             $filter_msg .= ' ' . $control->OP_[caption]->get() . ' ';
