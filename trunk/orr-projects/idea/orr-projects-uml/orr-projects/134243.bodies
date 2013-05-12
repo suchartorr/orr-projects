@@ -1,4 +1,0 @@
-class OrSelectboxAjax
-!!!161379.php!!!	__construct(inout id : string, inout name : string = null, inout idx : int = null)
-		parent:: __construct($id,$name,$idx);
-		$this->use_ajax = true;

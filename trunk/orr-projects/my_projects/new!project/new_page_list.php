@@ -50,6 +50,11 @@ class my extends my_page {
 		$my_form->set_controls(new OrLabel('user'));
 		$my_form->set_controls(new OrLabel('name'));
 		$my_form->set_controls(new OrLabel('status'));
+                /*
+                 * การแก้ไขปัญหาการ filter แล้ว Error จากมีฟิลด์วันที่
+                 */
+                //$my_form->set_controls(new OrLabel('sec_time'));
+                //$my_form->controls[sec_time]->OP_[db_type]->set('time');//กำหนดข้อมูลที่ไม่ใช่ text เพื่อป้องกัน filter แล้ว Error
 		
 		/*
 		* กำหนดชนิด filter controls ตามตัวอย่างคำสั่ง

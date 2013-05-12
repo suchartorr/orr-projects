@@ -190,6 +190,9 @@ class OrDbFrmList extends OrDbFormList {
                     $new_filter = true;
                     //foreach ($this->caption_fields AS $caption => $id) {
                     foreach ($this->controls AS $control_id => $control) {
+                         /**
+                         * ตรวจสอบค่าประเภทฟิลด์ข้อมูลต้องเป็นข้อความเท่านั้น จึงจะนำมาคัดข้อมูล
+                         */
                         if ($control->OP_[db_field]->get() AND $control->OP_[db_type]->get() == 'text') {
                             $id = $control_id;
                             if ($is_group_by) {
