@@ -86,7 +86,8 @@ class my extends my_page {
         $my_form->fetch_record($sql);
 
         if ($my_form->controls[user]->OP_[value]->get() != '') {
-            $this->set_subpage('my_group_list.php');
+            $this->set_subpage('my_group_list.php?val_filter[user]=' . $my_form->controls[user]->OP_[value]->get() . '&val_compare[user]==&val_msg[btn_filter]=Filter');
+            //$this->set_subpage('my_group_list.php');
         }
 
         /*
