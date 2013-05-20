@@ -117,7 +117,7 @@ class my_page extends OrHtml
 	 * @param string $url Address ของ Page
 	 * @return null
 	 */
-	function set_subpage($url , $width = '100%'  , $height = '300px')
+	function set_subpage($url , $width = '100%'  , $height = '100%')
 	{
 		$tag = '<iframe id="frm_sub" name="frm_sub" style="margin:0px;padding:0px" frameborder="0" height="' . $height . '" width="' . $width . '" scrolling="auto" src="' . $url . '" > Or!Frame</iframe>';
 		$this->skin->set_skin_tag('my_subform' , $tag);
