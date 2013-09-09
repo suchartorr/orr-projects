@@ -10,7 +10,7 @@ else
 {
   ini_set('display_errors','Off');
 }
- ini_set('display_errors','On'); //ต้องการแสดง Error
+#ini_set('display_errors','On'); //ต้องการแสดง Error
 error_reporting(E_ALL ^ E_NOTICE); //แก้ไข การแสดง Error เม่ื่อใช้ร่วมกับ phplot เพื่อทำกราฟ
 session_start();
 /*เริ่มการกำหนดตัวแปร สภาวะของระบบ*/
