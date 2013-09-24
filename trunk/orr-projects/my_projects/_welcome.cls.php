@@ -70,14 +70,62 @@ class my extends my_page {
         /* รายการเมนูหลัก */
         /* $src = "'http://www.facebook.com/'";
           $this->set_leading('<a href="javascript:change_subpage_src('. $src . ')">ดูแลระบบ</a>'); */
+        $this->set_category_menu($my_cfg[menu_category]);        
         $this->set_main_menu();
         $this->show();
     }
+
+    /*
+     * กำหนด main menu ของระบบ
+     * @param null
+     * @return null
+     * @access public
+     */
 
     public function set_main_menu() {
         $this->main_menu = new OrSkin('main_menu.html');
         $this->skin->set_skin_tag('my_main_menu', $this->main_menu->get_tag());
         return NULL;
+    }
+
+    
+    /*
+     * กำหนด หมวดของโครงการอ๋อโปรเจค
+     * @param null
+     * @return null
+     * @access public
+     */
+
+    public function set_category_menu($menu_category) {
+        foreach($menu_category as $caption=>$val)
+        {
+                $this->skin->set_skin_tag('category_'.$val,$caption);
+                $this->skin->set_skin_tag('category_menu_'.$val,$this->get_category_menu($val));
+        }
+        
+        return NULL;
+    }
+
+    /*
+     * กำหนด เมนูตามหมวด
+     * @param null
+     * @return null
+     * @access public
+     */
+       
+     public function get_category_menu($category_id){
+        global $my_cfg;
+	/*รายการเมนูตามหมวด*/
+	$db_list=new OrMysql($my_cfg[db]);//(กำหนด Object ฐานข้อมูลที่จะใช้)
+	$sql="SELECT * FROM `my_menu` WHERE `category_id` = $category_id ORDER BY `id` ASC";//(กำหนด SQL ตามเงื่อนไขที่ต้องการ)
+	$db_list->get_query($sql);
+	while($db_list->get_record()){
+		//$value_list[$db_list->record[name]]=$db_list->record[id];
+                $value_list[$db_list->record[id]]='<li><a href="'.$db_list->record[href].'" target="_top">'.$db_list->record[name].'</a></li>';
+                //<li><a href="../../my_projects/mr_diag/" target="_top">โครงการ-1(รอทำ)</a></li>
+	}
+	unset($db_list);
+	return $value_list;
     }
 
     /*

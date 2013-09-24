@@ -14,6 +14,7 @@ class my extends my_page {
 
     function __construct() {
         parent:: __construct();
+        global $my_cfg;
         $this->set_skin_ccs("my_form.css");
         /*
          * กำหนดคุณสมบัติของหน้าจอดังนี้
@@ -43,11 +44,7 @@ class my extends my_page {
         //$my_form->set_controls(new OrLabel('blank'),'สำหรับเพิ่มช่องว่าง'); //TODO : ทดสอบ controls สำหรับจัดแต่งหน้าจอ
         
         $my_form->set_controls(new OrSelectbox('category_id'));
-        $my_form->controls[category_id]->OP_[option]->set(array (
-			'รักษาพยาบาล' => 0,
-			'บริหารจัดการ' => 1,
-                        'โปรไฟล์' => 2
-		));        
+        $my_form->controls[category_id]->OP_[option]->set($my_cfg[menu_category]);    
                 
         $my_form->set_controls(new OrTextbox('name'));
         $my_form->controls[name]->set_size(50);
