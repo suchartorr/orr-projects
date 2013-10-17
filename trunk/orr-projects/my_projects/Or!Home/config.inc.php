@@ -18,4 +18,14 @@ $my_cfg[db] = "or!config";
  * $my_cfg[title] = "ระบบงานสารสนเทศ และสมาชิก"; กำหนดชื่อระบบงาน TODO : ทำให้สามารถกำหนดได้จากระบบ
  */
 $my_cfg[title] = "ระบบงานสารสนเทศ และสมาชิก";
+
+/*
+ * $my_cfg[default_page_url] = "http://www.theptarin.com/"; กำหนดหน้าจอเริ่มต้นเมื่อเข้าโปรเจคครั้งแรก
+ */
+$my_cfg[default_page_url] = "http://www.theptarin.com/";
+
+/*
+ * $my_cfg[default_login_url] = "http://10.1.0.12/intranet/"; กำหนดหน้าจอเริ่มต้นหลังจากบันทึกเข้าใช้งานได้แล้ว
+ */
+$my_cfg[default_login_url] = "http://10.1.99.99/mediawiki/"
 ?>
