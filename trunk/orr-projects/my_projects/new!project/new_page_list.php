@@ -30,11 +30,9 @@ class my extends my_page {
 		$sql = "SELECT * ,concat(`prefix`,`fname`, ' ' , `lname`) AS `name` FROM `my_user`";//<-กำหนดคำสั่ง SQL
 		
 		$my_form = new OrDbFrmList('my_form' , $this->get_my_db() );
-                /*
                 $my_form->OP_[edit_page_url]->set('_.php');//กำหนด URL ของหน้าแก้ไขข้อมูล
                 $my_form->OP_[edit_field_link]->set('id');//กำหนด ชื่อ Field ที่ต้องการให้เป็น Link หนาแก้ไขข้อมูล
                 $my_form->OP_[edit_key_field]->set('id'); //กำหนด ชื่อ Field ที่เป็นคีย์แก้ไข
-                */
                 
 		/*
 		 * กำหนดคำสั่งที่ต้องในเหตุการณ์ของ Form เช่น on current record โดยปกติจากสร้างไฟล์เก็บคำสั่งไว้
@@ -52,11 +50,6 @@ class my extends my_page {
 		$my_form->set_controls(new OrLabel('user'));
 		$my_form->set_controls(new OrLabel('name'));
 		$my_form->set_controls(new OrLabel('status'));
-                /*
-                 * การแก้ไขปัญหาการ filter แล้ว Error จากมีฟิลด์วันที่
-                 */
-                //$my_form->set_controls(new OrLabel('sec_time'));
-                //$my_form->controls[sec_time]->OP_[db_type]->set('time');//กำหนดข้อมูลที่ไม่ใช่ text เพื่อป้องกัน filter แล้ว Error
 		
 		/*
 		* กำหนดชนิด filter controls ตามตัวอย่างคำสั่ง
