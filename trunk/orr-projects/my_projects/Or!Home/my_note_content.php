@@ -23,7 +23,7 @@ class my extends OrContent {
      * @return null
      */
     function __construct() {
-        global $my_cfg;
+        //global $my_cfg;
         parent::__construct();
         /*
          * 1. $val_ รับค่าที่ส่งมาจากการ $_GET หรือ $_POST จาก OrSysvalue
@@ -51,8 +51,8 @@ class my extends OrContent {
      * @return null
      */
     function accept_note($id) {
-        global $SCRIPT_FILENAME, $REMOTE_ADDR, $my_cfg;
-        $my_db = new OrMysql($my_cfg[db]);
+        global $SCRIPT_FILENAME, $REMOTE_ADDR, $my_cfg_sec;
+        $my_db = new OrMysql($my_cfg_sec[db]);
         $my_script = basename($SCRIPT_FILENAME);
         $sql = "UPDATE `my_registration` SET `last_note_id` = '" . $id . "' , `accept_note` = NOW() WHERE sec_ip='" . $REMOTE_ADDR . "';";
         $my_db->get_query($sql);
@@ -70,8 +70,8 @@ class my extends OrContent {
      * @return null
      */
     function last_note() {
-        global $SCRIPT_FILENAME, $REMOTE_ADDR, $my_cfg;
-        $my_db = new OrMysql($my_cfg[db]); //(กำหนด Object ฐานข้อมูลที่จะใช้)
+        global $SCRIPT_FILENAME, $REMOTE_ADDR, $my_cfg_sec;
+        $my_db = new OrMysql($my_cfg_sec[db]); //(กำหนด Object ฐานข้อมูลที่จะใช้)
         //$sql = "SELECT `detail` FROM `my_note` WHERE `sec_time` = '" . $val_->message[content_key_value] . "'"; //(กำหนด SQL ตามเงื่อนไขที่ต้องการ)
         $my_skin = new OrSkin('my_note.html');
         //ตรวจสอบเวลาที่ได้อ่านประกาศล่าสุดจาก my_registration

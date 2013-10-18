@@ -114,15 +114,24 @@ class my extends my_page {
      */
        
      public function get_category_menu($category_id){
-        global $my_cfg;
+        global $my_cfg_sec;
 	/*รายการเมนูตามหมวด*/
-	$db_list=new OrMysql($my_cfg[db]);//(กำหนด Object ฐานข้อมูลที่จะใช้)
+	$db_list=new OrMysql($my_cfg_sec[db]);//(กำหนด Object ฐานข้อมูลที่จะใช้)
 	$sql="SELECT * FROM `my_menu` WHERE `category_id` = $category_id ORDER BY `id` ASC";//(กำหนด SQL ตามเงื่อนไขที่ต้องการ)
 	$db_list->get_query($sql);
 	while($db_list->get_record()){
 		//$value_list[$db_list->record[name]]=$db_list->record[id];
-                $value_list[$db_list->record[id]]='<li><a href="'.$db_list->record[href].'" target="_top">'.$db_list->record[name].'</a></li>';
+                switch($db_list->record[href_type]){
+                        case 0 : $value_list[$db_list->record[id]]='<li><a href="'.$db_list->record[href].'" target="_top">'.$db_list->record[name].'</a></li>';
+                        break;
+                        case 1 : $value_list[$db_list->record[id]]='<li><a href="'.$db_list->record[href].'" target="_blank">'.$db_list->record[name].'</a></li>';
+                        break;
+                        case 2 : $value_list[$db_list->record[id]]='<li><a href="javascript:change_subpage_src('."'".$db_list->record[href]."'".')">'.$db_list->record[name].'</a></li>';
+                        break;
+                        default : $value_list[$db_list->record[id]]='<li><a href="'."".'" target="_top">'.$db_list->record[name].'</a></li>';
+                }
                 //<li><a href="../../my_projects/mr_diag/" target="_top">โครงการ-1(รอทำ)</a></li>
+                //<li><a href="javascript:change_subpage_src('../../my_projects/Or!Home/my_note.php')">ประกาศเรื่องใหม่ๆ</a></li>
 	}
 	unset($db_list);
 	return $value_list;
