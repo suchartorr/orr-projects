@@ -55,7 +55,8 @@ class my extends my_page {
         $my_form->set_controls(new OrSelectbox('href_type'));
         $my_form->controls[href_type]->OP_[option]->set(array (
 			'ปกติ' => 0,
-			'แท็บใหม่' => 1
+			'หน้าใหม่' => 1,
+                        'หน้าเดิม' => 2
 		));
 
         //$my_form->set_controls(new OrDojoTextarea('href'));
