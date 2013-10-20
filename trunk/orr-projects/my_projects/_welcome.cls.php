@@ -117,7 +117,7 @@ class my extends my_page {
         global $my_cfg_sec;
 	/*รายการเมนูตามหมวด*/
 	$db_list=new OrMysql($my_cfg_sec[db]);//(กำหนด Object ฐานข้อมูลที่จะใช้)
-	$sql="SELECT * FROM `my_menu` WHERE `category_id` = $category_id ORDER BY `id` ASC";//(กำหนด SQL ตามเงื่อนไขที่ต้องการ)
+	$sql="SELECT * FROM `my_menu` WHERE `category_id` = $category_id ORDER BY `sort_id` ASC";//(กำหนด SQL ตามเงื่อนไขที่ต้องการ)
 	$db_list->get_query($sql);
 	while($db_list->get_record()){
 		//$value_list[$db_list->record[name]]=$db_list->record[id];

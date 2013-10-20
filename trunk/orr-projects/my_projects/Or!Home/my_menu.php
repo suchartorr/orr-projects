@@ -48,6 +48,9 @@ class my extends my_page {
                 
         $my_form->set_controls(new OrTextbox('name'));
         $my_form->controls[name]->set_size(50);
+        
+        $my_form->set_controls(new OrTextbox('sort_id'));
+        $my_form->controls[sort_id]->set_size(3);
 
         $my_form->set_controls(new OrTextbox('href'));
         $my_form->controls[href]->set_size(80);
