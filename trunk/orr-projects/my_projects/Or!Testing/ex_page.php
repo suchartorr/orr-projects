@@ -22,12 +22,12 @@ class my extends my_page {
          * $sql : คำสั่ง SQL
          * $key : ชื่อ Field ที่เป็น PRIMARY
          */
-        $table = '';
+        $table = 'ex_page'; //<- ใสชื่อตารางข้อมูล
         $sql = 'SELECT * FROM `' . $table . '` ';
         $key = 'id';
 
         $my_form = new OrDbFrmForm('my_form', $this->get_my_db(), $table, $key);
-        $my_form->OP_[list_page_url]->set('_list.php');
+        //$my_form->OP_[list_page_url]->set('_list.php');
         //$my_form->OP_[column]->set(2);
 
         /*
@@ -41,7 +41,8 @@ class my extends my_page {
          * $my_form->controls[name]->set_size(10);
          * เพิ่ม control ต่อไว้ด้านล่างนี้
          */
-
+        $my_form->set_controls(new OrTextbox('topic'));
+        $my_form->set_controls(new OrTextarea('description'));
         /*
          * กำหนดข้อมูลการคัดกรองข้อมูล ใหม่กรณีเกิดข้อผิดพลาด เช่น ฟิลด์ name เกิดจากคำสั่ง concat ดังดัวอย่าง
          * $my_form->set_filter_name('name',"concat(`prefix`,`fname`, ' ' , `lname`)");
@@ -60,6 +61,7 @@ class my extends my_page {
          */
         $this->set_form($my_form->get_tag());
         $this->set_filter_msg($my_form->OP_[cmd_msg]->get());
+        //$this->set_my_message($my_form->OP[message]->get());
         $this->show();
     }
 

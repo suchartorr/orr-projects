@@ -31,7 +31,7 @@ class OrTextCalendar2 extends OrTextCalendar {
   //get_tag: html tag
   //@return string html tag
   
-  function get_tag()
+  function get_tag($value = null )
   {
 		$my_value = parent::get_tag() . ' - ' . $this->calendar2->get_tag();
 		return $my_value;
