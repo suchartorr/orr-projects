@@ -293,4 +293,3 @@ class my_page extends OrHtml
 		return null;
 	}
 }
-?>
