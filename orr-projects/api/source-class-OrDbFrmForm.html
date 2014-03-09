@@ -8,7 +8,7 @@
 	<title>File orr_lib/db/OrDbFrmForm.php | orr-projects</title>
 
 	<script type="text/javascript" src="resources/combined.js?394153670"></script>
-	<script type="text/javascript" src="elementlist.js?2263093148"></script>
+	<script type="text/javascript" src="elementlist.js?2798953594"></script>
 	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
 
 </head>
@@ -22,6 +22,8 @@
 		<div id="groups">
 			<h3>Packages</h3>
 			<ul>
+				<li><a href="package-Example.html">Example</a>
+						</li>
 				<li class="active"><a href="package-None.html">None</a>
 						</li>
 				<li><a href="package-Or.Lib.html">Or!Lib</a>
@@ -464,36 +466,37 @@
 </span><span id="321" class="l"><a class="l" href="#321">321: </a>            <span class="php-var">$this</span>-&gt;skin-&gt;set_skin_tag(<span class="php-quote">'body'</span>, <span class="php-var">$this</span>-&gt;get_form_query());
 </span><span id="322" class="l"><a class="l" href="#322">322: </a>        } <span class="php-keyword1">else</span> {
 </span><span id="323" class="l"><a class="l" href="#323">323: </a>            <span class="php-var">$this</span>-&gt;skin-&gt;set_skin_tag(<span class="php-quote">'message'</span>, <span class="php-var">$this</span>-&gt;OP_[message]-&gt;get());
-</span><span id="324" class="l"><a class="l" href="#324">324: </a>            <span class="php-var">$this</span>-&gt;skin-&gt;set_skin_tag(<span class="php-quote">'body'</span>, <span class="php-var">$this</span>-&gt;get_body_tag());
-</span><span id="325" class="l"><a class="l" href="#325">325: </a>            <span class="php-var">$this</span>-&gt;skin-&gt;set_skin_tag(<span class="php-quote">'navigator'</span>, <span class="php-var">$this</span>-&gt;get_navigator_tag(<span class="php-var">$navigator_skin_file</span>));
-</span><span id="326" class="l"><a class="l" href="#326">326: </a>        }
-</span><span id="327" class="l"><a class="l" href="#327">327: </a>        <span class="php-var">$this</span>-&gt;skin-&gt;set_skin_tag(<span class="php-quote">'status'</span>, <span class="php-var">$this</span>-&gt;get_status_tag());
-</span><span id="328" class="l"><a class="l" href="#328">328: </a>        <span class="php-var">$this</span>-&gt;set_body(<span class="php-var">$this</span>-&gt;skin-&gt;get_tag());
-</span><span id="329" class="l"><a class="l" href="#329">329: </a>        <span class="php-keyword1">return</span> parent :: get_tag();
-</span><span id="330" class="l"><a class="l" href="#330">330: </a>    }
-</span><span id="331" class="l"><a class="l" href="#331">331: </a>
-</span><span id="332" class="l"><a class="l" href="#332">332: </a>    <span class="php-comment">//เหตุการณ์หลังเกิดความผิดพลาด</span>
-</span><span id="333" class="l"><a class="l" href="#333">333: </a>    <span class="php-comment">//  @param string $cmd_filter คำสั่ง filter ข้อมูล</span>
-</span><span id="334" class="l"><a class="l" href="#334">334: </a>    <span class="php-comment">//  @return null</span>
-</span><span id="335" class="l"><a class="l" href="#335">335: </a>
-</span><span id="336" class="l"><a class="l" href="#336">336: </a>    <span class="php-keyword1">function</span> <a id="_OE_after_error" href="#_OE_after_error">OE_after_error</a>(<span class="php-var">$EV_</span>) {
-</span><span id="337" class="l"><a class="l" href="#337">337: </a>        <span class="php-comment">/* เหตุการณ์หลังจากเกิดความผิดพลาด สุชาติ บุญหชัยรัตน์ 27 ธันวาคม 2546 */</span>
-</span><span id="338" class="l"><a class="l" href="#338">338: </a>        <span class="php-comment">/* $EV_control_id = ชื่อ control */</span>
-</span><span id="339" class="l"><a class="l" href="#339">339: </a>        <span class="php-comment">/* $EV_control_val = ค่า control */</span>
-</span><span id="340" class="l"><a class="l" href="#340">340: </a>        <span class="php-comment">/* $EV_error_type = ประเภทความผิดพลาด */</span>
-</span><span id="341" class="l"><a class="l" href="#341">341: </a>        <span class="php-keyword2">extract</span>(<span class="php-var">$EV_</span>, EXTR_OVERWRITE);
-</span><span id="342" class="l"><a class="l" href="#342">342: </a>        <span class="php-var">$this</span>-&gt;OP_[on_error]-&gt;set(<span class="php-keyword1">true</span>);
-</span><span id="343" class="l"><a class="l" href="#343">343: </a>        <span class="php-var">$this</span>-&gt;OP_[message]-&gt;set(<span class="php-quote">'เกิดความผิดพลาด'</span>);
-</span><span id="344" class="l"><a class="l" href="#344">344: </a>        <span class="php-keyword2">eval</span>(<span class="php-var">$this</span>-&gt;OE_[after_error]-&gt;get());
-</span><span id="345" class="l"><a class="l" href="#345">345: </a>        <span class="php-var">$caption</span> = <span class="php-quote">'&lt;b&gt;'</span> . <span class="php-var">$this</span>-&gt;controls[<span class="php-var">$EV_control_id</span>]-&gt;OP_[caption]-&gt;get() . <span class="php-quote">'  : กรุณาใส่ข้อมูล-&gt; &lt;/b&gt;'</span>;
-</span><span id="346" class="l"><a class="l" href="#346">346: </a>        <span class="php-var">$this</span>-&gt;controls[<span class="php-var">$EV_control_id</span>]-&gt;OP_[caption]-&gt;set(<span class="php-var">$caption</span>);
-</span><span id="347" class="l"><a class="l" href="#347">347: </a>        <span class="php-keyword1">return</span> <span class="php-keyword1">null</span>;
-</span><span id="348" class="l"><a class="l" href="#348">348: </a>    }
-</span><span id="349" class="l"><a class="l" href="#349">349: </a>
-</span><span id="350" class="l"><a class="l" href="#350">350: </a>}
-</span><span id="351" class="l"><a class="l" href="#351">351: </a>
-</span><span id="352" class="l"><a class="l" href="#352">352: </a><span class="xlang">?&gt;</span>
-</span><span id="353" class="l"><a class="l" href="#353">353: </a></span></code></pre>
+</span><span id="324" class="l"><a class="l" href="#324">324: </a>            <span class="php-comment">//$this-&gt;skin-&gt;set_skin_tag('filter',$this-&gt;get_form_query());</span>
+</span><span id="325" class="l"><a class="l" href="#325">325: </a>            <span class="php-var">$this</span>-&gt;skin-&gt;set_skin_tag(<span class="php-quote">'body'</span>, <span class="php-var">$this</span>-&gt;get_body_tag());
+</span><span id="326" class="l"><a class="l" href="#326">326: </a>            <span class="php-var">$this</span>-&gt;skin-&gt;set_skin_tag(<span class="php-quote">'navigator'</span>, <span class="php-var">$this</span>-&gt;get_navigator_tag(<span class="php-var">$navigator_skin_file</span>));
+</span><span id="327" class="l"><a class="l" href="#327">327: </a>        }
+</span><span id="328" class="l"><a class="l" href="#328">328: </a>        <span class="php-var">$this</span>-&gt;skin-&gt;set_skin_tag(<span class="php-quote">'status'</span>, <span class="php-var">$this</span>-&gt;get_status_tag());
+</span><span id="329" class="l"><a class="l" href="#329">329: </a>        <span class="php-var">$this</span>-&gt;set_body(<span class="php-var">$this</span>-&gt;skin-&gt;get_tag());
+</span><span id="330" class="l"><a class="l" href="#330">330: </a>        <span class="php-keyword1">return</span> parent :: get_tag();
+</span><span id="331" class="l"><a class="l" href="#331">331: </a>    }
+</span><span id="332" class="l"><a class="l" href="#332">332: </a>
+</span><span id="333" class="l"><a class="l" href="#333">333: </a>    <span class="php-comment">//เหตุการณ์หลังเกิดความผิดพลาด</span>
+</span><span id="334" class="l"><a class="l" href="#334">334: </a>    <span class="php-comment">//  @param string $cmd_filter คำสั่ง filter ข้อมูล</span>
+</span><span id="335" class="l"><a class="l" href="#335">335: </a>    <span class="php-comment">//  @return null</span>
+</span><span id="336" class="l"><a class="l" href="#336">336: </a>
+</span><span id="337" class="l"><a class="l" href="#337">337: </a>    <span class="php-keyword1">function</span> <a id="_OE_after_error" href="#_OE_after_error">OE_after_error</a>(<span class="php-var">$EV_</span>) {
+</span><span id="338" class="l"><a class="l" href="#338">338: </a>        <span class="php-comment">/* เหตุการณ์หลังจากเกิดความผิดพลาด สุชาติ บุญหชัยรัตน์ 27 ธันวาคม 2546 */</span>
+</span><span id="339" class="l"><a class="l" href="#339">339: </a>        <span class="php-comment">/* $EV_control_id = ชื่อ control */</span>
+</span><span id="340" class="l"><a class="l" href="#340">340: </a>        <span class="php-comment">/* $EV_control_val = ค่า control */</span>
+</span><span id="341" class="l"><a class="l" href="#341">341: </a>        <span class="php-comment">/* $EV_error_type = ประเภทความผิดพลาด */</span>
+</span><span id="342" class="l"><a class="l" href="#342">342: </a>        <span class="php-keyword2">extract</span>(<span class="php-var">$EV_</span>, EXTR_OVERWRITE);
+</span><span id="343" class="l"><a class="l" href="#343">343: </a>        <span class="php-var">$this</span>-&gt;OP_[on_error]-&gt;set(<span class="php-keyword1">true</span>);
+</span><span id="344" class="l"><a class="l" href="#344">344: </a>        <span class="php-var">$this</span>-&gt;OP_[message]-&gt;set(<span class="php-quote">'เกิดความผิดพลาด'</span>);
+</span><span id="345" class="l"><a class="l" href="#345">345: </a>        <span class="php-keyword2">eval</span>(<span class="php-var">$this</span>-&gt;OE_[after_error]-&gt;get());
+</span><span id="346" class="l"><a class="l" href="#346">346: </a>        <span class="php-var">$caption</span> = <span class="php-quote">'&lt;b&gt;'</span> . <span class="php-var">$this</span>-&gt;controls[<span class="php-var">$EV_control_id</span>]-&gt;OP_[caption]-&gt;get() . <span class="php-quote">'  : กรุณาใส่ข้อมูล-&gt; &lt;/b&gt;'</span>;
+</span><span id="347" class="l"><a class="l" href="#347">347: </a>        <span class="php-var">$this</span>-&gt;controls[<span class="php-var">$EV_control_id</span>]-&gt;OP_[caption]-&gt;set(<span class="php-var">$caption</span>);
+</span><span id="348" class="l"><a class="l" href="#348">348: </a>        <span class="php-keyword1">return</span> <span class="php-keyword1">null</span>;
+</span><span id="349" class="l"><a class="l" href="#349">349: </a>    }
+</span><span id="350" class="l"><a class="l" href="#350">350: </a>
+</span><span id="351" class="l"><a class="l" href="#351">351: </a>}
+</span><span id="352" class="l"><a class="l" href="#352">352: </a>
+</span><span id="353" class="l"><a class="l" href="#353">353: </a><span class="xlang">?&gt;</span>
+</span><span id="354" class="l"><a class="l" href="#354">354: </a></span></code></pre>
 
 	<div id="footer">
 		orr-projects API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
