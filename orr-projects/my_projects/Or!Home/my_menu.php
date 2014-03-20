@@ -61,7 +61,11 @@ class my extends my_page {
 			'หน้าใหม่' => 1,
                         'หน้าเดิม' => 2
 		));
-
+        $my_form->set_controls(new OrSelectbox('status'));        
+        $my_form->controls[status]->OP_[option]->set(array (
+			'Ok' => 0,
+			'Cancel' => 1
+		));
         //$my_form->set_controls(new OrDojoTextarea('href'));
         /*
          * กำหนดข้อมูลการคัดกรองข้อมูล ใหม่กรณีเกิดข้อผิดพลาด เช่น ฟิลด์ name เกิดจากคำสั่ง concat ดังดัวอย่าง
