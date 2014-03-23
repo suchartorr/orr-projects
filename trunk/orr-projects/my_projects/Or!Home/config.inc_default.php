@@ -1,7 +1,7 @@
 <?php
 
 /**
- * ค่าที่กำหนดใช้งานร่วมกันใน หน้าจอที่ใช้งานร่วมกัน
+ * ค่าที่กำหนดใช้งานร่วมกันใน หน้าจอที่ใช้งานร่วมกัน เมื่อใช้งานจริงต้องเปลี่ยนชื่อเป็น config.inc.php แทนในแต่ละโครงการ
  * @package   my_projects
  * @author     Suchart Bunhachirat <suchart.orr@gmail.com>
  * @copyright  
