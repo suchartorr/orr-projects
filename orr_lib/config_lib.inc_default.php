@@ -1,4 +1,7 @@
 <?php
+/**
+ * @todo คัดลอกไฟล์นี้เป็นชื่อ config_lib.inc.php ไว้ในโฟลเดอร์
+ */
 //ค่าเชื่อมต่อฐานข้อมูลเริ่มต้น
 $my_cfg_db[host] = 'localhost';
 $my_cfg_db[user] = 'orr-projects';
@@ -18,4 +21,4 @@ $my_cfg_opt[after_login_page] = 'welcome.php'; //page ที่ต้องก�
 $my_cfg_opt[language] = 'thai'; //ภาษาที่ใช้ในระบบ
 $my_cfg_opt[charset] = 'UTF-8'; //UTF-8 , TIS-620
 $my_cfg_opt[debug] = 'off'; //on off
-?>
+
