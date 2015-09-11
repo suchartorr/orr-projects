@@ -9,8 +9,8 @@ $my_cfg_db[password] = '';
 $my_cfg_db[charset] = 'utf8'; //utf8 tis620for mysql5
 
 //ค่าระบบการควบคุมสิทธิ์
-$my_cfg_sec[db] = 'or!config';
-$my_cfg_sec[ki] = 'linux';
+$my_cfg_sec[db] = 'orr-projects';
+$my_cfg_sec[ki] = 'orr-projects';
 
 //ค่าตัวเลือกอื่นๆ
 $my_cfg_opt[global_register] = 'off'; //on  off
